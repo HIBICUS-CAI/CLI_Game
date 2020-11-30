@@ -1,8 +1,15 @@
-#include <stdio.h>
+#include "Structs.h"
+#include "GameApp.h"
+#include "LogsOutput.h"
 
 int main()
 {
-	printf("prepare to run a game...\n");
+    if (Init())
+    {
+        RunGame();
+    }
 
-	return 0;
+    TurnOff();
+
+    return 0;
 }
