@@ -24,7 +24,10 @@
     <ClInclude Include="LogsOutput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="KeyboardValue.h">
+    <ClInclude Include="ConsolePrint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DefinedValues.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -36,6 +39,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="LogsOutput.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsolePrint.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

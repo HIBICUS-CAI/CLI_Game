@@ -139,13 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ConsolePrint.cpp" />
     <ClCompile Include="GameApp.cpp" />
     <ClCompile Include="LogsOutput.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ConsolePrint.h" />
     <ClInclude Include="GameApp.h" />
-    <ClInclude Include="KeyboardValue.h" />
+    <ClInclude Include="DefinedValues.h" />
     <ClInclude Include="LogsOutput.h" />
     <ClInclude Include="Structs.h" />
   </ItemGroup>

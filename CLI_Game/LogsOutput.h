@@ -13,3 +13,7 @@ void DebugLogI2(const char* text, const int value1, const int value2);
 void DebugLogToFile(const char* text);
 
 void ErrorLog(const char* text);
+
+void ErrorLogI1(const char* text, const int value);
+
+void ErrorLogI2(const char* text, const int value1, const int value2);

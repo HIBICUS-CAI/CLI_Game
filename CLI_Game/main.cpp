@@ -1,6 +1,4 @@
-#include "Structs.h"
 #include "GameApp.h"
-#include "LogsOutput.h"
 
 int main()
 {
