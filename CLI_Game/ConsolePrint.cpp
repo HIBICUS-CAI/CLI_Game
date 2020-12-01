@@ -60,7 +60,7 @@ void WriteStrIntoOutputBufferByPos(POSITION_2D startPos, const char* text)
     }
     for (int i = 0; i < size; i++)
     {
-        if (startPos.posX + i)
+        if (startPos.posX + i > CONSOLE_WIDTH)
         {
             ErrorLogI2(
                 "overflow when writing string into ouput buffer at position",

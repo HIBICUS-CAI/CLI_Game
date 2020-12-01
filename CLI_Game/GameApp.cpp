@@ -20,8 +20,11 @@ void RunGame()
     while (GetGameRunFlag())
     {
         InsertInput();
-        Update();
-        Draw();
+        if (GetGameRunFlag())
+        {
+            Update();
+            Draw();
+        }
     }
 }
 
