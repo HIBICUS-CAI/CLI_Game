@@ -13,10 +13,11 @@ void InitOutputBuffer()
 
     for (int i = 0; i < CONSOLE_HEIGHT; i++)
     {
-        for (int j = 0; j < CONSOLE_WIDTH; j++)
+        for (int j = 0; j < CONSOLE_WIDTH - 1; j++)
         {
             g_OutputBuffer[i][j] = '_';
         }
+        g_OutputBuffer[i][CONSOLE_WIDTH - 1] = '\0';
     }
 }
 
@@ -24,10 +25,11 @@ void ClearOutputBuffer()
 {
     for (int i = 0; i < CONSOLE_HEIGHT; i++)
     {
-        for (int j = 0; j < CONSOLE_WIDTH; j++)
+        for (int j = 0; j < CONSOLE_WIDTH - 1; j++)
         {
             g_OutputBuffer[i][j] = ' ';
         }
+        g_OutputBuffer[i][CONSOLE_WIDTH - 1] = '\0';
     }
 }
 
@@ -37,10 +39,11 @@ void PrintOutputBuffer()
 
     for (int i = 0; i < CONSOLE_HEIGHT; i++)
     {
-        for (int j = 0; j < CONSOLE_WIDTH; j++)
+        /*for (int j = 0; j < CONSOLE_WIDTH; j++)
         {
             printf("%c", g_OutputBuffer[i][j]);
-        }
+        }*/
+        printf("%s\n", g_OutputBuffer[i]);
     }
 }
 
