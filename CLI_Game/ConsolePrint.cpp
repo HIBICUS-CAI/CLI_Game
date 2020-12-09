@@ -1,6 +1,7 @@
 #include "ConsolePrint.h"
 #include "DefinedValues.h"
 #include "LogsOutput.h"
+#include "Tools.h"
 
 char g_OutputBuffer[CONSOLE_HEIGHT][CONSOLE_WIDTH];
 
@@ -51,6 +52,9 @@ void UpdateOutputBuffer()
 {
     ClearOutputBuffer();
 
+    WriteStrInt1IntoOutputBufferByPos(POSITION_2D(5, 5),
+        "FPS", 1000 / GetDeltaTime());
+
     WriteStrIntoOutputBufferByPos(POSITION_2D(5, 39), "двд█дс");
 }
 
@@ -70,5 +74,27 @@ void WriteStrIntoOutputBufferByPos(POSITION_2D startPos, const char* text)
                 startPos.posX, startPos.posY);
         }
         g_OutputBuffer[startPos.posY][startPos.posX + i] = text[i];
+    }
+}
+
+void WriteStrInt1IntoOutputBufferByPos(POSITION_2D startPos, const char* text, int value)
+{
+    char temp[512];
+    sprintf_s(temp, sizeof(temp), "%s : %d", text, value);
+
+    int size = 0;
+    while (temp[size] != '\0')
+    {
+        ++size;
+    }
+    for (int i = 0; i < size; i++)
+    {
+        if (startPos.posX + i > CONSOLE_WIDTH)
+        {
+            ErrorLogI2(
+                "overflow when writing string into ouput buffer at position",
+                startPos.posX, startPos.posY);
+        }
+        g_OutputBuffer[startPos.posY][startPos.posX + i] = temp[i];
     }
 }

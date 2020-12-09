@@ -13,3 +13,5 @@ void PrintOutputBuffer();
 void UpdateOutputBuffer();
 
 void WriteStrIntoOutputBufferByPos(POSITION_2D startPos, const char* text);
+
+void WriteStrInt1IntoOutputBufferByPos(POSITION_2D startPos, const char* text, int value);

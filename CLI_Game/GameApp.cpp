@@ -2,6 +2,7 @@
 #include "ConsolePrint.h"
 #include "LogsOutput.h"
 #include "DefinedValues.h"
+#include "Tools.h"
 
 int g_GameRunFlag;
 
@@ -19,12 +20,30 @@ void RunGame()
     SetGameRunFlag(1);
     while (GetGameRunFlag())
     {
+        int startTime = clock();
+#ifdef RUNCONTINUOUS
+
+#endif // RUNCONTINUOUS
+#ifndef RUNCONTINUOUS
         InsertInput();
+#endif // !RUNCONTINUOUS
+
         if (GetGameRunFlag())
         {
             Update();
             Draw();
         }
+        int endTime = clock();
+
+        SetDeltaTime(endTime - startTime);
+
+#ifdef LOCKFPS
+        if (GetDeltaTime() < DELTATIME)
+        {
+            Sleep(DELTATIME - GetDeltaTime());
+        }
+#endif // LOCKFPS
+
     }
 }
 

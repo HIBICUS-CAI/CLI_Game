@@ -143,6 +143,7 @@
     <ClCompile Include="GameApp.cpp" />
     <ClCompile Include="LogsOutput.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Tools.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConsolePrint.h" />
@@ -150,6 +151,7 @@
     <ClInclude Include="DefinedValues.h" />
     <ClInclude Include="LogsOutput.h" />
     <ClInclude Include="Structs.h" />
+    <ClInclude Include="Tools.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
