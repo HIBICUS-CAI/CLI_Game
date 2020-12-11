@@ -52,7 +52,7 @@ void UpdateOutputBuffer()
 {
     ClearOutputBuffer();
 
-    WriteStrInt1IntoOutputBufferByPos(POSITION_2D(5, 5),
+    WriteStrInt1IntoOutputBufferByPos(POSITION_2D(1, 1),
         "FPS", 1000 / GetDeltaTime());
 
     WriteStrIntoOutputBufferByPos(POSITION_2D(5, 39), "двд█дс");
