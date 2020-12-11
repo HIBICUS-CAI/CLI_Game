@@ -6,7 +6,10 @@
 #include <windows.h>
 
 //#define RUNCONTINUOUS
+
+#ifdef RUNCONTINUOUS
 //#define LOCKFPS
+#endif // RUNCONTINUOUS
 
 int Init();
 

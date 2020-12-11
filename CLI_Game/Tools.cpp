@@ -29,3 +29,42 @@ int GetIntValueBit(int value)
 
     return bits;
 }
+
+QSINGLENODE* CreateQueue()
+{
+    QSINGLENODE* queue = (QSINGLENODE*)malloc(sizeof(QSINGLENODE));
+    queue->Next = NULL;
+
+    QUEUE_INT queueFlagNode{ queue,queue };
+
+    return queue;
+}
+
+QSINGLENODE* EnQueue(QSINGLENODE* end, int data)
+{
+    QSINGLENODE* enElem = (QSINGLENODE*)malloc(sizeof(QSINGLENODE));
+    enElem->Data = data;
+    enElem->Next = NULL;
+    end->Next = enElem;
+    end = enElem;
+
+    return end;
+}
+
+int DeQueue(QSINGLENODE* top, QSINGLENODE* end)
+{
+    if (top->Next == NULL)
+    {
+        return -1;
+    }
+    QSINGLENODE* node = top->Next;
+    int temp = node->Data;
+    top->Next = node->Next;
+    if (end == node)
+    {
+        end = top;
+    }
+    free(node);
+
+    return temp;
+}

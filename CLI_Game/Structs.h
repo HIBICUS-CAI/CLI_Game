@@ -53,3 +53,15 @@ struct POSITION_2D
         return temp;
     }
 };
+
+struct QSINGLENODE
+{
+    int Data;
+    QSINGLENODE* Next;
+};
+
+struct QUEUE_INT
+{
+    QSINGLENODE* Top;
+    QSINGLENODE* End;
+};
