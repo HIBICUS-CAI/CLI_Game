@@ -33,16 +33,19 @@ QUEUE_INT* CreateInputQueue()
 
 void RunGame()
 {
+    SetGameRunFlag(1);
+
 #ifdef RUNCONTINUOUS
     static HANDLE hHandleInput = NULL;
     DWORD dw1;
     hHandleInput = CreateThread(NULL, 0,
         (LPTHREAD_START_ROUTINE)InsertInputMT, NULL, 0, &dw1);
 #endif // RUNCONTINUOUS
-    SetGameRunFlag(1);
+    
     while (GetGameRunFlag())
     {
         int startTime = clock();
+
 #ifdef RUNCONTINUOUS
         DisposeInput();
 #endif // RUNCONTINUOUS
@@ -57,7 +60,6 @@ void RunGame()
             Draw();
         }
         int endTime = clock();
-        g_InputQueue;
 
         SetDeltaTime(endTime - startTime);
 
