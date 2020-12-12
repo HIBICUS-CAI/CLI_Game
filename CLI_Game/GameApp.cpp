@@ -20,8 +20,6 @@ int Init()
 void RunGame()
 {
     SetGameRunFlag(1);
-
-
     
     while (GetGameRunFlag())
     {
