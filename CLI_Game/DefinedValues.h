@@ -12,3 +12,9 @@
 #define F_VALUE 102
 #define J_VALUE 106
 #define K_VALUE 107
+
+#define RUNCONTINUOUS
+
+#ifdef RUNCONTINUOUS
+//#define LOCKFPS
+#endif // RUNCONTINUOUS
