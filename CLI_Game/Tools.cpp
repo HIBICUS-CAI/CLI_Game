@@ -1,6 +1,6 @@
 #include "Tools.h"
 
-int g_DeltaTime = 16;
+int g_DeltaTime = DELTATIME;
 
 void SetDeltaTime(int time)
 {

@@ -10,6 +10,8 @@ int g_GameRunFlag;
 
 int Init()
 {
+    system("mode con cp select=936&&cls");
+
     SetGameRunFlag(NULL);
 
     InitInputQueue();
