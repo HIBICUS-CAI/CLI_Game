@@ -3,6 +3,7 @@
 #include "LogsOutput.h"
 #include "DefinedValues.h"
 #include "InputDispose.h"
+#include "UIObject.h"
 #include "Tools.h"
 
 int g_GameRunFlag;
@@ -13,6 +14,12 @@ int Init()
 
     InitInputQueue();
     InitOutputBuffer();
+    InitUIObj();
+
+    //----------------------------------------------------
+    CreateUIO(POSITION_2D(10, 10), 60, 15, UIO_DESIGN::STRAIGHT);
+    GetUIObjByID(10000)->AddText(UI_TEXT(POSITION_2D(1, 1),
+        (char*)"アホアホマン"));
 
     return 1;
 }
@@ -20,7 +27,7 @@ int Init()
 void RunGame()
 {
     SetGameRunFlag(1);
-    
+
     while (GetGameRunFlag())
     {
         int startTime = clock();
@@ -39,9 +46,9 @@ void RunGame()
         if (GetDeltaTime() < DELTATIME)
         {
             Sleep(DELTATIME - GetDeltaTime());
-        }
-#endif // LOCKFPS
     }
+#endif // LOCKFPS
+}
     TurnOffMTInput();
 }
 
@@ -53,6 +60,9 @@ void TurnOff()
 void Update()
 {
     UpdateOutputBuffer();
+
+    //----------------------------------------------------
+    DrawUIO(GetUIObjByID(10000));
 }
 
 void Draw()

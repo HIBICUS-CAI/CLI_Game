@@ -68,3 +68,18 @@ int DeQueue(QSINGLENODE* top, QSINGLENODE* end)
 
     return temp;
 }
+
+void SetRandomBySeed(int seedNum)
+{
+    srand(seedNum);
+}
+
+void SetRandom()
+{
+    srand((int)time(NULL));
+}
+
+int CreateRandomNumIn(int minNum, int maxNum)
+{
+    return rand() % (maxNum - minNum + 1) + minNum;
+}

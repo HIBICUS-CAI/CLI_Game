@@ -58,6 +58,17 @@ void UpdateOutputBuffer()
     WriteStrIntoOutputBufferByPos(POSITION_2D(5, 39), "двд█дс");
 }
 
+void WriteCharIntoOutputBuffer(POSITION_2D position, const char text)
+{
+    if (position.posX > CONSOLE_WIDTH)
+    {
+        ErrorLogI2(
+            "overflow when writing string into ouput buffer at position",
+            position.posX, position.posY);
+    }
+    g_OutputBuffer[position.posY][position.posX] = text;
+}
+
 void WriteStrIntoOutputBufferByPos(POSITION_2D startPos, const char* text)
 {
     int size = 0;

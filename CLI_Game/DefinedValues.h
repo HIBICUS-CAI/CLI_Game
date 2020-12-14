@@ -16,5 +16,13 @@
 #define RUNCONTINUOUS
 
 #ifdef RUNCONTINUOUS
-//#define LOCKFPS
+#define LOCKFPS
 #endif // RUNCONTINUOUS
+
+enum class TYPEID
+{
+    UIObj,
+    CollisionObj,
+    ButtonObj,
+    TextObj
+};
