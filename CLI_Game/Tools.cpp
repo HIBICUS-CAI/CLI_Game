@@ -1,7 +1,7 @@
 #include "Tools.h"
 #include "DeclaredValues.h"
 
-static HANDLE g_HandleTitle = NULL;
+//static HANDLE g_HandleTitle = NULL;
 
 void SetDeltaTime(int time)
 {
@@ -32,9 +32,11 @@ void ShowFPSMT()
 
 void InitTitle()
 {
-    DWORD dw;
+    system("title д╚двдые▓й`ер");
+
+    /*DWORD dw;
     g_HandleTitle = CreateThread(NULL, 0,
-        (LPTHREAD_START_ROUTINE)ShowFPSMT, NULL, 0, &dw);
+        (LPTHREAD_START_ROUTINE)ShowFPSMT, NULL, 0, &dw);*/
 }
 
 void CloseTitle()
