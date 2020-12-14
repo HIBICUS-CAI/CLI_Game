@@ -26,7 +26,7 @@ void ShowFPSMT()
         sprintf_s(command, sizeof(command),
             "title ¤È¤¢¤ë¥²©`¥à¡¡FPS: %d", 1000 / deltaTime);
         system(command);
-        Sleep(32);
+        Sleep(64);
     }
 }
 
