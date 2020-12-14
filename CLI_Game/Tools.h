@@ -3,8 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "Structs.h"
-
-#define DELTATIME 32
+#include "DeclaredValues.h"
 
 void SetDeltaTime(int time);
 

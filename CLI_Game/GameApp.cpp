@@ -14,13 +14,13 @@ int Init()
 
     SetGameRunFlag(NULL);
 
+    InitUIObj();
     InitInputQueue();
     InitOutputBuffer();
-    InitUIObj();
 
     //----------------------------------------------------
-    CreateUIO(POSITION_2D(10, 10), 60, 15, UIO_DESIGN::STRAIGHT);
-    GetUIObjByID(10000)->AddText(UI_TEXT(POSITION_2D(1, 1),
+    CreateUIO(POSITION_2D(3, 3), 60, 15, UIO_DESIGN::STRAIGHT);
+    GetUIObjByID(10001)->AddText(UI_TEXT(POSITION_2D(1, 1),
         (char*)"アホアホマン"));
 
     return 1;
@@ -65,6 +65,7 @@ void Update()
 
     //----------------------------------------------------
     DrawUIO(GetUIObjByID(10000));
+    DrawUIO(GetUIObjByID(10001));
 }
 
 void Draw()

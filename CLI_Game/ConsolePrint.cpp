@@ -2,8 +2,8 @@
 #include "DefinedValues.h"
 #include "LogsOutput.h"
 #include "Tools.h"
-
-char g_OutputBuffer[CONSOLE_HEIGHT][CONSOLE_WIDTH];
+#include "DeclaredValues.h"
+#include "UIObject.h"
 
 void InitOutputBuffer()
 {
@@ -16,10 +16,15 @@ void InitOutputBuffer()
     {
         for (int j = 0; j < CONSOLE_WIDTH - 1; j++)
         {
-            g_OutputBuffer[i][j] = '_';
+            *(GetOutputBuffer() + i * CONSOLE_WIDTH + j) = '_';
         }
-        g_OutputBuffer[i][CONSOLE_WIDTH - 1] = '\0';
+        *(GetOutputBuffer() + i * CONSOLE_WIDTH + CONSOLE_WIDTH - 1) = '\0';
     }
+
+    //----------------------------------------------------
+    CreateUIO(POSITION_2D(3, 20), 60, 15, UIO_DESIGN::STRAIGHT);
+    GetUIObjByID(10000)->AddText(UI_TEXT(POSITION_2D(1, 1),
+        (char*)"アホマン"));
 }
 
 void ClearOutputBuffer()
@@ -28,9 +33,9 @@ void ClearOutputBuffer()
     {
         for (int j = 0; j < CONSOLE_WIDTH - 1; j++)
         {
-            g_OutputBuffer[i][j] = ' ';
+            *(GetOutputBuffer() + i * CONSOLE_WIDTH + j) = ' ';
         }
-        g_OutputBuffer[i][CONSOLE_WIDTH - 1] = '\0';
+        *(GetOutputBuffer() + i * CONSOLE_WIDTH + CONSOLE_WIDTH - 1) = '\0';
     }
 }
 
@@ -40,11 +45,7 @@ void PrintOutputBuffer()
 
     for (int i = 0; i < CONSOLE_HEIGHT; i++)
     {
-        /*for (int j = 0; j < CONSOLE_WIDTH; j++)
-        {
-            printf("%c", g_OutputBuffer[i][j]);
-        }*/
-        printf("%s\n", g_OutputBuffer[i]);
+        printf("%s\n", GetOutputBuffer() + i * CONSOLE_WIDTH);
     }
 }
 
@@ -66,7 +67,7 @@ void WriteCharIntoOutputBuffer(POSITION_2D position, const char text)
             "overflow when writing string into ouput buffer at position",
             position.posX, position.posY);
     }
-    g_OutputBuffer[position.posY][position.posX] = text;
+    *(GetOutputBuffer() + position.posY * CONSOLE_WIDTH + position.posX) = text;
 }
 
 void WriteStrIntoOutputBufferByPos(POSITION_2D startPos, const char* text)
@@ -84,7 +85,7 @@ void WriteStrIntoOutputBufferByPos(POSITION_2D startPos, const char* text)
                 "overflow when writing string into ouput buffer at position",
                 startPos.posX, startPos.posY);
         }
-        g_OutputBuffer[startPos.posY][startPos.posX + i] = text[i];
+        *(GetOutputBuffer() + startPos.posY * CONSOLE_WIDTH + startPos.posX + i) = text[i];
     }
 }
 
@@ -106,6 +107,6 @@ void WriteStrInt1IntoOutputBufferByPos(POSITION_2D startPos, const char* text, i
                 "overflow when writing string into ouput buffer at position",
                 startPos.posX, startPos.posY);
         }
-        g_OutputBuffer[startPos.posY][startPos.posX + i] = temp[i];
+        *(GetOutputBuffer() + startPos.posY * CONSOLE_WIDTH + startPos.posX + i) = temp[i];
     }
 }

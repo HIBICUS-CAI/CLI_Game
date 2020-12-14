@@ -2,25 +2,25 @@
 #include "Tools.h"
 #include "LogsOutput.h"
 #include "ConsolePrint.h"
-
-#define UIOBJSIZE 10000
-UIOBJECT g_UIObjs[UIOBJSIZE];
-int g_UIObjIndex = 0;
+#include "DeclaredValues.h"
 
 void InitUIObj()
 {
-    g_UIObjIndex = 0;
+    //g_UIObjIndex = 0;
+    SetUIOIndex(0);
     for (int i = 0; i < UIOBJSIZE; i++)
     {
-        g_UIObjs[i].ID = -1;
+        //g_UIObjs[i].ID = -1;
+        (GetUIObj() + i)->ID = -1;
     }
 }
 
 UIOBJECT* GetUIObjByID(int id)
 {
-    if (g_UIObjs[id - 10000].ID != -1)
+    //if (g_UIObjs[id - 10000].ID != -1)
+    if ((GetUIObj() + (id - 10000))->ID != -1)
     {
-        return g_UIObjs + (id - 10000);
+        return GetUIObj() + (id - 10000);
     }
     else
     {
@@ -33,18 +33,21 @@ UIOBJECT* CreateUIO(POSITION_2D startPoint, int width, int height,
     UIO_DESIGN design, UIOBJECT* parent, UIOBJECT* child,
     int visiblity)
 {
-    if (g_UIObjIndex >= UIOBJSIZE)
+    if (*GetUIOIndex() >= UIOBJSIZE)
     {
         ErrorLog("the number of UI object has overflowed");
         exit(-1);
     }
-    int id = g_UIObjIndex + 10000;
+    int id = *GetUIOIndex() + 10000;
 
     UIOBJECT temp(TYPEID::UIObj, id, startPoint, width, height,
         design, parent, child, visiblity);
-    g_UIObjs[g_UIObjIndex] = temp;
+    //g_UIObjs[g_UIObjIndex] = temp;
+    *(GetUIObj() + *GetUIOIndex()) = temp;
+    SetUIOIndex(*GetUIOIndex() + 1);
+    //AddUIOIndex();
 
-    return g_UIObjs + g_UIObjIndex++;
+    return GetUIObj() + *GetUIOIndex() - 1;
 }
 
 void DrawUIO(UIOBJECT* uiObject)

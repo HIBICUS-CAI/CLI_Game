@@ -1,15 +1,14 @@
 #include "Tools.h"
-
-int g_DeltaTime = DELTATIME;
+#include "DeclaredValues.h"
 
 void SetDeltaTime(int time)
 {
-    g_DeltaTime = time;
+    SetDeclaredDeltaTime(time);
 }
 
 int GetDeltaTime()
 {
-    return g_DeltaTime;
+    return GetDeclaredDeltaTime();
 }
 
 int GetIntValueBit(int value)

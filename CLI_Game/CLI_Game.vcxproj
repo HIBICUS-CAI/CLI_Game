@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ConsolePrint.cpp" />
+    <ClCompile Include="DeclaredValuesGetter.cpp" />
     <ClCompile Include="GameApp.cpp" />
     <ClCompile Include="InputDispose.cpp" />
     <ClCompile Include="LogsOutput.cpp" />
@@ -149,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConsolePrint.h" />
+    <ClInclude Include="DeclaredValues.h" />
     <ClInclude Include="GameApp.h" />
     <ClInclude Include="DefinedValues.h" />
     <ClInclude Include="InputDispose.h" />
