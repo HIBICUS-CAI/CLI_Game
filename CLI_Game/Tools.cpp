@@ -1,6 +1,8 @@
 #include "Tools.h"
 #include "DeclaredValues.h"
 
+static HANDLE g_HandleTitle = NULL;
+
 void SetDeltaTime(int time)
 {
     SetDeclaredDeltaTime(time);
@@ -9,6 +11,35 @@ void SetDeltaTime(int time)
 int GetDeltaTime()
 {
     return GetDeclaredDeltaTime();
+}
+
+void ShowFPSMT()
+{
+    while (1)
+    {
+        char command[100];
+        int deltaTime = GetDeltaTime();
+        if (deltaTime == 0)
+        {
+            ++deltaTime;
+        }
+        sprintf_s(command, sizeof(command),
+            "title ¤È¤¢¤ë¥²©`¥à¡¡FPS: %d", 1000 / deltaTime);
+        system(command);
+        Sleep(32);
+    }
+}
+
+void InitTitle()
+{
+    DWORD dw;
+    g_HandleTitle = CreateThread(NULL, 0,
+        (LPTHREAD_START_ROUTINE)ShowFPSMT, NULL, 0, &dw);
+}
+
+void CloseTitle()
+{
+    //CloseHandle(g_HandleTitle);
 }
 
 int GetIntValueBit(int value)

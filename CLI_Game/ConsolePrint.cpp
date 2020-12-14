@@ -52,11 +52,6 @@ void PrintOutputBuffer()
 void UpdateOutputBuffer()
 {
     ClearOutputBuffer();
-
-    WriteStrInt1IntoOutputBufferByPos(POSITION_2D(1, 1),
-        "FPS", 1000 / GetDeltaTime());
-
-    WriteStrIntoOutputBufferByPos(POSITION_2D(5, 39), "двд█дс");
 }
 
 void WriteCharIntoOutputBuffer(POSITION_2D position, const char text)

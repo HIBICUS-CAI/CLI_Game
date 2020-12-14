@@ -9,6 +9,12 @@ void SetDeltaTime(int time);
 
 int GetDeltaTime();
 
+void ShowFPSMT();
+
+void InitTitle();
+
+void CloseTitle();
+
 int GetIntValueBit(int value);
 
 QSINGLENODE* CreateQueue();

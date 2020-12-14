@@ -17,6 +17,7 @@ int Init()
     InitUIObj();
     InitInputQueue();
     InitOutputBuffer();
+    InitTitle();
 
     //----------------------------------------------------
     CreateUIO(POSITION_2D(3, 3), 60, 15, UIO_DESIGN::STRAIGHT);
@@ -48,14 +49,15 @@ void RunGame()
         if (GetDeltaTime() < DELTATIME)
         {
             Sleep(DELTATIME - GetDeltaTime());
-    }
+        }
 #endif // LOCKFPS
-}
-    TurnOffMTInput();
+    }
 }
 
 void TurnOff()
 {
+    TurnOffMTInput();
+    CloseTitle();
     system("cls");
 }
 
