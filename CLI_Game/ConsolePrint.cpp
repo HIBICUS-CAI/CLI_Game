@@ -71,6 +71,11 @@ void PrintOutputBuffer()
     return;
 }
 
+void CloseMTPrint()
+{
+    CloseHandle(GetPrintHandle());
+}
+
 void UpdateOutputBuffer()
 {
     ClearOutputBuffer();

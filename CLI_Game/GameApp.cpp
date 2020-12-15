@@ -20,7 +20,9 @@ int Init()
     InitTitle();
 
     //----------------------------------------------------
-    CreateUIO(POSITION_2D(3, 3), 60, 15, UIO_DESIGN::STRAIGHT);
+    GetUIObjByID(10000)->AddChild(
+        CreateUIO(POSITION_2D(3, 3), 60, 15, UIO_DESIGN::STRAIGHT));
+    GetUIObjByID(10001)->AddParent(GetUIObjByID(10001));
     GetUIObjByID(10001)->AddText(UI_TEXT(POSITION_2D(1, 1),
         (char*)"アホアホマン"));
 
@@ -59,20 +61,21 @@ void RunGame()
 
         SetDeltaTime(endTime - startTime);
 
-//#ifdef LOCKFPS
-//        if (GetDeltaTime() < DELTATIME)
-//        {
-//            Sleep(DELTATIME - GetDeltaTime());
-//        }
-//#endif // LOCKFPS
-//        endTime = clock();
-//        SetDeltaTime(endTime - startTime);
+        //#ifdef LOCKFPS
+        //        if (GetDeltaTime() < DELTATIME)
+        //        {
+        //            Sleep(DELTATIME - GetDeltaTime());
+        //        }
+        //#endif // LOCKFPS
+        //        endTime = clock();
+        //        SetDeltaTime(endTime - startTime);
     }
 }
 
 void TurnOff()
 {
     TurnOffMTInput();
+    CloseMTPrint();
     CloseTitle();
     system("cls");
 }
@@ -83,7 +86,6 @@ void Update()
 
     //----------------------------------------------------
     DrawUIO(GetUIObjByID(10000));
-    DrawUIO(GetUIObjByID(10001));
 }
 
 void Draw()

@@ -77,3 +77,15 @@ void AddUIOIndex()
 {
     ++g_UIObjIndex;
 }
+
+UIOBJECT* g_TopUIObj;
+
+UIOBJECT* GetTopUIO()
+{
+    return g_TopUIObj;
+}
+
+void SetTopUIO(UIOBJECT* uiObj)
+{
+    g_TopUIObj = uiObj;
+}

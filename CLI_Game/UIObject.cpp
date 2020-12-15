@@ -54,6 +54,8 @@ void DrawUIO(UIOBJECT* uiObject)
 {
     if (uiObject->Visiblity != 0)
     {
+        SetTopUIO(uiObject);
+
         if (uiObject->BorderDesign == UIO_DESIGN::STRAIGHT)
         {
             for (int i = uiObject->StartPoint.posX;
@@ -149,6 +151,10 @@ void DrawUIO(UIOBJECT* uiObject)
             }
 
             DrawTextInUIO(uiObject);
+        }
+        if (uiObject->ChildUIO != NULL)
+        {
+            DrawUIO(uiObject->ChildUIO);
         }
     }
 }

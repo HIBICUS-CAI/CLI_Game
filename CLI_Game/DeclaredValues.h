@@ -28,3 +28,7 @@ int* GetUIOIndex();
 void SetUIOIndex(int value);
 
 void AddUIOIndex();
+
+UIOBJECT* GetTopUIO();
+
+void SetTopUIO(UIOBJECT* uiObj);
