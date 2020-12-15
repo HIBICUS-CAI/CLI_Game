@@ -3,13 +3,21 @@
 #include "DefinedValues.h"
 #include "Structs.h"
 
-#define DELTATIME 32
+#define DELTATIME 16
 
 int GetDeclaredDeltaTime();
 
 void SetDeclaredDeltaTime(int value);
 
-char* GetOutputBuffer();
+HANDLE GetPrintHandle();
+
+void SetPrintHandle(HANDLE handle);
+
+void SwapPrintChain();
+
+char* GetOutputBufferToUpdate();
+
+char* GetOutputBufferToPrint();
 
 #define UIOBJSIZE 10000
 

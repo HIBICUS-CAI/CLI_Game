@@ -38,19 +38,35 @@ void RunGame()
         Input();
         if (GetGameRunFlag())
         {
+            //SwapPrintChain();
+            /*Update();
+            Draw();*/
+
+            //-----------------------------------------------
+            // TODO 修改此处多线程的启动方式，最好可以重复使用已有的线程
+            /*DWORD dw;
+            SetPrintHandle(CreateThread(NULL, 0,
+                (LPTHREAD_START_ROUTINE)PrintOutputBuffer,
+                NULL, CREATE_SUSPENDED, &dw));*/
+            ResumeThread(GetPrintHandle());
             Update();
-            Draw();
+            //WaitForSingleObject(GetPrintHandle(), 0);
+            //SuspendThread(GetPrintHandle());
+
+            SwapPrintChain();
         }
         int endTime = clock();
 
         SetDeltaTime(endTime - startTime);
 
-#ifdef LOCKFPS
-        if (GetDeltaTime() < DELTATIME)
-        {
-            Sleep(DELTATIME - GetDeltaTime());
-        }
-#endif // LOCKFPS
+//#ifdef LOCKFPS
+//        if (GetDeltaTime() < DELTATIME)
+//        {
+//            Sleep(DELTATIME - GetDeltaTime());
+//        }
+//#endif // LOCKFPS
+//        endTime = clock();
+//        SetDeltaTime(endTime - startTime);
     }
 }
 

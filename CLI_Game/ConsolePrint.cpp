@@ -12,13 +12,18 @@ void InitOutputBuffer()
         "mode con cols=%d lines=%d", CONSOLE_WIDTH, CONSOLE_HEIGHT + 1);
     system(changeConsoleSize);
 
+    DWORD dw;
+    SetPrintHandle(CreateThread(NULL, 0,
+        (LPTHREAD_START_ROUTINE)PrintOutputBuffer,
+        NULL, CREATE_SUSPENDED, &dw));
+
     for (int i = 0; i < CONSOLE_HEIGHT; i++)
     {
         for (int j = 0; j < CONSOLE_WIDTH - 1; j++)
         {
-            *(GetOutputBuffer() + i * CONSOLE_WIDTH + j) = '_';
+            *(GetOutputBufferToUpdate() + i * CONSOLE_WIDTH + j) = '_';
         }
-        *(GetOutputBuffer() + i * CONSOLE_WIDTH + CONSOLE_WIDTH - 1) = '\0';
+        *(GetOutputBufferToUpdate() + i * CONSOLE_WIDTH + CONSOLE_WIDTH - 1) = '\0';
     }
 
     //----------------------------------------------------
@@ -33,28 +38,50 @@ void ClearOutputBuffer()
     {
         for (int j = 0; j < CONSOLE_WIDTH - 1; j++)
         {
-            *(GetOutputBuffer() + i * CONSOLE_WIDTH + j) = ' ';
+            *(GetOutputBufferToUpdate() + i * CONSOLE_WIDTH + j) = ' ';
         }
-        *(GetOutputBuffer() + i * CONSOLE_WIDTH + CONSOLE_WIDTH - 1) = '\0';
+        *(GetOutputBufferToUpdate() + i * CONSOLE_WIDTH + CONSOLE_WIDTH - 1) = '\0';
     }
 }
 
 void PrintOutputBuffer()
 {
-    system("cls");
+    // TODO 修改此处的运行方式
+    //---------------------------------------
+    while (1)
+    {
+        system("cls");
+
+        for (int i = 0; i < CONSOLE_HEIGHT; i++)
+        {
+            printf("%s\n", GetOutputBufferToPrint() + i * CONSOLE_WIDTH);
+        }
+
+        Sleep(16);
+        SuspendThread(GetPrintHandle());
+    }
+
+    /*system("cls");
 
     for (int i = 0; i < CONSOLE_HEIGHT; i++)
     {
-        printf("%s\n", GetOutputBuffer() + i * CONSOLE_WIDTH);
-    }
+        printf("%s\n", GetOutputBufferToPrint() + i * CONSOLE_WIDTH);
+    }*/
+
+    return;
 }
 
 void UpdateOutputBuffer()
 {
     ClearOutputBuffer();
 
+    int deltaTime = GetDeltaTime();
+    if (!deltaTime)
+    {
+        ++deltaTime;
+    }
     WriteStrInt1IntoOutputBufferByPos(POSITION_2D(0, 0),
-        "FPS", 1000 / GetDeltaTime());
+        "FPS", 1000 / deltaTime);
 }
 
 void WriteCharIntoOutputBuffer(POSITION_2D position, const char text)
@@ -65,7 +92,7 @@ void WriteCharIntoOutputBuffer(POSITION_2D position, const char text)
             "overflow when writing string into ouput buffer at position",
             position.posX, position.posY);
     }
-    *(GetOutputBuffer() + position.posY * CONSOLE_WIDTH + position.posX) = text;
+    *(GetOutputBufferToUpdate() + position.posY * CONSOLE_WIDTH + position.posX) = text;
 }
 
 void WriteStrIntoOutputBufferByPos(POSITION_2D startPos, const char* text)
@@ -83,7 +110,7 @@ void WriteStrIntoOutputBufferByPos(POSITION_2D startPos, const char* text)
                 "overflow when writing string into ouput buffer at position",
                 startPos.posX, startPos.posY);
         }
-        *(GetOutputBuffer() + startPos.posY * CONSOLE_WIDTH + startPos.posX + i) = text[i];
+        *(GetOutputBufferToUpdate() + startPos.posY * CONSOLE_WIDTH + startPos.posX + i) = text[i];
     }
 }
 
@@ -105,6 +132,6 @@ void WriteStrInt1IntoOutputBufferByPos(POSITION_2D startPos, const char* text, i
                 "overflow when writing string into ouput buffer at position",
                 startPos.posX, startPos.posY);
         }
-        *(GetOutputBuffer() + startPos.posY * CONSOLE_WIDTH + startPos.posX + i) = temp[i];
+        *(GetOutputBufferToUpdate() + startPos.posY * CONSOLE_WIDTH + startPos.posX + i) = temp[i];
     }
 }
