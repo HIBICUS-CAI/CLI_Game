@@ -12,6 +12,8 @@
 #define F_VALUE 102
 #define J_VALUE 106
 #define K_VALUE 107
+#define L_VALUE 108
+#define I_VALUE 105
 
 #define RUNCONTINUOUS
 

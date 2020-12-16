@@ -72,6 +72,10 @@ void DrawUIO(UIOBJECT* uiObject)
     if (uiObject->Visiblity != 0)
     {
         SetTopUIO(uiObject);
+        /*if (GetAutoSelectBtnFlag())
+        {
+            SetSelectedBtn(uiObject->Buttons + 0);
+        }*/
 
         if (uiObject->BorderDesign == UIO_DESIGN::STRAIGHT)
         {
@@ -103,7 +107,19 @@ void DrawUIO(UIOBJECT* uiObject)
                         i), '|');
             }
 
+            for (int i = uiObject->StartPoint.posY + 1;
+                i < uiObject->StartPoint.posY + uiObject->Height - 2; i++)
+            {
+                for (int j = uiObject->StartPoint.posX + 1;
+                    j < uiObject->StartPoint.posX + uiObject->Width - 2;
+                    j++)
+                {
+                    WriteCharIntoOutputBuffer(POSITION_2D(j, i), ' ');
+                }
+            }
+
             DrawTextInUIO(uiObject);
+            DrawBtnInUIO(uiObject);
         }
         else if (uiObject->BorderDesign == UIO_DESIGN::STAR)
         {
@@ -135,7 +151,19 @@ void DrawUIO(UIOBJECT* uiObject)
                         i), '*');
             }
 
+            for (int i = uiObject->StartPoint.posY + 1;
+                i < uiObject->StartPoint.posY + uiObject->Height - 2; i++)
+            {
+                for (int j = uiObject->StartPoint.posX + 1;
+                    j < uiObject->StartPoint.posX + uiObject->Width - 2;
+                    j++)
+                {
+                    WriteCharIntoOutputBuffer(POSITION_2D(j, i), ' ');
+                }
+            }
+
             DrawTextInUIO(uiObject);
+            DrawBtnInUIO(uiObject);
         }
         else if (uiObject->BorderDesign == UIO_DESIGN::NOTHING)
         {
@@ -167,11 +195,28 @@ void DrawUIO(UIOBJECT* uiObject)
                         i), ' ');
             }
 
+            for (int i = uiObject->StartPoint.posY + 1;
+                i < uiObject->StartPoint.posY + uiObject->Height - 2; i++)
+            {
+                for (int j = uiObject->StartPoint.posX + 1;
+                    j < uiObject->StartPoint.posX + uiObject->Width - 2;
+                    j++)
+                {
+                    WriteCharIntoOutputBuffer(POSITION_2D(j, i), ' ');
+                }
+            }
+
             DrawTextInUIO(uiObject);
+            DrawBtnInUIO(uiObject);
         }
         if (uiObject->ChildUIO != NULL)
         {
+            //SetAutoSelectBtnFlag(1);
             DrawUIO(uiObject->ChildUIO);
+        }
+        else
+        {
+            //SetAutoSelectBtnFlag(0);
         }
     }
 }
@@ -183,6 +228,48 @@ void DrawTextInUIO(UIOBJECT* uiObject)
     {
         WriteStrIntoOutputBufferByPos(uiObject->Texts[index].Position,
             uiObject->Texts[index].Text);
+        ++index;
+    }
+}
+
+void DrawBtnInUIO(UIOBJECT* uiObject)
+{
+    int index = 0;
+    while (uiObject->Buttons[index].ID != -1)
+    {
+        POSITION_2D drawPoint = uiObject->Buttons[index].Position;
+        int textLength = uiObject->Buttons[index].TextLength;
+        WriteStrIntoOutputBufferByPos(drawPoint,
+            uiObject->Buttons[index].Text);
+        if (uiObject->Buttons[index].BorderDesign == BTN_DESIGN::LINE)
+        {
+            POSITION_2D temp = drawPoint;
+            temp.posX -= 2;
+            WriteCharIntoOutputBuffer(temp, '-');
+            temp.posX += 1;
+            WriteCharIntoOutputBuffer(temp, '-');
+            temp.posX += 1 + textLength;
+            WriteCharIntoOutputBuffer(temp, '-');
+            temp.posX += 1;
+            WriteCharIntoOutputBuffer(temp, '-');
+        }
+        else
+        {
+            POSITION_2D temp = drawPoint;
+            temp.posY -= 1;
+            for (int i = 0; i < textLength; i++)
+            {
+                WriteCharIntoOutputBuffer(temp, '-');
+                temp.posX += 1;
+            }
+            temp = drawPoint;
+            temp.posY += 1;
+            for (int i = 0; i < textLength; i++)
+            {
+                WriteCharIntoOutputBuffer(temp, '-');
+                temp.posX += 1;
+            }
+        }
         ++index;
     }
 }

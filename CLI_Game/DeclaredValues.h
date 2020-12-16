@@ -34,3 +34,11 @@ UIOBJECT* GetTopUIO();
 void SetTopUIO(UIOBJECT* uiObj);
 
 CRITICAL_SECTION* GetSwapChainCS();
+
+UI_BUTTON* GetSelectedBtn();
+
+void SetSelectedBtn(UI_BUTTON* btn);
+
+int* GetAutoSelectBtnFlag();
+
+void SetAutoSelectBtnFlag(int value);

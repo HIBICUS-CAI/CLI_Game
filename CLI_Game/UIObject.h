@@ -12,8 +12,10 @@ UIOBJECT* GetUIObjByName(const char* name);
 
 UIOBJECT* CreateUIO(const char* name, POSITION_2D startPoint, int width, int height,
     UIO_DESIGN design, UIOBJECT* parent = NULL, UIOBJECT* child = NULL,
-    int visiblity = 1);
+    int visiblity = 0);
 
 void DrawUIO(UIOBJECT* uiObject);
 
 void DrawTextInUIO(UIOBJECT* uiObject);
+
+void DrawBtnInUIO(UIOBJECT* uiObject);

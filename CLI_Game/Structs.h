@@ -112,6 +112,37 @@ struct UI_TEXT
     }
 };
 
+enum class BTN_DESIGN
+{
+    LINE,
+    STRAIGHT
+};
+
+struct UI_BUTTON
+{
+    TYPEID TypeID;
+    int ID;
+    POSITION_2D Position;
+    char Text[50];
+    int TextLength;
+    BTN_DESIGN BorderDesign;
+    UI_BUTTON* LeftBtn;
+    UI_BUTTON* RightBtn;
+    UI_BUTTON* UpBtn;
+    UI_BUTTON* DownBtn;
+
+    UI_BUTTON() {}
+
+    UI_BUTTON(POSITION_2D _position, char* _text,
+        BTN_DESIGN _design)
+    {
+        Position = _position;
+        strcpy_s(Text, 50 * sizeof(char), _text);
+        TextLength = strlen(Text);
+        BorderDesign = _design;
+    }
+};
+
 enum class UIO_DESIGN
 {
     NOTHING,
@@ -122,6 +153,7 @@ enum class UIO_DESIGN
 struct UIOBJECT
 {
 #define TEXTSIZEINUIO 20
+#define BTNSIZEINUIO 20
     TYPEID TypeID;
     int ID;
     char UIName[50];
@@ -133,6 +165,7 @@ struct UIOBJECT
     UIOBJECT* ChildUIO;
     int Visiblity;
     UI_TEXT Texts[TEXTSIZEINUIO];
+    UI_BUTTON Buttons[BTNSIZEINUIO];
 
     UIOBJECT() {}
 
@@ -154,6 +187,14 @@ struct UIOBJECT
         for (int i = 0; i < TEXTSIZEINUIO; i++)
         {
             Texts[i].ID = -1;
+        }
+        for (int i = 0; i < BTNSIZEINUIO; i++)
+        {
+            Buttons[i].ID = -1;
+            Buttons[i].LeftBtn = NULL;
+            Buttons[i].RightBtn = NULL;
+            Buttons[i].UpBtn = NULL;
+            Buttons[i].DownBtn = NULL;
         }
     }
 
@@ -194,6 +235,66 @@ struct UIOBJECT
         else
         {
             ErrorLogI1("you don't have a text object which id is", id);
+            return NULL;
+        }
+    }
+
+    void AddBtn(UI_BUTTON btn)
+    {
+        int index = 0;
+        while (index < BTNSIZEINUIO)
+        {
+            if (Buttons[index].ID == -1)
+            {
+                btn.TypeID = TYPEID::ButtonObj;
+                btn.ID = 30000 + index;
+                btn.Position.posX += GetPosition().posX;
+                btn.Position.posY += GetPosition().posY;
+                Buttons[index] = btn;
+                break;
+            }
+
+            int deltaX = btn.Position.posX - Buttons[index].Position.posX;
+            int deltaY = btn.Position.posY - Buttons[index].Position.posY;
+            int deltaXY = deltaX * deltaX - deltaY * deltaY;
+            if (deltaXY >= 0)
+            {
+                // ×óÓÒ
+                if (deltaX >= 0)
+                {
+                    btn.LeftBtn = &Buttons[index];
+                }
+                else
+                {
+                    btn.RightBtn = &Buttons[index];
+                }
+            }
+            else
+            {
+                // ÉÏÏÂ
+                if (deltaY>=0)
+                {
+                    btn.UpBtn = &Buttons[index];
+                }
+                else
+                {
+                    btn.DownBtn = &Buttons[index];
+                }
+            }
+
+            ++index;
+        }
+    }
+
+    UI_BUTTON* GetBtnByID(int id)
+    {
+        if (Buttons[id - 30000].ID != -1)
+        {
+            return &Buttons[id - 30000];
+        }
+        else
+        {
+            ErrorLogI1("you don't have a button object which id is", id);
             return NULL;
         }
     }

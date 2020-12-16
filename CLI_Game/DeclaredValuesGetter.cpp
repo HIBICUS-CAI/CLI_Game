@@ -89,3 +89,26 @@ void SetTopUIO(UIOBJECT* uiObj)
 {
     g_TopUIObj = uiObj;
 }
+
+UI_BUTTON* g_SelectedBtn = NULL;
+int g_AutoSelectBtnFlag = 0;
+
+UI_BUTTON* GetSelectedBtn()
+{
+    return g_SelectedBtn;
+}
+
+void SetSelectedBtn(UI_BUTTON* btn)
+{
+    g_SelectedBtn = btn;
+}
+
+int* GetAutoSelectBtnFlag()
+{
+    return &g_AutoSelectBtnFlag;
+}
+
+void SetAutoSelectBtnFlag(int value)
+{
+    g_AutoSelectBtnFlag = value;
+}
