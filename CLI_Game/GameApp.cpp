@@ -40,33 +40,37 @@ void RunGame()
         Input();
         if (GetGameRunFlag())
         {
-            //SwapPrintChain();
-            /*Update();
-            Draw();*/
-
+#ifdef MUTIPRINT
             //-----------------------------------------------
             // TODO 修改此处多线程的启动方式，最好可以重复使用已有的线程
             /*DWORD dw;
             SetPrintHandle(CreateThread(NULL, 0,
                 (LPTHREAD_START_ROUTINE)PrintOutputBuffer,
                 NULL, CREATE_SUSPENDED, &dw));*/
+
             ResumeThread(GetPrintHandle());
             Update();
+
             //WaitForSingleObject(GetPrintHandle(), 0);
             //SuspendThread(GetPrintHandle());
 
             SwapPrintChain();
+#else
+            Update();
+            Draw();
+            SwapPrintChain();
+#endif // MUTIPRINT
         }
         int endTime = clock();
 
         SetDeltaTime(endTime - startTime);
 
-        #ifdef LOCKFPS
-                if (GetDeltaTime() < DELTATIME)
-                {
-                    Sleep(DELTATIME - GetDeltaTime());
-                }
-        #endif // LOCKFPS
+#ifdef LOCKFPS
+        if (GetDeltaTime() < DELTATIME)
+        {
+            Sleep(DELTATIME - GetDeltaTime());
+        }
+#endif // LOCKFPS
         //        endTime = clock();
         //        SetDeltaTime(endTime - startTime);
     }
@@ -75,21 +79,29 @@ void RunGame()
 void TurnOff()
 {
     TurnOffMTInput();
-    CloseMTPrint();
     CloseTitle();
+#ifdef MUTIPRINT
+    CloseMTPrint();
     DeleteCriticalSection(GetSwapChainCS());
+#endif // MUTIPRINT
     system("cls");
 }
 
 void Update()
 {
+#ifdef MUTIPRINT
     EnterCriticalSection(GetSwapChainCS());
+#endif // MUTIPRINT
+
     UpdateOutputBuffer();
 
     //----------------------------------------------------
     DrawUIO(GetUIObjByID(10000));
 
+#ifdef MUTIPRINT
     LeaveCriticalSection(GetSwapChainCS());
+#endif // MUTIPRINT
+
 }
 
 void Draw()

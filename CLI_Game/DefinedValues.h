@@ -17,6 +17,7 @@
 
 #ifdef RUNCONTINUOUS
 #define LOCKFPS
+#define MUTIPRINT
 #endif // RUNCONTINUOUS
 
 enum class TYPEID

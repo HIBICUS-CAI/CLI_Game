@@ -12,12 +12,14 @@ void InitOutputBuffer()
         "mode con cols=%d lines=%d", CONSOLE_WIDTH, CONSOLE_HEIGHT + 1);
     system(changeConsoleSize);
 
+#ifdef MUTIPRINT
     InitializeCriticalSection(GetSwapChainCS());
 
     DWORD dw;
     SetPrintHandle(CreateThread(NULL, 0,
         (LPTHREAD_START_ROUTINE)PrintOutputBuffer,
         NULL, CREATE_SUSPENDED, &dw));
+#endif // MUTIPRINT
 
     for (int i = 0; i < CONSOLE_HEIGHT; i++)
     {
@@ -48,6 +50,7 @@ void ClearOutputBuffer()
 
 void PrintOutputBuffer()
 {
+#ifdef MUTIPRINT
     // TODO 修改此处的运行方式
     //---------------------------------------
     while (1)
@@ -62,13 +65,14 @@ void PrintOutputBuffer()
         Sleep(DELTATIME);
         SuspendThread(GetPrintHandle());
     }
-
-    /*system("cls");
+#else
+    system("cls");
 
     for (int i = 0; i < CONSOLE_HEIGHT; i++)
     {
         printf("%s\n", GetOutputBufferToPrint() + i * CONSOLE_WIDTH);
-    }*/
+    }
+#endif // MUTIPRINT
 
     return;
 }
