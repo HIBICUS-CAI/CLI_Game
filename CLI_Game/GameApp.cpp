@@ -61,12 +61,12 @@ void RunGame()
 
         SetDeltaTime(endTime - startTime);
 
-        //#ifdef LOCKFPS
-        //        if (GetDeltaTime() < DELTATIME)
-        //        {
-        //            Sleep(DELTATIME - GetDeltaTime());
-        //        }
-        //#endif // LOCKFPS
+        #ifdef LOCKFPS
+                if (GetDeltaTime() < DELTATIME)
+                {
+                    Sleep(DELTATIME - GetDeltaTime());
+                }
+        #endif // LOCKFPS
         //        endTime = clock();
         //        SetDeltaTime(endTime - startTime);
     }
@@ -77,15 +77,19 @@ void TurnOff()
     TurnOffMTInput();
     CloseMTPrint();
     CloseTitle();
+    DeleteCriticalSection(GetSwapChainCS());
     system("cls");
 }
 
 void Update()
 {
+    EnterCriticalSection(GetSwapChainCS());
     UpdateOutputBuffer();
 
     //----------------------------------------------------
     DrawUIO(GetUIObjByID(10000));
+
+    LeaveCriticalSection(GetSwapChainCS());
 }
 
 void Draw()

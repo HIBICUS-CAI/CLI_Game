@@ -45,9 +45,14 @@ void InsertInput()
 
 void InsertInputMT()
 {
+    int temp;
     while (1)
     {
-        EnQueue(GetInputQueue()->End, _getch());
+        EnQueue(GetInputQueue()->End, temp = _getch());
+        if (temp == ESC_VALUE)
+        {
+            break;
+        }
     }
 }
 
@@ -83,4 +88,11 @@ void DispatchInput(int keyCode)
 QUEUE_INT* GetInputQueue()
 {
     return g_InputQueue;
+}
+
+CRITICAL_SECTION g_CSSwapChain;
+
+CRITICAL_SECTION* GetSwapChainCS()
+{
+    return &g_CSSwapChain;
 }

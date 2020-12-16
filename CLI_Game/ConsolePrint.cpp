@@ -12,6 +12,8 @@ void InitOutputBuffer()
         "mode con cols=%d lines=%d", CONSOLE_WIDTH, CONSOLE_HEIGHT + 1);
     system(changeConsoleSize);
 
+    InitializeCriticalSection(GetSwapChainCS());
+
     DWORD dw;
     SetPrintHandle(CreateThread(NULL, 0,
         (LPTHREAD_START_ROUTINE)PrintOutputBuffer,
@@ -57,7 +59,7 @@ void PrintOutputBuffer()
             printf("%s\n", GetOutputBufferToPrint() + i * CONSOLE_WIDTH);
         }
 
-        Sleep(16);
+        Sleep(DELTATIME);
         SuspendThread(GetPrintHandle());
     }
 

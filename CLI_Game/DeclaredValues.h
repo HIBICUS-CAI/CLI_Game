@@ -32,3 +32,5 @@ void AddUIOIndex();
 UIOBJECT* GetTopUIO();
 
 void SetTopUIO(UIOBJECT* uiObj);
+
+CRITICAL_SECTION* GetSwapChainCS();
