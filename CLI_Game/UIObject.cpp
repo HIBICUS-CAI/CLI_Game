@@ -29,7 +29,24 @@ UIOBJECT* GetUIObjByID(int id)
     }
 }
 
-UIOBJECT* CreateUIO(POSITION_2D startPoint, int width, int height,
+UIOBJECT* GetUIObjByName(const char* name)
+{
+    int i = 0;
+    while ((GetUIObj() + i)->ID != -1)
+    {
+        if (!strcmp((GetUIObj() + i)->UIName, (char*)name))
+        {
+            return GetUIObj() + i;
+        }
+        ++i;
+    }
+    char log[512] = "you don't have a UI object which name is ";
+    strcat_s(log, sizeof(log), (const char*)name);
+    ErrorLog((const char*)log);
+    return NULL;
+}
+
+UIOBJECT* CreateUIO(const char* name, POSITION_2D startPoint, int width, int height,
     UIO_DESIGN design, UIOBJECT* parent, UIOBJECT* child,
     int visiblity)
 {
@@ -40,7 +57,7 @@ UIOBJECT* CreateUIO(POSITION_2D startPoint, int width, int height,
     }
     int id = *GetUIOIndex() + 10000;
 
-    UIOBJECT temp(TYPEID::UIObj, id, startPoint, width, height,
+    UIOBJECT temp(TYPEID::UIObj, id, (char*)name, startPoint, width, height,
         design, parent, child, visiblity);
     //g_UIObjs[g_UIObjIndex] = temp;
     *(GetUIObj() + *GetUIOIndex()) = temp;

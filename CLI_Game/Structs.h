@@ -124,6 +124,7 @@ struct UIOBJECT
 #define TEXTSIZEINUIO 20
     TYPEID TypeID;
     int ID;
+    char UIName[50];
     POSITION_2D StartPoint;
     int Width;
     int Height;
@@ -135,13 +136,14 @@ struct UIOBJECT
 
     UIOBJECT() {}
 
-    UIOBJECT(TYPEID _typeID, int _id,
+    UIOBJECT(TYPEID _typeID, int _id, char* _name,
         POSITION_2D _startPoint, int _width, int _height,
         UIO_DESIGN _design, UIOBJECT* _parent, UIOBJECT* _child,
         int _visiblity)
     {
         TypeID = _typeID;
         ID = _id;
+        strcpy_s(UIName, sizeof(UIName), _name);
         StartPoint = _startPoint;
         Width = _width;
         Height = _height;

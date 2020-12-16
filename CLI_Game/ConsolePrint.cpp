@@ -31,7 +31,7 @@ void InitOutputBuffer()
     }
 
     //----------------------------------------------------
-    CreateUIO(POSITION_2D(3, 20), 60, 15, UIO_DESIGN::STRAIGHT);
+    CreateUIO("parent", POSITION_2D(3, 20), 60, 15, UIO_DESIGN::STRAIGHT);
     GetUIObjByID(10000)->AddText(UI_TEXT(POSITION_2D(1, 1),
         (char*)"アホマン"));
 }

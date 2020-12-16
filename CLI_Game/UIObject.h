@@ -8,7 +8,9 @@ void InitUIObj();
 
 UIOBJECT* GetUIObjByID(int id);
 
-UIOBJECT* CreateUIO(POSITION_2D startPoint, int width, int height,
+UIOBJECT* GetUIObjByName(const char* name);
+
+UIOBJECT* CreateUIO(const char* name, POSITION_2D startPoint, int width, int height,
     UIO_DESIGN design, UIOBJECT* parent = NULL, UIOBJECT* child = NULL,
     int visiblity = 1);
 

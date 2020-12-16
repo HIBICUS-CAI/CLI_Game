@@ -21,7 +21,7 @@ int Init()
 
     //----------------------------------------------------
     GetUIObjByID(10000)->AddChild(
-        CreateUIO(POSITION_2D(3, 3), 60, 15, UIO_DESIGN::STRAIGHT));
+        CreateUIO("child", POSITION_2D(3, 3), 60, 15, UIO_DESIGN::STRAIGHT));
     GetUIObjByID(10001)->AddParent(GetUIObjByID(10001));
     GetUIObjByID(10001)->AddText(UI_TEXT(POSITION_2D(1, 1),
         (char*)"アホアホマン"));
@@ -96,7 +96,7 @@ void Update()
     UpdateOutputBuffer();
 
     //----------------------------------------------------
-    DrawUIO(GetUIObjByID(10000));
+    DrawUIO(GetUIObjByName("parent"));
 
 #ifdef MUTIPRINT
     LeaveCriticalSection(GetSwapChainCS());
