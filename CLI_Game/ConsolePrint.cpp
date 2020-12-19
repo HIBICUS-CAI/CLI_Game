@@ -7,6 +7,11 @@
 
 void InitOutputBuffer()
 {
+    CONSOLE_CURSOR_INFO cur;
+    cur.dwSize = 1;
+    cur.bVisible = FALSE;
+    SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cur);
+
     char changeConsoleSize[512];
     sprintf_s(changeConsoleSize, sizeof(changeConsoleSize),
         "mode con cols=%d lines=%d", CONSOLE_WIDTH, CONSOLE_HEIGHT + 1);
@@ -60,15 +65,64 @@ void PrintOutputBuffer()
     while (1)
     {
         system("cls");
-
-        for (int i = 0; i < CONSOLE_HEIGHT; i++)
+        if (GetSelectedBtn() != NULL)
         {
-            printf("%s\n", GetOutputBufferToPrint() + i * CONSOLE_WIDTH);
+            UI_BUTTON temp = *(GetSelectedBtn());
+            for (int i = 0; i < CONSOLE_HEIGHT; i++)
+            {
+                printf("%s\n", GetOutputBufferToPrint() + i * CONSOLE_WIDTH);
+            }
+
+            if (temp.BorderDesign == BTN_DESIGN::LINE)
+            {
+                COORD position;
+                position.X = temp.Position.posX - 2;
+                position.Y = temp.Position.posY;
+                SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), position);
+                ChangeColorInConsole(WHITE_BLACK);
+                printf("--%s--", temp.Text);
+                ResetColorInConsole();
+            }
+            else
+            {
+                COORD position;
+                position.X = temp.Position.posX;
+                position.Y = temp.Position.posY - 1;
+                SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), position);
+                ChangeColorInConsole(WHITE_BLACK);
+                for (int i = 0; i < temp.TextLength; i++)
+                {
+                    printf("-");
+                }
+                printf("\n");
+                position.X = temp.Position.posX;
+                position.Y = temp.Position.posY;
+                SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), position);
+                printf("%s\n", temp.Text);
+                position.X = temp.Position.posX;
+                position.Y = temp.Position.posY + 1;
+                SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), position);
+                for (int i = 0; i < temp.TextLength; i++)
+                {
+                    printf("-");
+                }
+                ResetColorInConsole();
+            }
         }
+        else
+        {
+            for (int i = 0; i < CONSOLE_HEIGHT; i++)
+            {
+                printf("%s\n", GetOutputBufferToPrint() +
+                    i * CONSOLE_WIDTH);
+            }
+            }
+
+
 
         Sleep(DELTATIME);
         SuspendThread(GetPrintHandle());
-    }
+        }
 #else
     system("cls");
 
@@ -79,7 +133,7 @@ void PrintOutputBuffer()
 #endif // MUTIPRINT
 
     return;
-}
+    }
 
 void CloseMTPrint()
 {

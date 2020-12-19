@@ -140,6 +140,10 @@ struct UI_BUTTON
         strcpy_s(Text, 50 * sizeof(char), _text);
         TextLength = strlen(Text);
         BorderDesign = _design;
+        LeftBtn = NULL;
+        RightBtn = NULL;
+        UpBtn = NULL;
+        DownBtn = NULL;
     }
 };
 
@@ -242,43 +246,71 @@ struct UIOBJECT
     void AddBtn(UI_BUTTON btn)
     {
         int index = 0;
+        int leastXPlus = 200;
+        int leastXMinus = -200;
+        int leastYPlus = 100;
+        int leastYMinus = -100;
+
+        btn.Position.posX += GetPosition().posX;
+        btn.Position.posY += GetPosition().posY;
+
         while (index < BTNSIZEINUIO)
         {
             if (Buttons[index].ID == -1)
             {
                 btn.TypeID = TYPEID::ButtonObj;
                 btn.ID = 30000 + index;
-                btn.Position.posX += GetPosition().posX;
-                btn.Position.posY += GetPosition().posY;
                 Buttons[index] = btn;
+
+                if (Buttons[index].UpBtn != NULL)
+                {
+                    Buttons[index].UpBtn->DownBtn = &Buttons[index];
+                }
+                if (Buttons[index].DownBtn != NULL)
+                {
+                    Buttons[index].DownBtn->UpBtn = &Buttons[index];
+                }
+                if (Buttons[index].LeftBtn != NULL)
+                {
+                    Buttons[index].LeftBtn->RightBtn = &Buttons[index];
+                }
+                if (Buttons[index].RightBtn != NULL)
+                {
+                    Buttons[index].RightBtn->LeftBtn = &Buttons[index];
+                }
+
                 break;
             }
 
-            int deltaX = btn.Position.posX - Buttons[index].Position.posX;
+            int deltaX = (btn.Position.posX - Buttons[index].Position.posX) / 2;
             int deltaY = btn.Position.posY - Buttons[index].Position.posY;
             int deltaXY = deltaX * deltaX - deltaY * deltaY;
             if (deltaXY >= 0)
             {
                 // ×óÓÒ
-                if (deltaX >= 0)
+                if (deltaX >= 0 && deltaX <= leastXPlus)
                 {
                     btn.LeftBtn = &Buttons[index];
+                    leastXPlus = deltaX;
                 }
-                else
+                else if (deltaX <= leastXMinus)
                 {
                     btn.RightBtn = &Buttons[index];
+                    leastXMinus = deltaX;
                 }
             }
             else
             {
                 // ÉÏÏÂ
-                if (deltaY>=0)
+                if (deltaY >= 0 && deltaY <= leastYPlus)
                 {
                     btn.UpBtn = &Buttons[index];
+                    leastYPlus = deltaY;
                 }
-                else
+                else if (deltaY <= leastYMinus)
                 {
                     btn.DownBtn = &Buttons[index];
+                    leastYMinus = deltaY;
                 }
             }
 

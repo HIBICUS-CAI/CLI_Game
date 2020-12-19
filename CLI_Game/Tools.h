@@ -28,3 +28,7 @@ void SetRandomBySeed(int seedNum);
 void SetRandom();
 
 int CreateRandomNumIn(int minNum, int maxNum);
+
+void ChangeColorInConsole(int color);
+
+void ResetColorInConsole();

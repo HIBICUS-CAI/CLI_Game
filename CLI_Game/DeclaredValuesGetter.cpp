@@ -100,6 +100,10 @@ UI_BUTTON* GetSelectedBtn()
 
 void SetSelectedBtn(UI_BUTTON* btn)
 {
+    if (btn == NULL)
+    {
+        return;
+    }
     g_SelectedBtn = btn;
 }
 

@@ -115,3 +115,13 @@ int CreateRandomNumIn(int minNum, int maxNum)
 {
     return rand() % (maxNum - minNum + 1) + minNum;
 }
+
+void ChangeColorInConsole(int color)
+{
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
+}
+
+void ResetColorInConsole()
+{
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BLACK_WHITE);
+}

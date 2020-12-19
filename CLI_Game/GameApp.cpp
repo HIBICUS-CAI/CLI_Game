@@ -14,6 +14,8 @@ int Init()
 
     SetGameRunFlag(NULL);
 
+    ResetColorInConsole();
+
     InitUIObj();
     InitInputQueue();
     InitOutputBuffer();

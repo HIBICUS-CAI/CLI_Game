@@ -79,6 +79,23 @@ void DispatchInput(int keyCode)
         return;
     }
 
+    if (keyCode == I_VALUE)
+    {
+            SetSelectedBtn(GetSelectedBtn()->UpBtn);
+    }
+    if (keyCode == K_VALUE)
+    {
+            SetSelectedBtn(GetSelectedBtn()->DownBtn);
+    }
+    if (keyCode == J_VALUE)
+    {
+            SetSelectedBtn(GetSelectedBtn()->LeftBtn);        //}
+    }
+    if (keyCode == L_VALUE)
+    {
+            SetSelectedBtn(GetSelectedBtn()->RightBtn);
+    }
+
     if (keyCode == ESC_VALUE)
     {
         SetGameRunFlag(0);
