@@ -18,6 +18,9 @@
 #define BLACK_WHITE 0x0f
 #define WHITE_BLACK 0xf0
 
+#define TEST_OPENSUB 0x0001
+#define TEST_CLOSETHIS 0x0002
+
 #define RUNCONTINUOUS
 
 #ifdef RUNCONTINUOUS

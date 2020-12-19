@@ -40,8 +40,10 @@ void InitOutputBuffer()
     GetUIObjByID(10000)->AddText(UI_TEXT(POSITION_2D(1, 1),
         (char*)"失石穴件"));
     GetUIObjByName("parent")->TurnOn();
-    GetUIObjByName("parent")->AddBtn(UI_BUTTON(POSITION_2D(3, 3), (char*)"嶱仁", BTN_DESIGN::LINE));
-    GetUIObjByName("parent")->AddBtn(UI_BUTTON(POSITION_2D(10, 7), (char*)"寯元月", BTN_DESIGN::STRAIGHT));
+    GetUIObjByName("parent")->AddBtn(UI_BUTTON(TEST_OPENSUB, POSITION_2D(3, 3),
+        (char*)"嶱仁", BTN_DESIGN::LINE));
+    GetUIObjByName("parent")->AddBtn(UI_BUTTON(0, POSITION_2D(10, 7),
+        (char*)"寯元月", BTN_DESIGN::STRAIGHT));
     SetSelectedBtn(GetUIObjByName("parent")->Buttons + 0);
 }
 
@@ -116,13 +118,13 @@ void PrintOutputBuffer()
                 printf("%s\n", GetOutputBufferToPrint() +
                     i * CONSOLE_WIDTH);
             }
-            }
+        }
 
 
 
         Sleep(DELTATIME);
         SuspendThread(GetPrintHandle());
-        }
+    }
 #else
     system("cls");
 
@@ -133,7 +135,7 @@ void PrintOutputBuffer()
 #endif // MUTIPRINT
 
     return;
-    }
+}
 
 void CloseMTPrint()
 {

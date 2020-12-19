@@ -122,6 +122,7 @@ struct UI_BUTTON
 {
     TYPEID TypeID;
     int ID;
+    int Event;
     POSITION_2D Position;
     char Text[50];
     int TextLength;
@@ -133,9 +134,10 @@ struct UI_BUTTON
 
     UI_BUTTON() {}
 
-    UI_BUTTON(POSITION_2D _position, char* _text,
+    UI_BUTTON(int _event, POSITION_2D _position, char* _text,
         BTN_DESIGN _design)
     {
+        Event = _event;
         Position = _position;
         strcpy_s(Text, 50 * sizeof(char), _text);
         TextLength = strlen(Text);

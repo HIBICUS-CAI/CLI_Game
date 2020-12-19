@@ -3,6 +3,7 @@
 #include "Tools.h"
 #include "LogsOutput.h"
 #include "GameApp.h"
+#include "ButtonEvents.h"
 
 QUEUE_INT* g_InputQueue;
 static HANDLE g_HandleInput = NULL;
@@ -81,19 +82,24 @@ void DispatchInput(int keyCode)
 
     if (keyCode == I_VALUE)
     {
-            SetSelectedBtn(GetSelectedBtn()->UpBtn);
+        SetSelectedBtn(GetSelectedBtn()->UpBtn);
     }
     if (keyCode == K_VALUE)
     {
-            SetSelectedBtn(GetSelectedBtn()->DownBtn);
+        SetSelectedBtn(GetSelectedBtn()->DownBtn);
     }
     if (keyCode == J_VALUE)
     {
-            SetSelectedBtn(GetSelectedBtn()->LeftBtn);        //}
+        SetSelectedBtn(GetSelectedBtn()->LeftBtn);
     }
     if (keyCode == L_VALUE)
     {
-            SetSelectedBtn(GetSelectedBtn()->RightBtn);
+        SetSelectedBtn(GetSelectedBtn()->RightBtn);
+    }
+
+    if (keyCode == SPACE_VALUE)
+    {
+        RunButtonEvent(GetSelectedBtn()->Event);
     }
 
     if (keyCode == ESC_VALUE)
