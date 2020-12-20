@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="GameApp">
+      <UniqueIdentifier>{57971625-348f-49e0-83f4-3e97937c79a0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameApp.h">
@@ -45,6 +48,12 @@
     <ClInclude Include="ButtonEvents.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GameAppStructs.h">
+      <Filter>GameApp</Filter>
+    </ClInclude>
+    <ClInclude Include="AppDeclared.h">
+      <Filter>GameApp</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -73,6 +82,9 @@
     </ClCompile>
     <ClCompile Include="ButtonEvents.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AppDeclared.cpp">
+      <Filter>GameApp</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

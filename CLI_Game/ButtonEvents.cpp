@@ -19,7 +19,6 @@ void RunButtonEvent(int value)
     case TEST_OPENSUB:
         OpenUIObj(GetUIObjByName("child")->ID);
         SetSelectedBtn(GetUIObjByName("child")->Buttons);
-        GetSelectedBtn();
         break;
 
     case TEST_CLOSETHIS:

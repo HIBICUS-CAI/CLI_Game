@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AppDeclared.cpp" />
     <ClCompile Include="ButtonEvents.cpp" />
     <ClCompile Include="ConsolePrint.cpp" />
     <ClCompile Include="DeclaredValuesGetter.cpp" />
@@ -154,11 +155,13 @@
     <ClCompile Include="UIObject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AppDeclared.h" />
     <ClInclude Include="ButtonEvents.h" />
     <ClInclude Include="ConsolePrint.h" />
     <ClInclude Include="DeclaredValues.h" />
     <ClInclude Include="GameApp.h" />
     <ClInclude Include="DefinedValues.h" />
+    <ClInclude Include="GameAppStructs.h" />
     <ClInclude Include="InputDispose.h" />
     <ClInclude Include="LogsOutput.h" />
     <ClInclude Include="Structs.h" />

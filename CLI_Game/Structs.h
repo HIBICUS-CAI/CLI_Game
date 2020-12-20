@@ -348,3 +348,13 @@ struct UIOBJECT
         return StartPoint;
     }
 };
+
+struct Object
+{
+    POSITION_2D Position;
+
+    POSITION_2D GetPosition()
+    {
+        return Position;
+    }
+};

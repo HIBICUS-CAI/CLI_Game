@@ -22,7 +22,7 @@ int Init()
     InitTitle();
 
     //----------------------------------------------------
-    GetUIObjByID(10000)->AddChild(
+    /*GetUIObjByID(10000)->AddChild(
         CreateUIO("child", POSITION_2D(3, 3), 60, 15, UIO_DESIGN::STRAIGHT, 0));
     GetUIObjByID(10001)->AddParent(GetUIObjByID(10001));
     GetUIObjByID(10001)->AddText(UI_TEXT(POSITION_2D(1, 1),
@@ -32,7 +32,7 @@ int Init()
     GetUIObjByName("child")->AddBtn(UI_BUTTON(0, POSITION_2D(9, 4),
         (char*)"示正件2", BTN_DESIGN::LINE));
     GetUIObjByName("child")->AddBtn(UI_BUTTON(TEST_CLOSETHIS, POSITION_2D(10, 7),
-        (char*)"寯元月", BTN_DESIGN::STRAIGHT));
+        (char*)"寯元月", BTN_DESIGN::STRAIGHT));*/
 
     return 1;
 }
@@ -104,7 +104,7 @@ void Update()
     UpdateOutputBuffer();
 
     //----------------------------------------------------
-    DrawUIO(GetUIObjByName("parent"));
+    /*DrawUIO(GetUIObjByName("parent"));*/
 
 #ifdef MUTIPRINT
     LeaveCriticalSection(GetSwapChainCS());

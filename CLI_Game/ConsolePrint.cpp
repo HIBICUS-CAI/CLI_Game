@@ -36,7 +36,7 @@ void InitOutputBuffer()
     }
 
     //----------------------------------------------------
-    CreateUIO("parent", POSITION_2D(3, 20), 60, 15, UIO_DESIGN::STRAIGHT);
+    /*CreateUIO("parent", POSITION_2D(3, 20), 60, 15, UIO_DESIGN::STRAIGHT);
     GetUIObjByID(10000)->AddText(UI_TEXT(POSITION_2D(1, 1),
         (char*)"失石穴件"));
     GetUIObjByName("parent")->TurnOn();
@@ -44,7 +44,7 @@ void InitOutputBuffer()
         (char*)"嶱仁", BTN_DESIGN::LINE));
     GetUIObjByName("parent")->AddBtn(UI_BUTTON(0, POSITION_2D(10, 7),
         (char*)"寯元月", BTN_DESIGN::STRAIGHT));
-    SetSelectedBtn(GetUIObjByName("parent")->Buttons + 0);
+    SetSelectedBtn(GetUIObjByName("parent")->Buttons + 0);*/
 }
 
 void ClearOutputBuffer()
