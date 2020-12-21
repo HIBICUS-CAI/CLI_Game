@@ -77,6 +77,17 @@ void DrawUIO(UIOBJECT* uiObject)
             SetSelectedBtn(uiObject->Buttons + 0);
         }*/
 
+        for (int i = uiObject->StartPoint.posY;
+            i < uiObject->StartPoint.posY + uiObject->Height; i++)
+        {
+            for (int j = uiObject->StartPoint.posX;
+                j < uiObject->StartPoint.posX + uiObject->Width;
+                j++)
+            {
+                WriteCharIntoOutputBuffer(POSITION_2D(j, i), ' ');
+            }
+        }
+
         if (uiObject->BorderDesign == UIO_DESIGN::STRAIGHT)
         {
             for (int i = uiObject->StartPoint.posX;
@@ -105,17 +116,6 @@ void DrawUIO(UIOBJECT* uiObject)
                 WriteCharIntoOutputBuffer(
                     POSITION_2D(uiObject->StartPoint.posX + uiObject->Width - 1,
                         i), '|');
-            }
-
-            for (int i = uiObject->StartPoint.posY + 1;
-                i < uiObject->StartPoint.posY + uiObject->Height - 2; i++)
-            {
-                for (int j = uiObject->StartPoint.posX + 1;
-                    j < uiObject->StartPoint.posX + uiObject->Width - 2;
-                    j++)
-                {
-                    WriteCharIntoOutputBuffer(POSITION_2D(j, i), ' ');
-                }
             }
 
             DrawTextInUIO(uiObject);
@@ -151,17 +151,6 @@ void DrawUIO(UIOBJECT* uiObject)
                         i), '*');
             }
 
-            for (int i = uiObject->StartPoint.posY + 1;
-                i < uiObject->StartPoint.posY + uiObject->Height - 2; i++)
-            {
-                for (int j = uiObject->StartPoint.posX + 1;
-                    j < uiObject->StartPoint.posX + uiObject->Width - 2;
-                    j++)
-                {
-                    WriteCharIntoOutputBuffer(POSITION_2D(j, i), ' ');
-                }
-            }
-
             DrawTextInUIO(uiObject);
             DrawBtnInUIO(uiObject);
         }
@@ -193,17 +182,6 @@ void DrawUIO(UIOBJECT* uiObject)
                 WriteCharIntoOutputBuffer(
                     POSITION_2D(uiObject->StartPoint.posX + uiObject->Width - 1,
                         i), ' ');
-            }
-
-            for (int i = uiObject->StartPoint.posY + 1;
-                i < uiObject->StartPoint.posY + uiObject->Height - 2; i++)
-            {
-                for (int j = uiObject->StartPoint.posX + 1;
-                    j < uiObject->StartPoint.posX + uiObject->Width - 2;
-                    j++)
-                {
-                    WriteCharIntoOutputBuffer(POSITION_2D(j, i), ' ');
-                }
             }
 
             DrawTextInUIO(uiObject);

@@ -7,13 +7,11 @@
 #include "Tools.h"
 #include "CustomizedApp.h"
 
-int g_GameRunFlag;
-
 int Init()
 {
     system("mode con cp select=936&&cls");
 
-    SetGameRunFlag(NULL);
+    SetGameRunFlag(1);
 
     ResetColorInConsole();
 
@@ -123,27 +121,4 @@ void Update()
 void Draw()
 {
     PrintOutputBuffer();
-}
-
-void SetGameRunFlag(int value)
-{
-    if (g_GameRunFlag == NULL)
-    {
-        int temp = 1;
-        g_GameRunFlag = temp;
-    }
-
-    if (value == 0)
-    {
-        g_GameRunFlag = 0;
-    }
-    else
-    {
-        g_GameRunFlag = 1;
-    }
-}
-
-int GetGameRunFlag()
-{
-    return g_GameRunFlag;
 }

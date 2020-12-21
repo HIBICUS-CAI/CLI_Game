@@ -3,6 +3,10 @@
 #include "DefinedValues.h"
 #include "Structs.h"
 
+void SetGameRunFlag(int value);
+
+int GetGameRunFlag();
+
 #define DELTATIME 16
 
 int GetDeclaredDeltaTime();

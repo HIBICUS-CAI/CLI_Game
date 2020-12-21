@@ -13,10 +13,23 @@ void InitTitleScene()
 
     CreateUIO("title", POSITION_2D(20, 20), 20, 6, UIO_DESIGN::STRAIGHT,
         NULL, NULL, 1);
-    GetUIObjByName("title")->AddBtn(UI_BUTTON(-1, POSITION_2D(6, 2),
+    GetUIObjByName("title")->AddBtn(UI_BUTTON(STARTGAME, POSITION_2D(6, 2),
         (char*)"開始", BTN_DESIGN::LINE));
-    GetUIObjByName("title")->AddBtn(UI_BUTTON(-1, POSITION_2D(6, 4),
-        (char*)"終了", BTN_DESIGN::LINE));
+    GetUIObjByName("title")->AddBtn(UI_BUTTON(GAMEHELP, POSITION_2D(6, 4),
+        (char*)"説明", BTN_DESIGN::LINE));
+
+    CreateUIO("help", POSITION_2D(20, 20), 40, 6, UIO_DESIGN::STAR,
+        GetUIObjByName("title"));
+    GetUIObjByName("help")->AddText(UI_TEXT(POSITION_2D(3, 1),
+        (char*)"WASDで人物を移動させる"));
+    GetUIObjByName("help")->AddText(UI_TEXT(POSITION_2D(3, 2),
+        (char*)"IJKLでボタンを選択させる"));
+    GetUIObjByName("help")->AddText(UI_TEXT(POSITION_2D(3, 3),
+        (char*)"SPACEでボタンを実行させる"));
+    GetUIObjByName("help")->AddBtn(UI_BUTTON(CLOSEHELP, POSITION_2D(15, 5),
+        (char*)"閉じる", BTN_DESIGN::LINE));
+    GetUIObjByName("title")->AddChild(GetUIObjByName("help"));
+
     SetSelectedBtn(GetUIObjByName("title")->Buttons);
     GetSceneNodeByName("title")->SetBaseUIO(GetUIObjByName("title"));
 }

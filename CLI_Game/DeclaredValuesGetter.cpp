@@ -1,5 +1,30 @@
 #include "DeclaredValues.h"
 
+int g_GameRunFlag = 1;
+
+void SetGameRunFlag(int value)
+{
+    if (g_GameRunFlag == NULL)
+    {
+        int temp = 1;
+        g_GameRunFlag = temp;
+    }
+
+    if (value == 0)
+    {
+        g_GameRunFlag = 0;
+    }
+    else
+    {
+        g_GameRunFlag = 1;
+    }
+}
+
+int GetGameRunFlag()
+{
+    return g_GameRunFlag;
+}
+
 int g_DeltaTime = DELTATIME;
 
 int GetDeclaredDeltaTime()

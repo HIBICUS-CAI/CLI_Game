@@ -3,6 +3,7 @@
 #include "Tools.h"
 #include "LogsOutput.h"
 #include "GameApp.h"
+#include "CustomizedApp.h"
 #include "ButtonEvents.h"
 
 QUEUE_INT* g_InputQueue;
@@ -121,6 +122,8 @@ void DispatchInput(int keyCode)
             RunButtonEvent(temp->Event);
         }
     }
+
+    AppKeyboardEvent(keyCode);
 
     if (keyCode == ESC_VALUE)
     {

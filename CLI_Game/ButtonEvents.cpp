@@ -1,6 +1,7 @@
 #include "ButtonEvents.h"
 #include "UIObject.h"
 #include "DeclaredValues.h"
+#include "CustomizedApp.h"
 
 void OpenUIObj(int id)
 {
@@ -29,4 +30,6 @@ void RunButtonEvent(int value)
     default:
         break;
     }
+
+    AppButtonEvent(value);
 }

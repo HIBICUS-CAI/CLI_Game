@@ -15,7 +15,3 @@ void TurnOff();
 void Update();
 
 void Draw();
-
-void SetGameRunFlag(int value);
-
-int GetGameRunFlag();
