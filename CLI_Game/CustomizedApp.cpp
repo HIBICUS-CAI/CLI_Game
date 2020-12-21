@@ -54,7 +54,7 @@ void AppButtonEvent(int value)
 
     case CLOSEHELP:
         GetUIObjByName("help")->TurnOff();
-        SetSelectedBtn(GetUIObjByName("title")->Buttons);
+        SetSelectedBtn(GetUIObjByName("title")->Buttons + 1);
         break;
 
     default:
