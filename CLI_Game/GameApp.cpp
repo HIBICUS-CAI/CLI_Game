@@ -5,6 +5,7 @@
 #include "InputDispose.h"
 #include "UIObject.h"
 #include "Tools.h"
+#include "CustomizedApp.h"
 
 int g_GameRunFlag;
 
@@ -20,6 +21,8 @@ int Init()
     InitInputQueue();
     InitOutputBuffer();
     InitTitle();
+
+    AppInit();
 
     //----------------------------------------------------
     /*GetUIObjByID(10000)->AddChild(
@@ -92,6 +95,9 @@ void TurnOff()
     CloseMTPrint();
     DeleteCriticalSection(GetSwapChainCS());
 #endif // MUTIPRINT
+
+    AppTurnOff();
+
     system("cls");
 }
 
@@ -102,6 +108,8 @@ void Update()
 #endif // MUTIPRINT
 
     UpdateOutputBuffer();
+
+    AppUpdate();
 
     //----------------------------------------------------
     /*DrawUIO(GetUIObjByName("parent"));*/

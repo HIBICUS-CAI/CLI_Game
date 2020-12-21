@@ -82,24 +82,44 @@ void DispatchInput(int keyCode)
 
     if (keyCode == I_VALUE)
     {
-        SetSelectedBtn(GetSelectedBtn()->UpBtn);
+        UI_BUTTON* temp = GetSelectedBtn();
+        if (temp != NULL)
+        {
+            SetSelectedBtn(temp->UpBtn);
+        }
     }
     if (keyCode == K_VALUE)
     {
-        SetSelectedBtn(GetSelectedBtn()->DownBtn);
+        UI_BUTTON* temp = GetSelectedBtn();
+        if (temp != NULL)
+        {
+            SetSelectedBtn(temp->DownBtn);
+        }
     }
     if (keyCode == J_VALUE)
     {
-        SetSelectedBtn(GetSelectedBtn()->LeftBtn);
+        UI_BUTTON* temp = GetSelectedBtn();
+        if (temp != NULL)
+        {
+            SetSelectedBtn(temp->LeftBtn);
+        }
     }
     if (keyCode == L_VALUE)
     {
-        SetSelectedBtn(GetSelectedBtn()->RightBtn);
+        UI_BUTTON* temp = GetSelectedBtn();
+        if (temp != NULL)
+        {
+            SetSelectedBtn(temp->RightBtn);
+        }
     }
 
     if (keyCode == SPACE_VALUE)
     {
-        RunButtonEvent(GetSelectedBtn()->Event);
+        UI_BUTTON* temp = GetSelectedBtn();
+        if (temp != NULL)
+        {
+            RunButtonEvent(temp->Event);
+        }
     }
 
     if (keyCode == ESC_VALUE)

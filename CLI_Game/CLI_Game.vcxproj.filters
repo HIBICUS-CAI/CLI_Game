@@ -54,6 +54,12 @@
     <ClInclude Include="AppDeclared.h">
       <Filter>GameApp</Filter>
     </ClInclude>
+    <ClInclude Include="SceneNode.h">
+      <Filter>GameApp</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomizedApp.h">
+      <Filter>GameApp</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -84,6 +90,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AppDeclared.cpp">
+      <Filter>GameApp</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneNode.cpp">
+      <Filter>GameApp</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomizedApp.cpp">
       <Filter>GameApp</Filter>
     </ClCompile>
   </ItemGroup>
