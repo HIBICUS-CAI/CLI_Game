@@ -5,6 +5,13 @@
 #include "DeclaredValues.h"
 #include "UIObject.h"
 
+CRITICAL_SECTION g_CSPrint;
+
+CRITICAL_SECTION* GetPrintCS()
+{
+    return &g_CSPrint;
+}
+
 void InitOutputBuffer()
 {
     CONSOLE_CURSOR_INFO cur;
@@ -19,6 +26,7 @@ void InitOutputBuffer()
 
 #ifdef MUTIPRINT
     InitializeCriticalSection(GetSwapChainCS());
+    InitializeCriticalSection(GetPrintCS());
 
     DWORD dw;
     SetPrintHandle(CreateThread(NULL, 0,
@@ -62,6 +70,8 @@ void ClearOutputBuffer()
 void PrintOutputBuffer()
 {
 #ifdef MUTIPRINT
+    EnterCriticalSection(GetPrintCS());
+
     // TODO 修改此处的运行方式
     //---------------------------------------
     while (1)
@@ -120,7 +130,7 @@ void PrintOutputBuffer()
             }
         }
 
-
+        LeaveCriticalSection(GetPrintCS());
 
         Sleep(DELTATIME);
         SuspendThread(GetPrintHandle());
@@ -139,6 +149,7 @@ void PrintOutputBuffer()
 
 void CloseMTPrint()
 {
+    DeleteCriticalSection(GetPrintCS());
     CloseHandle(GetPrintHandle());
 }
 

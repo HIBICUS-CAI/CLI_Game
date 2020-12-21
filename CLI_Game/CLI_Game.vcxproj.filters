@@ -60,6 +60,9 @@
     <ClInclude Include="CustomizedApp.h">
       <Filter>GameApp</Filter>
     </ClInclude>
+    <ClInclude Include="AppTitleScene.h">
+      <Filter>GameApp</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
