@@ -16,6 +16,9 @@
     <Filter Include="GameApp">
       <UniqueIdentifier>{57971625-348f-49e0-83f4-3e97937c79a0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameScene">
+      <UniqueIdentifier>{4e33540c-b5df-4166-a0e8-256966eccaf9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameApp.h">
@@ -60,11 +63,11 @@
     <ClInclude Include="CustomizedApp.h">
       <Filter>GameApp</Filter>
     </ClInclude>
-    <ClInclude Include="AppTitleScene.h">
-      <Filter>GameApp</Filter>
-    </ClInclude>
     <ClInclude Include="SceneManager.h">
       <Filter>GameApp</Filter>
+    </ClInclude>
+    <ClInclude Include="AppTitleScene.h">
+      <Filter>GameScene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
