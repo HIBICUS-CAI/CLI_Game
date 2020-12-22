@@ -10,11 +10,11 @@ void InitSelectionScene()
 
     CreateUIO("selection", POSITION_2D(10, 24), 50, 10, UIO_DESIGN::STRAIGHT,
         NULL, NULL, 1);
-    GetUIObjByName("selection")->AddBtn(UI_BUTTON(-1, POSITION_2D(2, 3),
+    GetUIObjByName("selection")->AddBtn(UI_BUTTON(GETINMAZE1, POSITION_2D(2, 3),
         (char*)"¥¹¥Æ©`¥¸£±", BTN_DESIGN::STRAIGHT));
-    GetUIObjByName("selection")->AddBtn(UI_BUTTON(-1, POSITION_2D(15, 3),
+    GetUIObjByName("selection")->AddBtn(UI_BUTTON(GETINMAZE2, POSITION_2D(15, 3),
         (char*)"¥¹¥Æ©`¥¸£²", BTN_DESIGN::STRAIGHT));
-    GetUIObjByName("selection")->AddBtn(UI_BUTTON(-1, POSITION_2D(28, 3),
+    GetUIObjByName("selection")->AddBtn(UI_BUTTON(GETINMAZE3, POSITION_2D(28, 3),
         (char*)"¥¹¥Æ©`¥¸£³", BTN_DESIGN::STRAIGHT));
     GetUIObjByName("selection")->AddBtn(UI_BUTTON(CLOSESELECT, POSITION_2D(40, 8),
         (char*)"é]¤¸¤ë", BTN_DESIGN::LINE));
@@ -25,17 +25,10 @@ void InitSelectionScene()
 
 void UpdateSelectionScene()
 {
+    ClearSceneCamBuffer(GetSceneNodeByName("selection"));
     char* temp = GetSceneNodeByName("selection")->GetCamAddr()->GetCamBuffer();
     int width = GetSceneNodeByName("selection")->GetCamAddr()->CameraWidth;
     int height = GetSceneNodeByName("selection")->GetCamAddr()->CameraHeight;
-
-    for (int i = 0; i < height; i++)
-    {
-        for (int j = 0; j < width; j++)
-        {
-            *(temp + i * width + j) = ' ';
-        }
-    }
 
     *(temp + 8 * width + 14) = '1';
     *(temp + 8 * width + 15) = '1';

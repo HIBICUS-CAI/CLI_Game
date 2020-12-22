@@ -2,9 +2,11 @@
 #include "AppDeclared.h"
 #include "AppTitleScene.h"
 #include "AppStageSelectScene.h"
+#include "AppMazeScene.h"
 
 #define TITLESCENEFLAG 1
 #define SELECTIONSCENEFLAG 2
+#define MAZESCENEFLAG 3
 int g_SceneFlag;
 
 void SetSceneFlag(int flag)
@@ -49,6 +51,16 @@ void InitCurrScene()
         SetSceneFlag(SELECTIONSCENEFLAG);
         SetSelectedBtn(GetSceneNodeByName("selection")->BaseUIObj->Buttons);
     }
+    else if (!strcmp(GetManagedCurrScene()->SceneName, "selection"))
+    {
+        if (GetSceneNodeByName("maze") == NULL)
+        {
+            InitMazeScene();
+        }
+        SetManagedCurrScene(GetSceneNodeByName("maze"));
+        SetSceneFlag(MAZESCENEFLAG);
+        SetSelectedBtn(GetSceneNodeByName("maze")->BaseUIObj->Buttons);
+    }
 }
 
 void UpdateCurrScene()
@@ -61,6 +73,10 @@ void UpdateCurrScene()
 
     case SELECTIONSCENEFLAG:
         UpdateSelectionScene();
+        break;
+
+    case MAZESCENEFLAG:
+        UpdateMazeScene();
         break;
 
     default:

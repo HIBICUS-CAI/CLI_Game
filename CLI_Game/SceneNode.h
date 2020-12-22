@@ -10,6 +10,8 @@ SCENENODE* GetSceneNodeByName(const char* name);
 
 void InitSceneNodes();
 
+void ClearSceneCamBuffer(SCENENODE* sceneNode);
+
 void CreateSceneNode(SCENENODE sceneNode);
 
 void DrawScene(SCENENODE* sceneNode);

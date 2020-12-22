@@ -6,15 +6,11 @@ void AppInit()
 {
     InitSceneNodes();
 
-    //InitTitleScene();
     SwitchSceneFrom(NULL);
 }
 
 void AppUpdate()
 {
-    /*UpdateTitleScene();
-    DrawScene(GetSceneNodeByName("title"));*/
-
     UpdateCurrScene();
 
     DrawScene(GetManagedCurrScene());
@@ -65,6 +61,21 @@ void AppButtonEvent(int value)
 
     case CLOSESELECT:
         SwitchSceneFrom(NULL);
+        break;
+
+    case GETINMAZE1:
+        DebugLog("maze1");
+        SwitchSceneFrom(GetSceneNodeByName("selection"));
+        break;
+
+    case GETINMAZE2:
+        DebugLog("maze2");
+        SwitchSceneFrom(GetSceneNodeByName("selection"));
+        break;
+
+    case GETINMAZE3:
+        DebugLog("maze3");
+        SwitchSceneFrom(GetSceneNodeByName("selection"));
         break;
 
     default:

@@ -26,7 +26,7 @@ SCENENODE* GetSceneNodeByName(const char* name)
     }
     char log[512] = "you don't have a Scene Node which name is ";
     strcat_s(log, sizeof(log), (const char*)name);
-    ErrorLog((const char*)log);
+    DebugLog((const char*)log);
     return NULL;
 }
 
@@ -38,6 +38,21 @@ void InitSceneNodes()
         (GetSceneNodeArray() + i)->BaseUIObj = NULL;
         (GetSceneNodeArray() + i)->Camera =
             SCENECAMERA(POSITION_2D(0, 0), 0, 0);
+    }
+}
+
+void ClearSceneCamBuffer(SCENENODE* sceneNode)
+{
+    char* temp = sceneNode->GetCamAddr()->GetCamBuffer();
+    int width = sceneNode->GetCamAddr()->CameraWidth;
+    int height = sceneNode->GetCamAddr()->CameraHeight;
+
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            *(temp + i * width + j) = ' ';
+        }
     }
 }
 

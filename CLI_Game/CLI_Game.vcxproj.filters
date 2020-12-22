@@ -72,6 +72,9 @@
     <ClInclude Include="AppStageSelectScene.h">
       <Filter>GameScene</Filter>
     </ClInclude>
+    <ClInclude Include="AppMazeScene.h">
+      <Filter>GameScene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">

@@ -37,6 +37,8 @@ void InitTitleScene()
 
 void UpdateTitleScene()
 {
+    ClearSceneCamBuffer(GetSceneNodeByName("title"));
+
     char* temp = GetSceneNodeByName("title")->GetCamAddr()->GetCamBuffer();
     for (int i = 0; i < GetSceneNodeByName("title")->GetCamAddr()->CameraHeight; i++)
     {
