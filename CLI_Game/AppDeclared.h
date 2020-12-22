@@ -10,3 +10,7 @@
 SCENENODE* GetSceneNodeArray();
 
 void SetSceneNodeArray(int index, SCENENODE temp);
+
+void SetCurrScene(SCENENODE* sceneNode);
+
+SCENENODE* GetCurrScene();

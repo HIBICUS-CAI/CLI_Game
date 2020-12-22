@@ -1,17 +1,23 @@
 #include "CustomizedApp.h"
-#include "AppTitleScene.h"
+#include "SceneNode.h"
+#include "SceneManager.h"
 
 void AppInit()
 {
     InitSceneNodes();
 
-    InitTitleScene();
+    //InitTitleScene();
+    SwitchSceneTo(GetSceneNodeByName("title"));
 }
 
 void AppUpdate()
 {
-    UpdateTitleScene();
-    DrawScene(GetSceneNodeByName("title"));
+    /*UpdateTitleScene();
+    DrawScene(GetSceneNodeByName("title"));*/
+
+    UpdateCurrScene();
+    
+    DrawScene(GetManagedCurrScene());
 }
 
 void AppTurnOff()

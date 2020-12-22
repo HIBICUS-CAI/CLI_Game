@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CustomizedApp.h"
+#include "SceneNode.h"
 
 //----------------------------------
 float test = 0.f;

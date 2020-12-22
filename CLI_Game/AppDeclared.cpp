@@ -11,3 +11,15 @@ void SetSceneNodeArray(int index, SCENENODE temp)
 {
     g_SceneNodes[index] = temp;
 }
+
+SCENENODE* gp_CurrScene = NULL;
+
+void SetCurrScene(SCENENODE* sceneNode)
+{
+    gp_CurrScene = sceneNode;
+}
+
+SCENENODE* GetCurrScene()
+{
+    return gp_CurrScene;
+}

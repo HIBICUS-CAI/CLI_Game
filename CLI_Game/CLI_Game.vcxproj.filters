@@ -63,6 +63,9 @@
     <ClInclude Include="AppTitleScene.h">
       <Filter>GameApp</Filter>
     </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>GameApp</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -99,6 +102,9 @@
       <Filter>GameApp</Filter>
     </ClCompile>
     <ClCompile Include="CustomizedApp.cpp">
+      <Filter>GameApp</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
       <Filter>GameApp</Filter>
     </ClCompile>
   </ItemGroup>
