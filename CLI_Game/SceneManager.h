@@ -9,4 +9,4 @@ void InitCurrScene();
 
 void UpdateCurrScene();
 
-void SwitchSceneFrom(SCENENODE* sceneNode);
+void SwitchSceneToName(const char* sceneName);

@@ -6,7 +6,7 @@ void AppInit()
 {
     InitSceneNodes();
 
-    SwitchSceneFrom(NULL);
+    SwitchSceneToName("title");
 }
 
 void AppUpdate()
@@ -46,7 +46,7 @@ void AppButtonEvent(int value)
     switch (value)
     {
     case STARTGAME:
-        SwitchSceneFrom(GetSceneNodeByName("title"));
+        SwitchSceneToName("selection");
         break;
 
     case GAMEHELP:
@@ -60,22 +60,23 @@ void AppButtonEvent(int value)
         break;
 
     case CLOSESELECT:
-        SwitchSceneFrom(NULL);
+        SwitchSceneToName("title");
         break;
 
     case GETINMAZE1:
-        DebugLog("maze1");
-        SwitchSceneFrom(GetSceneNodeByName("selection"));
+        SwitchSceneToName("maze");
         break;
 
     case GETINMAZE2:
-        DebugLog("maze2");
-        SwitchSceneFrom(GetSceneNodeByName("selection"));
+        SwitchSceneToName("maze");
         break;
 
     case GETINMAZE3:
-        DebugLog("maze3");
-        SwitchSceneFrom(GetSceneNodeByName("selection"));
+        SwitchSceneToName("maze");
+        break;
+
+    case GIVEUPMAZE:
+        SwitchSceneToName("selection");
         break;
 
     default:

@@ -14,6 +14,8 @@ void InitMazeScene()
         (char*)"¥á¥¤¥ó£Õ£É"));
     GetUIObjByName("maze")->AddBtn(UI_BUTTON(-1, POSITION_2D(2, 10),
         (char*)"¥Æ¥¹¥ÈÓÃ", BTN_DESIGN::STRAIGHT));
+    GetUIObjByName("maze")->AddBtn(UI_BUTTON(GIVEUPMAZE, POSITION_2D(2, 15),
+        (char*)"GIVE UP", BTN_DESIGN::STRAIGHT));
 
     GetSceneNodeByName("maze")->SetBaseUIO(GetUIObjByName("maze"));
     SetSelectedBtn(GetUIObjByName("maze")->Buttons);

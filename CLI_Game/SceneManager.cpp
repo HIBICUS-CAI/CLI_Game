@@ -31,33 +31,18 @@ SCENENODE* GetManagedCurrScene()
 
 void InitCurrScene()
 {
-    if (GetManagedCurrScene() == NULL)
+    if (!strcmp(GetManagedCurrScene()->SceneName, "title"))
     {
-        if (GetSceneNodeByName("title") == NULL)
-        {
-            InitTitleScene();
-        }
-        SetManagedCurrScene(GetSceneNodeByName("title"));
         SetSceneFlag(TITLESCENEFLAG);
         SetSelectedBtn(GetSceneNodeByName("title")->BaseUIObj->Buttons);
     }
-    else if (!strcmp(GetManagedCurrScene()->SceneName, "title"))
+    else if (!strcmp(GetManagedCurrScene()->SceneName, "selection"))
     {
-        if (GetSceneNodeByName("selection") == NULL)
-        {
-            InitSelectionScene();
-        }
-        SetManagedCurrScene(GetSceneNodeByName("selection"));
         SetSceneFlag(SELECTIONSCENEFLAG);
         SetSelectedBtn(GetSceneNodeByName("selection")->BaseUIObj->Buttons);
     }
-    else if (!strcmp(GetManagedCurrScene()->SceneName, "selection"))
+    else if (!strcmp(GetManagedCurrScene()->SceneName, "maze"))
     {
-        if (GetSceneNodeByName("maze") == NULL)
-        {
-            InitMazeScene();
-        }
-        SetManagedCurrScene(GetSceneNodeByName("maze"));
         SetSceneFlag(MAZESCENEFLAG);
         SetSelectedBtn(GetSceneNodeByName("maze")->BaseUIObj->Buttons);
     }
@@ -85,9 +70,27 @@ void UpdateCurrScene()
     }
 }
 
-void SwitchSceneFrom(SCENENODE* sceneNode)
+void SwitchSceneToName(const char* sceneName)
 {
-    SetManagedCurrScene(sceneNode);
+    SCENENODE* scene = GetSceneNodeByName(sceneName);
+    if (scene == NULL)
+    {
+        if (!strcmp(sceneName,"title"))
+        {
+            InitTitleScene();
+        }
+        else if (!strcmp(sceneName, "selection"))
+        {
+            InitSelectionScene();
+        }
+        else if (!strcmp(sceneName, "maze"))
+        {
+            InitMazeScene();
+        }
+
+        scene = GetSceneNodeByName(sceneName);
+    }
+    SetManagedCurrScene(scene);
     InitCurrScene();
     UpdateCurrScene();
 }
