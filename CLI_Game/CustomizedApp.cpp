@@ -7,7 +7,7 @@ void AppInit()
     InitSceneNodes();
 
     //InitTitleScene();
-    SwitchSceneTo(GetSceneNodeByName("title"));
+    SwitchSceneFrom(NULL);
 }
 
 void AppUpdate()
@@ -16,7 +16,7 @@ void AppUpdate()
     DrawScene(GetSceneNodeByName("title"));*/
 
     UpdateCurrScene();
-    
+
     DrawScene(GetManagedCurrScene());
 }
 
@@ -50,7 +50,7 @@ void AppButtonEvent(int value)
     switch (value)
     {
     case STARTGAME:
-        DebugLog("to start game");
+        SwitchSceneFrom(GetSceneNodeByName("title"));
         break;
 
     case GAMEHELP:
@@ -61,6 +61,10 @@ void AppButtonEvent(int value)
     case CLOSEHELP:
         GetUIObjByName("help")->TurnOff();
         SetSelectedBtn(GetUIObjByName("title")->Buttons + 1);
+        break;
+
+    case CLOSESELECT:
+        SwitchSceneFrom(NULL);
         break;
 
     default:

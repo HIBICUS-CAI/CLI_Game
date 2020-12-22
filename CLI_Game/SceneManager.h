@@ -9,4 +9,4 @@ void InitCurrScene();
 
 void UpdateCurrScene();
 
-void SwitchSceneTo(SCENENODE* sceneNode);
+void SwitchSceneFrom(SCENENODE* sceneNode);

@@ -1,8 +1,10 @@
 #include "SceneManager.h"
 #include "AppDeclared.h"
 #include "AppTitleScene.h"
+#include "AppStageSelectScene.h"
 
 #define TITLESCENEFLAG 1
+#define SELECTIONSCENEFLAG 2
 int g_SceneFlag;
 
 void SetSceneFlag(int flag)
@@ -29,14 +31,23 @@ void InitCurrScene()
 {
     if (GetManagedCurrScene() == NULL)
     {
-        InitTitleScene();
+        if (GetSceneNodeByName("title") == NULL)
+        {
+            InitTitleScene();
+        }
         SetManagedCurrScene(GetSceneNodeByName("title"));
         SetSceneFlag(TITLESCENEFLAG);
+        SetSelectedBtn(GetSceneNodeByName("title")->BaseUIObj->Buttons);
     }
-    else if (strcmp(GetManagedCurrScene()->SceneName, "title"))
+    else if (!strcmp(GetManagedCurrScene()->SceneName, "title"))
     {
-        /*SetSceneFlag(TITLESCENEFLAG);
-        InitTitleScene();*/
+        if (GetSceneNodeByName("selection") == NULL)
+        {
+            InitSelectionScene();
+        }
+        SetManagedCurrScene(GetSceneNodeByName("selection"));
+        SetSceneFlag(SELECTIONSCENEFLAG);
+        SetSelectedBtn(GetSceneNodeByName("selection")->BaseUIObj->Buttons);
     }
 }
 
@@ -48,13 +59,17 @@ void UpdateCurrScene()
         UpdateTitleScene();
         break;
 
+    case SELECTIONSCENEFLAG:
+        UpdateSelectionScene();
+        break;
+
     default:
         ErrorLogI1("you don't have a scene flag witch is", GetSceneFlag());
         break;
     }
 }
 
-void SwitchSceneTo(SCENENODE* sceneNode)
+void SwitchSceneFrom(SCENENODE* sceneNode)
 {
     SetManagedCurrScene(sceneNode);
     InitCurrScene();

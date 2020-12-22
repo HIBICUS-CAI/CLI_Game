@@ -159,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppDeclared.h" />
+    <ClInclude Include="AppStageSelectScene.h" />
     <ClInclude Include="AppTitleScene.h" />
     <ClInclude Include="ButtonEvents.h" />
     <ClInclude Include="ConsolePrint.h" />
