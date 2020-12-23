@@ -153,6 +153,7 @@
     <ClCompile Include="InputDispose.cpp" />
     <ClCompile Include="LogsOutput.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MazeMap.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SceneNode.cpp" />
@@ -174,13 +175,18 @@
     <ClInclude Include="GameAppStructs.h" />
     <ClInclude Include="InputDispose.h" />
     <ClInclude Include="LogsOutput.h" />
+    <ClInclude Include="MazeMap.h" />
     <ClInclude Include="ObjectStruct.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SceneNode.h" />
     <ClInclude Include="Structs.h" />
     <ClInclude Include="Tools.h" />
     <ClInclude Include="UIObject.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Maze1.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

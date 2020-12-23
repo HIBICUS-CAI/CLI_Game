@@ -10,13 +10,13 @@ void UpdatePlayer();
 
 void DrawPlayerToCamBuffer();
 
-void MoveForward();
+void PlayerMoveForward();
 
-void MoveBack();
+void PlayerMoveBack();
 
-void TurnLeft();
+void PlayerTurnLeft();
 
-void TurnRight();
+void PlayerTurnRight();
 
 void TurnOnPlayer();
 

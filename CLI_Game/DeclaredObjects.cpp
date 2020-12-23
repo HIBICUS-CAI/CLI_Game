@@ -30,3 +30,10 @@ void SetIsPlayingMaze(int value)
 {
     g_IsPlayingMaze = value;
 }
+
+MAZEMAP g_MazeMap;
+
+MAZEMAP* GetMazeMap()
+{
+    return &g_MazeMap;
+}

@@ -18,3 +18,21 @@ struct PLAYER
         Visible = 0;
     }
 };
+
+struct WALL
+{
+    OBJECT ObjSelf;
+    char Sprite[2];
+};
+
+#define MAZEMAPMAXLENGTH 250
+
+struct MAZEMAP
+{
+    char Map[MAZEMAPMAXLENGTH * MAZEMAPMAXLENGTH];
+
+    char* GetMap()
+    {
+        return Map;
+    }
+};

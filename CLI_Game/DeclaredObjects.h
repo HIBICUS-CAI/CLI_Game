@@ -11,3 +11,5 @@ void SetStageID(int id);
 int IsPlayingMaze();
 
 void SetIsPlayingMaze(int value);
+
+MAZEMAP* GetMazeMap();

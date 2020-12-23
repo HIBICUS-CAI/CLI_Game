@@ -7,7 +7,7 @@ void InitPlayer(POSITION_2D pos)
     GetPlayer()->ObjSelf.Width = 2;
     GetPlayer()->ObjSelf.Height = 1;
     GetPlayer()->ObjSelf.ColliRadius = 1.f;
-    char temp[3] = "¡ó";
+    char temp[3] = "¡ô";
     *(GetPlayer()->Sprite) = temp[0];
     *(GetPlayer()->Sprite + 1) = temp[1];
     GetPlayer()->TurnOn();
@@ -79,22 +79,22 @@ void TurnOffPlayer()
     GetPlayer()->Visible = 0;
 }
 
-void MoveForward()
+void PlayerMoveForward()
 {
     --GetPlayer()->ObjSelf.Position.posY;
 }
 
-void MoveBack()
+void PlayerMoveBack()
 {
     ++GetPlayer()->ObjSelf.Position.posY;
 }
 
-void TurnLeft()
+void PlayerTurnLeft()
 {
     GetPlayer()->ObjSelf.Position.posX -= 2;
 }
 
-void TurnRight()
+void PlayerTurnRight()
 {
     GetPlayer()->ObjSelf.Position.posX += 2;
 }

@@ -3,11 +3,13 @@
 #include "SceneManager.h"
 #include "DeclaredObjects.h"
 #include "Player.h"
+#include "MazeMap.h"
 
 void AppInit()
 {
     InitSceneNodes();
     InitPlayer(POSITION_2D(0, 0));
+    InitMazeMap();
 
     SwitchSceneToName("title");
 }
@@ -15,7 +17,12 @@ void AppInit()
 void AppUpdate()
 {
     UpdateCurrScene();
+
     UpdatePlayer();
+    if (IsPlayingMaze())
+    {
+        UpdateMazeMap();
+    }
 
     DrawScene(GetManagedCurrScene());
 }
@@ -30,22 +37,22 @@ void AppKeyboardEvent(int keyCode)
     if (keyCode == W_VALUE)
     {
         DebugLog("go forward");
-        MoveForward();
+        PlayerMoveForward();
     }
     if (keyCode == S_VALUE)
     {
         DebugLog("go back");
-        MoveBack();
+        PlayerMoveBack();
     }
     if (keyCode == A_VALUE)
     {
         DebugLog("turn left");
-        TurnLeft();
+        PlayerTurnLeft();
     }
     if (keyCode == D_VALUE)
     {
         DebugLog("turn right");
-        TurnRight();
+        PlayerTurnRight();
     }
 }
 
