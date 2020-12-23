@@ -93,6 +93,9 @@
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="StartEndPoint.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -141,6 +144,9 @@
       <Filter>GameObjects</Filter>
     </ClCompile>
     <ClCompile Include="MazeMap.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="StartEndPoint.cpp">
       <Filter>GameObjects</Filter>
     </ClCompile>
   </ItemGroup>

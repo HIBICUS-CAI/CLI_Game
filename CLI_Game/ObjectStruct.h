@@ -36,3 +36,15 @@ struct MAZEMAP
         return Map;
     }
 };
+
+enum class START_END_POINT
+{
+    START_POINT,
+    END_POINT
+};
+
+struct STARTENDPOINT
+{
+    OBJECT ObjSelf;
+    START_END_POINT PointFlag;
+};

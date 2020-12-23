@@ -13,3 +13,5 @@ int IsPlayingMaze();
 void SetIsPlayingMaze(int value);
 
 MAZEMAP* GetMazeMap();
+
+STARTENDPOINT* GetStartEndPointArray();

@@ -19,6 +19,16 @@ void InitSelectionScene()
     GetUIObjByName("selection")->AddBtn(UI_BUTTON(CLOSESELECT, POSITION_2D(40, 8),
         (char*)"é]¤¸¤ë", BTN_DESIGN::LINE));
 
+    CreateUIO("after-clear", POSITION_2D(20, 20), 50, 10, UIO_DESIGN::STAR,
+        GetUIObjByName("selection"));
+    GetUIObjByName("after-clear")->AddText(UI_TEXT(POSITION_2D(3, 1),
+        (char*)"¥¹¥Æ©`¥¸¥¯¥ê¥¢¤·¤Þ¤·¤¿£¡"));
+    GetUIObjByName("after-clear")->AddText(UI_TEXT(POSITION_2D(3, 2),
+        (char*)"¤ª¤á¤Ç¤È¤¦¤´¤¶¤¤¤Þ¤¹£¡"));
+    GetUIObjByName("after-clear")->AddBtn(UI_BUTTON(CLOSECLEARUP, POSITION_2D(15, 5),
+        (char*)"é]¤¸¤ë", BTN_DESIGN::LINE));
+    GetUIObjByName("selection")->AddChild(GetUIObjByName("after-clear"));
+
     SetSelectedBtn(GetUIObjByName("selection")->Buttons);
     GetSceneNodeByName("selection")->SetBaseUIO(GetUIObjByName("selection"));
 }

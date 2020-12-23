@@ -37,3 +37,10 @@ MAZEMAP* GetMazeMap()
 {
     return &g_MazeMap;
 }
+
+STARTENDPOINT g_StartEndPoint[2];
+
+STARTENDPOINT* GetStartEndPointArray()
+{
+    return g_StartEndPoint;
+}

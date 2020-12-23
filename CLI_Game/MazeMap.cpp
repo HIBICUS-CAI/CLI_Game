@@ -1,6 +1,7 @@
 #include "MazeMap.h"
 #include "AppDeclared.h"
 #include "Player.h"
+#include "StartEndPoint.h"
 
 void InitMazeMap()
 {
@@ -49,7 +50,7 @@ void UpdateMazeMap()
         for (int j = 0; j < camWidth; j++)
         {
             *(camBuffer + i * camWidth + j) =
-                *(mapBuffer + startPosY * MAZEMAPMAXLENGTH + startPosX + 
+                *(mapBuffer + startPosY * MAZEMAPMAXLENGTH + startPosX +
                     i * MAZEMAPMAXLENGTH + j);
         }
     }
@@ -90,6 +91,20 @@ void LoadInfoFromFile(const char* fileName)
         }
         else if (flag == 0)
         {
+            ++startX;
+        }
+        else if (flag == 4)
+        {
+            SetStartPointPos(POSITION_2D(startX, startY));
+            *(GetMazeMap()->GetMap() +
+                startY * MAZEMAPMAXLENGTH + startX) = 'S';
+            ++startX;
+        }
+        else if (flag == 5)
+        {
+            SetEndPointPos(POSITION_2D(startX, startY));
+            *(GetMazeMap()->GetMap() +
+                startY * MAZEMAPMAXLENGTH + startX) = 'E';
             ++startX;
         }
         else if (flag == 2)

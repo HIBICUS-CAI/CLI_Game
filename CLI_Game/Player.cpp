@@ -30,7 +30,9 @@ void UpdatePlayer()
         switch (GetStageID())
         {
         case 1:
-            ResetPlayerPosTurnToStage(GetStageID(), POSITION_2D(61, 53));
+            //ResetPlayerPosTurnToStage(GetStageID(), POSITION_2D(61, 53));
+            ResetPlayerPosTurnToStage(GetStageID(),
+                (GetStartEndPointArray()->ObjSelf.Position));
             break;
 
         case 2:

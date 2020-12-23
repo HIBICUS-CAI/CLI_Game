@@ -4,12 +4,14 @@
 #include "DeclaredObjects.h"
 #include "Player.h"
 #include "MazeMap.h"
+#include "StartEndPoint.h"
 
 void AppInit()
 {
     InitSceneNodes();
     InitPlayer(POSITION_2D(0, 0));
     InitMazeMap();
+    InitStartEndPoint();
 
     SwitchSceneToName("title");
 }
@@ -22,6 +24,7 @@ void AppUpdate()
     if (IsPlayingMaze())
     {
         UpdateMazeMap();
+        UpdateStartEndPoint();
         DrawPlayerToCamBuffer();
     }
 
@@ -168,6 +171,11 @@ void AppButtonEvent(int value)
         SwitchSceneToName("selection");
         SetStageID(0);
         SetIsPlayingMaze(0);
+        break;
+
+    case CLOSECLEARUP:
+        GetUIObjByName("after-clear")->TurnOff();
+        SetSelectedBtn(GetUIObjByName("selection")->Buttons);
         break;
 
     default:
