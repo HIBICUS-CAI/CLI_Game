@@ -22,6 +22,7 @@ void AppUpdate()
     if (IsPlayingMaze())
     {
         UpdateMazeMap();
+        DrawPlayerToCamBuffer();
     }
 
     DrawScene(GetManagedCurrScene());
@@ -36,23 +37,93 @@ void AppKeyboardEvent(int keyCode)
 {
     if (keyCode == W_VALUE)
     {
-        DebugLog("go forward");
-        PlayerMoveForward();
+
+        if (*(GetMazeMap()->GetMap() +
+            (GetPlayer()->ObjSelf.Position.posY - 1) * MAZEMAPMAXLENGTH +
+            GetPlayer()->ObjSelf.Position.posX) == '-' ||
+            *(GetMazeMap()->GetMap() +
+                (GetPlayer()->ObjSelf.Position.posY - 1) * MAZEMAPMAXLENGTH +
+                GetPlayer()->ObjSelf.Position.posX) == '|' ||
+            *(GetMazeMap()->GetMap() +
+                (GetPlayer()->ObjSelf.Position.posY - 1) * MAZEMAPMAXLENGTH +
+                GetPlayer()->ObjSelf.Position.posX + 1) == '-' ||
+            *(GetMazeMap()->GetMap() +
+                (GetPlayer()->ObjSelf.Position.posY - 1) * MAZEMAPMAXLENGTH +
+                GetPlayer()->ObjSelf.Position.posX + 1) == '|')
+        {
+
+        }
+        else
+        {
+            PlayerMoveForward();
+        }
     }
     if (keyCode == S_VALUE)
     {
-        DebugLog("go back");
-        PlayerMoveBack();
+        if (*(GetMazeMap()->GetMap() +
+            (GetPlayer()->ObjSelf.Position.posY + 1) * MAZEMAPMAXLENGTH +
+            GetPlayer()->ObjSelf.Position.posX) == '-' ||
+            *(GetMazeMap()->GetMap() +
+                (GetPlayer()->ObjSelf.Position.posY + 1) * MAZEMAPMAXLENGTH +
+                GetPlayer()->ObjSelf.Position.posX) == '|' ||
+            *(GetMazeMap()->GetMap() +
+                (GetPlayer()->ObjSelf.Position.posY + 1) * MAZEMAPMAXLENGTH +
+                GetPlayer()->ObjSelf.Position.posX + 1) == '-' ||
+            *(GetMazeMap()->GetMap() +
+                (GetPlayer()->ObjSelf.Position.posY + 1) * MAZEMAPMAXLENGTH +
+                GetPlayer()->ObjSelf.Position.posX + 1) == '|')
+        {
+
+        }
+        else
+        {
+            PlayerMoveBack();
+        }
     }
     if (keyCode == A_VALUE)
     {
-        DebugLog("turn left");
-        PlayerTurnLeft();
+        if (*(GetMazeMap()->GetMap() +
+            GetPlayer()->ObjSelf.Position.posY * MAZEMAPMAXLENGTH +
+            GetPlayer()->ObjSelf.Position.posX - 1) == '-' ||
+            *(GetMazeMap()->GetMap() +
+                GetPlayer()->ObjSelf.Position.posY * MAZEMAPMAXLENGTH +
+                GetPlayer()->ObjSelf.Position.posX - 1) == '|' ||
+            *(GetMazeMap()->GetMap() +
+                GetPlayer()->ObjSelf.Position.posY * MAZEMAPMAXLENGTH +
+                GetPlayer()->ObjSelf.Position.posX - 2) == '-' ||
+            *(GetMazeMap()->GetMap() +
+                GetPlayer()->ObjSelf.Position.posY * MAZEMAPMAXLENGTH +
+                GetPlayer()->ObjSelf.Position.posX - 2) == '|')
+        {
+            DebugLog("cannot turn left");
+        }
+        else
+        {
+            DebugLog("can turn left");
+            PlayerTurnLeft();
+        }
     }
     if (keyCode == D_VALUE)
     {
-        DebugLog("turn right");
-        PlayerTurnRight();
+        if (*(GetMazeMap()->GetMap() +
+            GetPlayer()->ObjSelf.Position.posY * MAZEMAPMAXLENGTH +
+            GetPlayer()->ObjSelf.Position.posX + 2) == '-' ||
+            *(GetMazeMap()->GetMap() +
+                GetPlayer()->ObjSelf.Position.posY * MAZEMAPMAXLENGTH +
+                GetPlayer()->ObjSelf.Position.posX + 2) == '|' ||
+            *(GetMazeMap()->GetMap() +
+                GetPlayer()->ObjSelf.Position.posY * MAZEMAPMAXLENGTH +
+                GetPlayer()->ObjSelf.Position.posX + 3) == '-' ||
+            *(GetMazeMap()->GetMap() +
+                GetPlayer()->ObjSelf.Position.posY * MAZEMAPMAXLENGTH +
+                GetPlayer()->ObjSelf.Position.posX + 3) == '|')
+        {
+
+        }
+        else
+        {
+            PlayerTurnRight();
+        }
     }
 }
 
@@ -81,6 +152,7 @@ void AppButtonEvent(int value)
     case GETINMAZE1:
         SwitchSceneToName("maze");
         SetStageID(1);
+        LoadMazeMap();
         break;
 
     case GETINMAZE2:

@@ -30,7 +30,7 @@ void UpdatePlayer()
         switch (GetStageID())
         {
         case 1:
-            ResetPlayerPosTurnToStage(GetStageID(), POSITION_2D(1, 1));
+            ResetPlayerPosTurnToStage(GetStageID(), POSITION_2D(61, 53));
             break;
 
         case 2:
@@ -45,8 +45,6 @@ void UpdatePlayer()
             return;
         }
     }
-
-    DrawPlayerToCamBuffer();
 }
 
 void DrawPlayerToCamBuffer()
@@ -54,18 +52,18 @@ void DrawPlayerToCamBuffer()
     char* buffer = GetCurrScene()->GetCamAddr()->GetCamBuffer();
     int width = GetCurrScene()->GetCamAddr()->CameraWidth;
     int height = GetCurrScene()->GetCamAddr()->CameraHeight;
-    int playerPosX = GetPlayer()->ObjSelf.Position.posX;
-    int playerPosY = GetPlayer()->ObjSelf.Position.posY;
+    /*int playerPosX = GetPlayer()->ObjSelf.Position.posX;
+    int playerPosY = GetPlayer()->ObjSelf.Position.posY;*/
 
-    if (playerPosX<0 || (playerPosX + 1)>width ||
+    /*if (playerPosX<0 || (playerPosX + 1)>width ||
         playerPosY<0 || playerPosY>height)
     {
         ErrorLog("player's position overflowed");
-    }
+    }*/
 
-    *(buffer + playerPosY * width + playerPosX) =
+    *(buffer + height / 2 * width + width / 2) =
         *(GetPlayer()->Sprite);
-    *(buffer + playerPosY * width + playerPosX + 1) =
+    *(buffer + height / 2 * width + width / 2 + 1) =
         *(GetPlayer()->Sprite + 1);
 }
 

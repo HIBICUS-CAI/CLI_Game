@@ -6,4 +6,6 @@ void InitMazeMap();
 
 void LoadMazeMap();
 
+void LoadInfoFromFile(const char* fileName);
+
 void UpdateMazeMap();
