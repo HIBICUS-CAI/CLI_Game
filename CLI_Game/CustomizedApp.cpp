@@ -95,11 +95,10 @@ void AppKeyboardEvent(int keyCode)
                 GetPlayer()->ObjSelf.Position.posY * MAZEMAPMAXLENGTH +
                 GetPlayer()->ObjSelf.Position.posX - 2) == '|')
         {
-            DebugLog("cannot turn left");
+
         }
         else
         {
-            DebugLog("can turn left");
             PlayerTurnLeft();
         }
     }
