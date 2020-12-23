@@ -19,6 +19,9 @@
     <Filter Include="GameScene">
       <UniqueIdentifier>{4e33540c-b5df-4166-a0e8-256966eccaf9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObjects">
+      <UniqueIdentifier>{6a8da4cb-e196-4eb3-bf70-edb4e9d621d7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameApp.h">
@@ -75,6 +78,15 @@
     <ClInclude Include="AppMazeScene.h">
       <Filter>GameScene</Filter>
     </ClInclude>
+    <ClInclude Include="ObjectStruct.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="DeclaredObjects.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -115,6 +127,12 @@
     </ClCompile>
     <ClCompile Include="SceneManager.cpp">
       <Filter>GameApp</Filter>
+    </ClCompile>
+    <ClCompile Include="DeclaredObjects.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>GameObjects</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

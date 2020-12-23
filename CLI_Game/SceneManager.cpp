@@ -92,5 +92,4 @@ void SwitchSceneToName(const char* sceneName)
     }
     SetManagedCurrScene(scene);
     InitCurrScene();
-    UpdateCurrScene();
 }

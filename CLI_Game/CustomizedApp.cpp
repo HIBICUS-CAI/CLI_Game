@@ -1,10 +1,13 @@
 #include "CustomizedApp.h"
 #include "SceneNode.h"
 #include "SceneManager.h"
+#include "DeclaredObjects.h"
+#include "Player.h"
 
 void AppInit()
 {
     InitSceneNodes();
+    InitPlayer(POSITION_2D(0, 0));
 
     SwitchSceneToName("title");
 }
@@ -12,6 +15,7 @@ void AppInit()
 void AppUpdate()
 {
     UpdateCurrScene();
+    UpdatePlayer();
 
     DrawScene(GetManagedCurrScene());
 }
@@ -26,18 +30,22 @@ void AppKeyboardEvent(int keyCode)
     if (keyCode == W_VALUE)
     {
         DebugLog("go forward");
+        MoveForward();
     }
     if (keyCode == S_VALUE)
     {
         DebugLog("go back");
+        MoveBack();
     }
     if (keyCode == A_VALUE)
     {
         DebugLog("turn left");
+        TurnLeft();
     }
     if (keyCode == D_VALUE)
     {
         DebugLog("turn right");
+        TurnRight();
     }
 }
 
@@ -65,18 +73,23 @@ void AppButtonEvent(int value)
 
     case GETINMAZE1:
         SwitchSceneToName("maze");
+        SetStageID(1);
         break;
 
     case GETINMAZE2:
         SwitchSceneToName("maze");
+        SetStageID(2);
         break;
 
     case GETINMAZE3:
         SwitchSceneToName("maze");
+        SetStageID(3);
         break;
 
     case GIVEUPMAZE:
         SwitchSceneToName("selection");
+        SetStageID(0);
+        SetIsPlayingMaze(0);
         break;
 
     default:

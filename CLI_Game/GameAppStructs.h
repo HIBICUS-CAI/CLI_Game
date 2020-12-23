@@ -57,3 +57,23 @@ struct SCENENODE
         return BaseUIObj;
     }
 };
+
+struct OBJECT
+{
+    POSITION_2D Position;
+    int Width;
+    int Height;
+    float ColliRadius;
+
+    int IsCollied(OBJECT obj)
+    {
+        float distX = ((float)(Width) / 2.f + (float)Position.posX) -
+            ((float)(obj.Width) / 2.f + (float)obj.Position.posX);
+        float distY = (float)(Height) / 2.f + (float)Position.posY -
+            ((float)(obj.Height) / 2.f + (float)obj.Position.posY);
+
+        return (distX * distX + distY * distY <=
+            (ColliRadius + obj.ColliRadius) * (ColliRadius + obj.ColliRadius)) ?
+            1 : 0;
+    }
+};
