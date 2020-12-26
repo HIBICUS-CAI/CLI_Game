@@ -51,3 +51,15 @@ MAZEENEMY* GetMazeEnemyArray()
 {
     return g_MazeEnemy;
 }
+
+int g_PlayingBattle = 0;
+
+int IsPlayingBattle()
+{
+    return g_PlayingBattle;
+}
+
+void SetIsPlayingBattle(int value)
+{
+    g_PlayingBattle = value;
+}

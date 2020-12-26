@@ -31,6 +31,10 @@ void AppUpdate()
         UpdateMazeEnemy();
         DrawPlayerToCamBuffer();
     }
+    if (IsPlayingBattle())
+    {
+
+    }
 
     DrawScene(GetManagedCurrScene());
 }
@@ -79,91 +83,118 @@ void AppKeyboardEvent(int keyCode)
 {
     if (keyCode == W_VALUE)
     {
-
-        if (*(GetMazeMap()->GetMap() +
-            (GetPlayer()->ObjSelf.Position.posY - 1) * MAZEMAPMAXLENGTH +
-            GetPlayer()->ObjSelf.Position.posX) == '-' ||
-            *(GetMazeMap()->GetMap() +
-                (GetPlayer()->ObjSelf.Position.posY - 1) * MAZEMAPMAXLENGTH +
-                GetPlayer()->ObjSelf.Position.posX) == '|' ||
-            *(GetMazeMap()->GetMap() +
-                (GetPlayer()->ObjSelf.Position.posY - 1) * MAZEMAPMAXLENGTH +
-                GetPlayer()->ObjSelf.Position.posX + 1) == '-' ||
-            *(GetMazeMap()->GetMap() +
-                (GetPlayer()->ObjSelf.Position.posY - 1) * MAZEMAPMAXLENGTH +
-                GetPlayer()->ObjSelf.Position.posX + 1) == '|')
+        if (!strcmp(GetManagedCurrScene()->SceneName, "maze"))
         {
+            if (*(GetMazeMap()->GetMap() +
+                (GetPlayer()->ObjSelf.Position.posY - 1) * MAZEMAPMAXLENGTH +
+                GetPlayer()->ObjSelf.Position.posX) == '-' ||
+                *(GetMazeMap()->GetMap() +
+                    (GetPlayer()->ObjSelf.Position.posY - 1) * MAZEMAPMAXLENGTH +
+                    GetPlayer()->ObjSelf.Position.posX) == '|' ||
+                *(GetMazeMap()->GetMap() +
+                    (GetPlayer()->ObjSelf.Position.posY - 1) * MAZEMAPMAXLENGTH +
+                    GetPlayer()->ObjSelf.Position.posX + 1) == '-' ||
+                *(GetMazeMap()->GetMap() +
+                    (GetPlayer()->ObjSelf.Position.posY - 1) * MAZEMAPMAXLENGTH +
+                    GetPlayer()->ObjSelf.Position.posX + 1) == '|')
+            {
 
+            }
+            else
+            {
+                PlayerMoveForward();
+            }
         }
-        else
+        else if (!strcmp(GetManagedCurrScene()->SceneName, "battle"))
         {
-            PlayerMoveForward();
+
         }
     }
     if (keyCode == S_VALUE)
     {
-        if (*(GetMazeMap()->GetMap() +
-            (GetPlayer()->ObjSelf.Position.posY + 1) * MAZEMAPMAXLENGTH +
-            GetPlayer()->ObjSelf.Position.posX) == '-' ||
-            *(GetMazeMap()->GetMap() +
+        if (!strcmp(GetManagedCurrScene()->SceneName, "maze"))
+        {
+            if (*(GetMazeMap()->GetMap() +
                 (GetPlayer()->ObjSelf.Position.posY + 1) * MAZEMAPMAXLENGTH +
-                GetPlayer()->ObjSelf.Position.posX) == '|' ||
-            *(GetMazeMap()->GetMap() +
-                (GetPlayer()->ObjSelf.Position.posY + 1) * MAZEMAPMAXLENGTH +
-                GetPlayer()->ObjSelf.Position.posX + 1) == '-' ||
-            *(GetMazeMap()->GetMap() +
-                (GetPlayer()->ObjSelf.Position.posY + 1) * MAZEMAPMAXLENGTH +
-                GetPlayer()->ObjSelf.Position.posX + 1) == '|')
+                GetPlayer()->ObjSelf.Position.posX) == '-' ||
+                *(GetMazeMap()->GetMap() +
+                    (GetPlayer()->ObjSelf.Position.posY + 1) * MAZEMAPMAXLENGTH +
+                    GetPlayer()->ObjSelf.Position.posX) == '|' ||
+                *(GetMazeMap()->GetMap() +
+                    (GetPlayer()->ObjSelf.Position.posY + 1) * MAZEMAPMAXLENGTH +
+                    GetPlayer()->ObjSelf.Position.posX + 1) == '-' ||
+                *(GetMazeMap()->GetMap() +
+                    (GetPlayer()->ObjSelf.Position.posY + 1) * MAZEMAPMAXLENGTH +
+                    GetPlayer()->ObjSelf.Position.posX + 1) == '|')
+            {
+
+            }
+            else
+            {
+                PlayerMoveBack();
+            }
+        }
+        else if (!strcmp(GetManagedCurrScene()->SceneName, "battle"))
         {
 
-        }
-        else
-        {
-            PlayerMoveBack();
         }
     }
     if (keyCode == A_VALUE)
     {
-        if (*(GetMazeMap()->GetMap() +
-            GetPlayer()->ObjSelf.Position.posY * MAZEMAPMAXLENGTH +
-            GetPlayer()->ObjSelf.Position.posX - 1) == '-' ||
-            *(GetMazeMap()->GetMap() +
+        if (!strcmp(GetManagedCurrScene()->SceneName, "maze"))
+        {
+            if (*(GetMazeMap()->GetMap() +
                 GetPlayer()->ObjSelf.Position.posY * MAZEMAPMAXLENGTH +
-                GetPlayer()->ObjSelf.Position.posX - 1) == '|' ||
-            *(GetMazeMap()->GetMap() +
-                GetPlayer()->ObjSelf.Position.posY * MAZEMAPMAXLENGTH +
-                GetPlayer()->ObjSelf.Position.posX - 2) == '-' ||
-            *(GetMazeMap()->GetMap() +
-                GetPlayer()->ObjSelf.Position.posY * MAZEMAPMAXLENGTH +
-                GetPlayer()->ObjSelf.Position.posX - 2) == '|')
+                GetPlayer()->ObjSelf.Position.posX - 1) == '-' ||
+                *(GetMazeMap()->GetMap() +
+                    GetPlayer()->ObjSelf.Position.posY * MAZEMAPMAXLENGTH +
+                    GetPlayer()->ObjSelf.Position.posX - 1) == '|' ||
+                *(GetMazeMap()->GetMap() +
+                    GetPlayer()->ObjSelf.Position.posY * MAZEMAPMAXLENGTH +
+                    GetPlayer()->ObjSelf.Position.posX - 2) == '-' ||
+                *(GetMazeMap()->GetMap() +
+                    GetPlayer()->ObjSelf.Position.posY * MAZEMAPMAXLENGTH +
+                    GetPlayer()->ObjSelf.Position.posX - 2) == '|')
+            {
+
+            }
+            else
+            {
+                PlayerTurnLeft();
+            }
+        }
+        else if (!strcmp(GetManagedCurrScene()->SceneName, "battle"))
         {
 
-        }
-        else
-        {
-            PlayerTurnLeft();
         }
     }
     if (keyCode == D_VALUE)
     {
-        if (*(GetMazeMap()->GetMap() +
-            GetPlayer()->ObjSelf.Position.posY * MAZEMAPMAXLENGTH +
-            GetPlayer()->ObjSelf.Position.posX + 2) == '-' ||
-            *(GetMazeMap()->GetMap() +
+        if (!strcmp(GetManagedCurrScene()->SceneName, "maze"))
+        {
+            if (*(GetMazeMap()->GetMap() +
                 GetPlayer()->ObjSelf.Position.posY * MAZEMAPMAXLENGTH +
-                GetPlayer()->ObjSelf.Position.posX + 2) == '|' ||
-            *(GetMazeMap()->GetMap() +
-                GetPlayer()->ObjSelf.Position.posY * MAZEMAPMAXLENGTH +
-                GetPlayer()->ObjSelf.Position.posX + 3) == '-' ||
-            *(GetMazeMap()->GetMap() +
-                GetPlayer()->ObjSelf.Position.posY * MAZEMAPMAXLENGTH +
-                GetPlayer()->ObjSelf.Position.posX + 3) == '|')
+                GetPlayer()->ObjSelf.Position.posX + 2) == '-' ||
+                *(GetMazeMap()->GetMap() +
+                    GetPlayer()->ObjSelf.Position.posY * MAZEMAPMAXLENGTH +
+                    GetPlayer()->ObjSelf.Position.posX + 2) == '|' ||
+                *(GetMazeMap()->GetMap() +
+                    GetPlayer()->ObjSelf.Position.posY * MAZEMAPMAXLENGTH +
+                    GetPlayer()->ObjSelf.Position.posX + 3) == '-' ||
+                *(GetMazeMap()->GetMap() +
+                    GetPlayer()->ObjSelf.Position.posY * MAZEMAPMAXLENGTH +
+                    GetPlayer()->ObjSelf.Position.posX + 3) == '|')
+            {
+
+            }
+            else
+            {
+                PlayerTurnRight();
+            }
+        }
+        else if (!strcmp(GetManagedCurrScene()->SceneName, "battle"))
         {
 
-        }
-        else
-        {
-            PlayerTurnRight();
         }
     }
 }
@@ -216,6 +247,12 @@ void AppButtonEvent(int value)
     case CLOSECLEARUP:
         GetUIObjByName("after-clear")->TurnOff();
         SetSelectedBtn(GetUIObjByName("selection")->Buttons);
+        break;
+
+    case ENDBATTLE:
+        SwitchSceneToName("maze");
+        SetIsPlayingBattle(0);
+        SetIsPlayingMaze(1);
         break;
 
     default:

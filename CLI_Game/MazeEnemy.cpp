@@ -1,6 +1,7 @@
 #include "MazeEnemy.h"
 #include "AppDeclared.h"
 #include "Tools.h"
+#include "SceneManager.h"
 
 void InitMazeEnemy()
 {
@@ -71,6 +72,7 @@ void UpdateSingleMazeEnemy(MAZEENEMY* mazeEnemy)
     {
         DebugLog("get collied with player");
         mazeEnemy->TurnOff();
+        SwitchSceneToName("battle");
     }
 }
 

@@ -18,3 +18,7 @@ STARTENDPOINT* GetStartEndPointArray();
 
 #define MAZEENEMYSIZE 50
 MAZEENEMY* GetMazeEnemyArray();
+
+int IsPlayingBattle();
+
+void SetIsPlayingBattle(int value);

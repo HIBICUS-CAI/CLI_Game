@@ -163,6 +163,7 @@
     <ClCompile Include="UIObject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AppBattleScene.h" />
     <ClInclude Include="AppDeclared.h" />
     <ClInclude Include="AppMazeScene.h" />
     <ClInclude Include="AppStageSelectScene.h" />

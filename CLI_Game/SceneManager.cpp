@@ -1,12 +1,15 @@
 #include "SceneManager.h"
 #include "AppDeclared.h"
+#include "DeclaredObjects.h"
 #include "AppTitleScene.h"
 #include "AppStageSelectScene.h"
 #include "AppMazeScene.h"
+#include "AppBattleScene.h"
 
 #define TITLESCENEFLAG 1
 #define SELECTIONSCENEFLAG 2
 #define MAZESCENEFLAG 3
+#define BATTLESCENEFLAG 4
 int g_SceneFlag;
 
 void SetSceneFlag(int flag)
@@ -46,6 +49,13 @@ void InitCurrScene()
         SetSceneFlag(MAZESCENEFLAG);
         SetSelectedBtn(GetSceneNodeByName("maze")->BaseUIObj->Buttons);
     }
+    else if (!strcmp(GetManagedCurrScene()->SceneName, "battle"))
+    {
+        SetSceneFlag(BATTLESCENEFLAG);
+        SetSelectedBtn(GetSceneNodeByName("battle")->BaseUIObj->Buttons);
+        SetIsPlayingMaze(0);
+        SetIsPlayingBattle(1);
+    }
 }
 
 void UpdateCurrScene()
@@ -64,6 +74,10 @@ void UpdateCurrScene()
         UpdateMazeScene();
         break;
 
+    case BATTLESCENEFLAG:
+        UpdateBattleScene();
+        break;
+
     default:
         ErrorLogI1("you don't have a scene flag witch is", GetSceneFlag());
         break;
@@ -75,7 +89,7 @@ void SwitchSceneToName(const char* sceneName)
     SCENENODE* scene = GetSceneNodeByName(sceneName);
     if (scene == NULL)
     {
-        if (!strcmp(sceneName,"title"))
+        if (!strcmp(sceneName, "title"))
         {
             InitTitleScene();
         }
@@ -86,6 +100,10 @@ void SwitchSceneToName(const char* sceneName)
         else if (!strcmp(sceneName, "maze"))
         {
             InitMazeScene();
+        }
+        else if (!strcmp(sceneName, "battle"))
+        {
+            InitBattleScene();
         }
 
         scene = GetSceneNodeByName(sceneName);

@@ -25,12 +25,11 @@ void ResetPlayerPosTurnToStage(int stage, POSITION_2D pos)
 
 void UpdatePlayer()
 {
-    if (!IsPlayingMaze())
+    if (!IsPlayingMaze() && !IsPlayingBattle())
     {
         switch (GetStageID())
         {
         case 1:
-            //ResetPlayerPosTurnToStage(GetStageID(), POSITION_2D(61, 53));
             ResetPlayerPosTurnToStage(GetStageID(),
                 (GetStartEndPointArray()->ObjSelf.Position));
             break;
