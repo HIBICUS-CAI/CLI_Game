@@ -144,3 +144,6 @@ EnemyMoveFBLR()
 在AppUpdate或者UpdateCurrScene当中进行更新
 定义一个绘制flag用于以不同的颜色绘制特殊的实体，consoleprint中添加一个后处理方法
 此后处理方法提供由GameApp中的客制化app提供
+
+#### BattleStage实现规划
+预计实现类似空洞骑士一样的超级简化版的横板动作

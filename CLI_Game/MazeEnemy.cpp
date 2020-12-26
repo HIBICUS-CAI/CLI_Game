@@ -38,9 +38,6 @@ void UpdateMazeEnemy()
     {
         if ((GetMazeEnemyArray() + index)->Visible == 1)
         {
-            DebugLogI2("enemy pos", 
-                (GetMazeEnemyArray() + index)->ObjSelf.Position.posX,
-                (GetMazeEnemyArray() + index)->ObjSelf.Position.posY);
             UpdateSingleMazeEnemy(GetMazeEnemyArray() + index);
         }
         ++index;
