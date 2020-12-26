@@ -73,6 +73,8 @@ void UpdateSingleMazeEnemy(MAZEENEMY* mazeEnemy)
         DebugLog("get collied with player");
         mazeEnemy->TurnOff();
         SwitchSceneToName("battle");
+        SetIsPlayingMaze(0);
+        SetIsPlayingBattle(1);
     }
 }
 

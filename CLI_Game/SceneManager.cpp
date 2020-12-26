@@ -1,6 +1,5 @@
 #include "SceneManager.h"
 #include "AppDeclared.h"
-#include "DeclaredObjects.h"
 #include "AppTitleScene.h"
 #include "AppStageSelectScene.h"
 #include "AppMazeScene.h"
@@ -53,8 +52,6 @@ void InitCurrScene()
     {
         SetSceneFlag(BATTLESCENEFLAG);
         SetSelectedBtn(GetSceneNodeByName("battle")->BaseUIObj->Buttons);
-        SetIsPlayingMaze(0);
-        SetIsPlayingBattle(1);
     }
 }
 
