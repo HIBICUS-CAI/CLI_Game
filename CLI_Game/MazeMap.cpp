@@ -105,6 +105,7 @@ void LoadInfoFromFile(const char* fileName)
         {
             //----------------------------------------------------
             SetMazeEnemy(POSITION_2D(startX, startY + 1));
+            SetMazeEnemy(POSITION_2D(startX + 20, startY + 1));
             //----------------------------------------------------
             SetEndPointPos(POSITION_2D(startX, startY));
             *(GetMazeMap()->GetMap() +

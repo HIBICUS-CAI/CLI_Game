@@ -2,6 +2,7 @@
 #include "AppDeclared.h"
 #include "SceneManager.h"
 #include "SceneNode.h"
+#include "MazeEnemy.h"
 
 void InitStartEndPoint()
 {
@@ -24,6 +25,7 @@ void UpdateStartEndPoint()
         ObjSelf.IsCollied(GetPlayer()->ObjSelf))
     {
         DebugLog("player arrived at endpoint");
+        TurnOffAllEnemy();
         SetStageID(0);
         SetIsPlayingMaze(0);
         SwitchSceneToName("selection");

@@ -12,7 +12,8 @@ void InitMazeEnemy()
         *((GetMazeEnemyArray() + i)->Sprite) = temp[0];
         *((GetMazeEnemyArray() + i)->Sprite + 1) = temp[1];
         (GetMazeEnemyArray() + i)->ObjSelf.Position = POSITION_2D(-1, -1);
-        (GetMazeEnemyArray() + i)->ObjSelf.ColliRadius = 2;
+        (GetMazeEnemyArray() + i)->ObjSelf.ColliRadius = 1;
+        (GetMazeEnemyArray() + i)->IsDead = 0;
         (GetMazeEnemyArray() + i)->TurnOff();
         (GetMazeEnemyArray() + i)->ScanFlag = STOP_MOVING;
         (GetMazeEnemyArray() + i)->MovingFlag = STOP_MOVING;
@@ -30,6 +31,32 @@ void SetMazeEnemy(POSITION_2D pos)
     (GetMazeEnemyArray() + index)->ID = index;
     (GetMazeEnemyArray() + index)->ObjSelf.Position = pos;
     (GetMazeEnemyArray() + index)->TurnOn();
+}
+
+void TurnOnAllEnemy()
+{
+    int index = 0;
+    while ((GetMazeEnemyArray() + index)->ID != -1)
+    {
+        if (!(GetMazeEnemyArray() + index)->IsDead)
+        {
+            (GetMazeEnemyArray() + index)->TurnOn();
+        }
+        ++index;
+    }
+}
+
+void TurnOffAllEnemy()
+{
+    int index = 0;
+    while ((GetMazeEnemyArray() + index)->ID != -1)
+    {
+        if (!(GetMazeEnemyArray() + index)->IsDead)
+        {
+            (GetMazeEnemyArray() + index)->TurnOff();
+        }
+        ++index;
+    }
 }
 
 void UpdateMazeEnemy()
@@ -71,10 +98,12 @@ void UpdateSingleMazeEnemy(MAZEENEMY* mazeEnemy)
     if (mazeEnemy->ObjSelf.IsCollied(GetPlayer()->ObjSelf))
     {
         DebugLog("get collied with player");
+        mazeEnemy->IsDead = 1;
         mazeEnemy->TurnOff();
         SwitchSceneToName("battle");
         SetIsPlayingMaze(0);
         SetIsPlayingBattle(1);
+        TurnOffAllEnemy();
     }
 }
 

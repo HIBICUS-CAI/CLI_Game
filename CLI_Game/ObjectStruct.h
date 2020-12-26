@@ -25,6 +25,7 @@ struct MAZEENEMY
     OBJECT ObjSelf;
     char Sprite[2];
     int Visible;
+    int IsDead;
 
     int ScanFlag;
     int MovingFlag;

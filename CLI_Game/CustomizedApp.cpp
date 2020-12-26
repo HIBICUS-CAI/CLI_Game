@@ -253,6 +253,7 @@ void AppButtonEvent(int value)
         SwitchSceneToName("maze");
         SetIsPlayingBattle(0);
         SetIsPlayingMaze(1);
+        TurnOnAllEnemy();
         break;
 
     default:

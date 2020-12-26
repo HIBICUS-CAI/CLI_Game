@@ -26,3 +26,7 @@ void MazeEnemyMoveBack(MAZEENEMY* mazeEnemy);
 void MazeEnemyTurnLeft(MAZEENEMY* mazeEnemy);
 
 void MazeEnemyTurnRight(MAZEENEMY* mazeEnemy);
+
+void TurnOnAllEnemy();
+
+void TurnOffAllEnemy();
