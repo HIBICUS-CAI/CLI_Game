@@ -11,10 +11,10 @@ void InitMazeEnemy()
         *((GetMazeEnemyArray() + i)->Sprite) = temp[0];
         *((GetMazeEnemyArray() + i)->Sprite + 1) = temp[1];
         (GetMazeEnemyArray() + i)->ObjSelf.Position = POSITION_2D(-1, -1);
+        (GetMazeEnemyArray() + i)->ObjSelf.ColliRadius = 2;
         (GetMazeEnemyArray() + i)->TurnOff();
         (GetMazeEnemyArray() + i)->ScanFlag = STOP_MOVING;
         (GetMazeEnemyArray() + i)->MovingFlag = STOP_MOVING;
-        (GetMazeEnemyArray() + i)->PreMovePos = POSITION_2D(-1, -1);
     }
 }
 
@@ -29,7 +29,6 @@ void SetMazeEnemy(POSITION_2D pos)
     (GetMazeEnemyArray() + index)->ID = index;
     (GetMazeEnemyArray() + index)->ObjSelf.Position = pos;
     (GetMazeEnemyArray() + index)->TurnOn();
-    (GetMazeEnemyArray() + index)->PreMovePos = pos;
 }
 
 void UpdateMazeEnemy()
@@ -47,19 +46,23 @@ void UpdateSingleMazeEnemy(MAZEENEMY* mazeEnemy)
     ScanPlayer(mazeEnemy);
     ManageMazeEnemyMove(mazeEnemy);
 
-    *(GetMazeMap()->GetMap() +
-        mazeEnemy->PreMovePos.posY * MAZEMAPMAXLENGTH +
-        mazeEnemy->PreMovePos.posX) = ' ';
-    *(GetMazeMap()->GetMap() +
-        mazeEnemy->PreMovePos.posY * MAZEMAPMAXLENGTH +
-        mazeEnemy->PreMovePos.posX + 1) = ' ';
-
-    *(GetMazeMap()->GetMap() +
-        mazeEnemy->ObjSelf.Position.posY * MAZEMAPMAXLENGTH +
-        mazeEnemy->ObjSelf.Position.posX) = *(mazeEnemy->Sprite);
-    *(GetMazeMap()->GetMap() +
-        mazeEnemy->ObjSelf.Position.posY * MAZEMAPMAXLENGTH +
-        mazeEnemy->ObjSelf.Position.posX + 1) = *(mazeEnemy->Sprite + 1);
+    int width = GetCurrScene()->GetCamAddr()->CameraWidth;
+    int height = GetCurrScene()->GetCamAddr()->CameraHeight;
+    POSITION_2D deltaWithPlayer =
+        mazeEnemy->ObjSelf.Position - GetPlayer()->ObjSelf.Position;
+    if ((deltaWithPlayer.posX * deltaWithPlayer.posX <
+        (width / 2 * width / 2)) &&
+        (deltaWithPlayer.posY * deltaWithPlayer.posY <
+            (height / 2 * height / 2)))
+    {
+        deltaWithPlayer =
+            POSITION_2D(width / 2, height / 2) + deltaWithPlayer;
+        char* buffer = GetCurrScene()->GetCamAddr()->GetCamBuffer();
+        *(buffer + deltaWithPlayer.posY * width + deltaWithPlayer.posX) =
+            *(mazeEnemy->Sprite);
+        *(buffer + deltaWithPlayer.posY * width + deltaWithPlayer.posX + 1) =
+            *(mazeEnemy->Sprite + 1);
+    }
 
     if (mazeEnemy->ObjSelf.IsCollied(GetPlayer()->ObjSelf))
     {
@@ -69,7 +72,7 @@ void UpdateSingleMazeEnemy(MAZEENEMY* mazeEnemy)
 
 void ScanPlayer(MAZEENEMY* mazeEnemy)
 {
-    int deltaX = mazeEnemy->ObjSelf.GetDeltaXWith(GetPlayer()->ObjSelf);
+    int deltaX = mazeEnemy->ObjSelf.GetDeltaXWith(GetPlayer()->ObjSelf) / 2;
     int deltaY = mazeEnemy->ObjSelf.GetDeltaYWith(GetPlayer()->ObjSelf);
 
     if ((deltaX >= -15 && deltaX <= 0 && deltaY >= -5 && deltaY <= 0) ||
@@ -278,7 +281,6 @@ void MazeEnemyMoveForward(MAZEENEMY* mazeEnemy)
     }
     else
     {
-        mazeEnemy->PreMovePos = mazeEnemy->ObjSelf.Position;
         --mazeEnemy->ObjSelf.Position.posY;
     }
 }
@@ -302,7 +304,6 @@ void MazeEnemyMoveBack(MAZEENEMY* mazeEnemy)
     }
     else
     {
-        mazeEnemy->PreMovePos = mazeEnemy->ObjSelf.Position;
         ++mazeEnemy->ObjSelf.Position.posY;
     }
 }
@@ -326,7 +327,6 @@ void MazeEnemyTurnLeft(MAZEENEMY* mazeEnemy)
     }
     else
     {
-        mazeEnemy->PreMovePos = mazeEnemy->ObjSelf.Position;
         mazeEnemy->ObjSelf.Position.posX -= 2;
     }
 }
@@ -350,7 +350,6 @@ void MazeEnemyTurnRight(MAZEENEMY* mazeEnemy)
     }
     else
     {
-        mazeEnemy->PreMovePos = mazeEnemy->ObjSelf.Position;
         mazeEnemy->ObjSelf.Position.posX += 2;
     }
 }

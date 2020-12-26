@@ -28,7 +28,6 @@ struct MAZEENEMY
 
     int ScanFlag;
     int MovingFlag;
-    POSITION_2D PreMovePos;
 
     void TurnOn()
     {
