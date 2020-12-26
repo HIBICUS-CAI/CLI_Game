@@ -36,6 +36,8 @@ void AppUpdate()
     if (IsPlayingBattle())
     {
         DrawStageToCamBuffer(0);
+        UpdatePlayerInBattle();
+        DrawPlayerToCamBuffer();
     }
 
     DrawScene(GetManagedCurrScene());
@@ -83,6 +85,28 @@ void AppPostPrint()
 
 void AppKeyboardEvent(int keyCode)
 {
+    if (keyCode == O_VALUE)
+    {
+        char* camBuffer = GetManagedCurrScene()->GetCamAddr()->GetCamBuffer();
+        int camWidth = GetManagedCurrScene()->GetCamAddr()->CameraWidth;
+        POSITION_2D battlePos = GetPlayer()->ObjInBattle.Position;
+        if (IsPlayingBattle() &&
+            (*(camBuffer + (battlePos.posY + 1) * camWidth +
+                battlePos.posX) == '-' ||
+                *(camBuffer + (battlePos.posY + 1) * camWidth +
+                    battlePos.posX + 1) == '-'))
+        {
+            DebugLog("jump");
+            PlayerBattleJumpUp();
+        }
+    }
+    if (keyCode == P_VALUE)
+    {
+        if (IsPlayingBattle())
+        {
+            DebugLog("attack");
+        }
+    }
     if (keyCode == W_VALUE)
     {
         if (!strcmp(GetManagedCurrScene()->SceneName, "maze"))
@@ -167,7 +191,17 @@ void AppKeyboardEvent(int keyCode)
         }
         else if (!strcmp(GetManagedCurrScene()->SceneName, "battle"))
         {
-
+            char* camBuffer = GetManagedCurrScene()->GetCamAddr()->GetCamBuffer();
+            int camWidth = GetManagedCurrScene()->GetCamAddr()->CameraWidth;
+            POSITION_2D battlePos = GetPlayer()->ObjInBattle.Position;
+            if (battlePos.posX >= 3 &&
+                *(camBuffer + battlePos.posY * camWidth +
+                    battlePos.posX - 1) != '-' &&
+                *(camBuffer + battlePos.posY * camWidth +
+                    battlePos.posX - 2) != '-')
+            {
+                PlayerBattleMoveLeft();
+            }
         }
     }
     if (keyCode == D_VALUE)
@@ -196,7 +230,17 @@ void AppKeyboardEvent(int keyCode)
         }
         else if (!strcmp(GetManagedCurrScene()->SceneName, "battle"))
         {
-
+            char* camBuffer = GetManagedCurrScene()->GetCamAddr()->GetCamBuffer();
+            int camWidth = GetManagedCurrScene()->GetCamAddr()->CameraWidth;
+            POSITION_2D battlePos = GetPlayer()->ObjInBattle.Position;
+            if (battlePos.posX <= 114 &&
+                *(camBuffer + battlePos.posY * camWidth +
+                    battlePos.posX + 1) != '-' &&
+                *(camBuffer + battlePos.posY * camWidth +
+                    battlePos.posX + 2) != '-')
+            {
+                PlayerBattleMoveRight();
+            }
         }
     }
 }
@@ -256,6 +300,7 @@ void AppButtonEvent(int value)
         SetIsPlayingBattle(0);
         SetIsPlayingMaze(1);
         TurnOnAllEnemy();
+        ResetPlayerPosInBattle();
         break;
 
     default:

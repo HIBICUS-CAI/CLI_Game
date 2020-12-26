@@ -12,7 +12,7 @@ void InitMazeEnemy()
         *((GetMazeEnemyArray() + i)->Sprite) = temp[0];
         *((GetMazeEnemyArray() + i)->Sprite + 1) = temp[1];
         (GetMazeEnemyArray() + i)->ObjSelf.Position = POSITION_2D(-1, -1);
-        (GetMazeEnemyArray() + i)->ObjSelf.ColliRadius = 1;
+        (GetMazeEnemyArray() + i)->ObjSelf.ColliRadius = 0.5f;
         (GetMazeEnemyArray() + i)->IsDead = 0;
         (GetMazeEnemyArray() + i)->TurnOff();
         (GetMazeEnemyArray() + i)->ScanFlag = STOP_MOVING;

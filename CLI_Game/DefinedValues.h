@@ -14,6 +14,8 @@
 #define K_VALUE 107
 #define L_VALUE 108
 #define I_VALUE 105
+#define O_VALUE 111
+#define P_VALUE 112
 
 #define BLACK_WHITE 0x0f
 #define WHITE_BLACK 0xf0

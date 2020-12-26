@@ -5,6 +5,7 @@
 struct PLAYER
 {
     OBJECT ObjSelf;
+    OBJECT ObjInBattle;
     char Sprite[2];
     int Visible;
 
