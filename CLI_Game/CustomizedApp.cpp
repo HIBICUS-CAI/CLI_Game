@@ -174,6 +174,7 @@ void AppButtonEvent(int value)
         SwitchSceneToName("selection");
         SetStageID(0);
         SetIsPlayingMaze(0);
+        InitMazeEnemy();
         break;
 
     case CLOSECLEARUP:

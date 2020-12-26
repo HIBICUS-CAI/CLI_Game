@@ -36,7 +36,13 @@ void UpdateMazeEnemy()
     int index = 0;
     while ((GetMazeEnemyArray() + index)->ID != -1)
     {
-        UpdateSingleMazeEnemy(GetMazeEnemyArray() + index);
+        if ((GetMazeEnemyArray() + index)->Visible == 1)
+        {
+            DebugLogI2("enemy pos", 
+                (GetMazeEnemyArray() + index)->ObjSelf.Position.posX,
+                (GetMazeEnemyArray() + index)->ObjSelf.Position.posY);
+            UpdateSingleMazeEnemy(GetMazeEnemyArray() + index);
+        }
         ++index;
     }
 }
@@ -67,6 +73,7 @@ void UpdateSingleMazeEnemy(MAZEENEMY* mazeEnemy)
     if (mazeEnemy->ObjSelf.IsCollied(GetPlayer()->ObjSelf))
     {
         DebugLog("get collied with player");
+        mazeEnemy->TurnOff();
     }
 }
 
@@ -155,6 +162,7 @@ void ManageMazeEnemyMove(MAZEENEMY* mazeEnemy)
         break;
     }
 
+    // TODO 此处通过修改终点位置取消了这个bug(已经无法再现)，但需要深入研究，如果贴墙放置并roll出向下走的话会导致越过边界不断向下
     int successFlag = 0;
     int direction = 0;
     SetRandom();
