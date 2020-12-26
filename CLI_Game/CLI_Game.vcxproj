@@ -144,6 +144,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AppDeclared.cpp" />
+    <ClCompile Include="BattleStage.cpp" />
     <ClCompile Include="ButtonEvents.cpp" />
     <ClCompile Include="ConsolePrint.cpp" />
     <ClCompile Include="CustomizedApp.cpp" />
@@ -168,6 +169,7 @@
     <ClInclude Include="AppMazeScene.h" />
     <ClInclude Include="AppStageSelectScene.h" />
     <ClInclude Include="AppTitleScene.h" />
+    <ClInclude Include="BattleStage.h" />
     <ClInclude Include="ButtonEvents.h" />
     <ClInclude Include="ConsolePrint.h" />
     <ClInclude Include="CustomizedApp.h" />
@@ -191,6 +193,7 @@
     <ClInclude Include="UIObject.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="BattleStage1.txt" />
     <Text Include="Maze1.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -63,3 +63,10 @@ void SetIsPlayingBattle(int value)
 {
     g_PlayingBattle = value;
 }
+
+char g_BattleStage[BATTLESTAGECOUNT][BATTLESTAGEHEIGHT * BATTLESTAGEWIDTH];
+
+char* GetBattleStageByOffset(int offset)
+{
+    return g_BattleStage[offset];
+}

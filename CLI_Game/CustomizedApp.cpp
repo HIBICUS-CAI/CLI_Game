@@ -7,6 +7,7 @@
 #include "StartEndPoint.h"
 #include "MazeEnemy.h"
 #include "Tools.h"
+#include "BattleStage.h"
 
 void AppInit()
 {
@@ -15,6 +16,7 @@ void AppInit()
     InitMazeMap();
     InitStartEndPoint();
     InitMazeEnemy();
+    InitBattleStage();
 
     SwitchSceneToName("title");
 }
@@ -33,7 +35,7 @@ void AppUpdate()
     }
     if (IsPlayingBattle())
     {
-
+        DrawStageToCamBuffer(0);
     }
 
     DrawScene(GetManagedCurrScene());

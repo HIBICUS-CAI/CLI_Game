@@ -22,3 +22,8 @@ MAZEENEMY* GetMazeEnemyArray();
 int IsPlayingBattle();
 
 void SetIsPlayingBattle(int value);
+
+#define BATTLESTAGEWIDTH 116
+#define BATTLESTAGEHEIGHT 33
+#define BATTLESTAGECOUNT 3
+char* GetBattleStageByOffset(int offset);

@@ -102,6 +102,9 @@
     <ClInclude Include="AppBattleScene.h">
       <Filter>GameScene</Filter>
     </ClInclude>
+    <ClInclude Include="BattleStage.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -158,9 +161,15 @@
     <ClCompile Include="MazeEnemy.cpp">
       <Filter>GameObjects</Filter>
     </ClCompile>
+    <ClCompile Include="BattleStage.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Maze1.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="BattleStage1.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
