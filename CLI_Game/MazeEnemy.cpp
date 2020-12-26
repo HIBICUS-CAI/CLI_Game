@@ -4,7 +4,7 @@
 
 void InitMazeEnemy()
 {
-    char temp[3] = "¡õ";
+    char temp[3] = "¡ö";
     for (int i = 0; i < MAZEENEMYSIZE; i++)
     {
         (GetMazeEnemyArray() + i)->ID = -1;

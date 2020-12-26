@@ -17,6 +17,7 @@
 
 #define BLACK_WHITE 0x0f
 #define WHITE_BLACK 0xf0
+#define BLACK_RED 0x0c
 
 #define TEST_OPENSUB 0x0001
 #define TEST_CLOSETHIS 0x0002

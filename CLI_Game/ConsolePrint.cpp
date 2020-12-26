@@ -5,6 +5,8 @@
 #include "DeclaredValues.h"
 #include "UIObject.h"
 
+#include "CustomizedApp.h"
+
 CRITICAL_SECTION g_CSPrint;
 
 CRITICAL_SECTION* GetPrintCS()
@@ -129,6 +131,8 @@ void PrintOutputBuffer()
                     i * CONSOLE_WIDTH);
             }
         }
+
+        AppPostPrint();
 
         LeaveCriticalSection(GetPrintCS());
 

@@ -6,6 +6,7 @@
 #include "MazeMap.h"
 #include "StartEndPoint.h"
 #include "MazeEnemy.h"
+#include "Tools.h"
 
 void AppInit()
 {
@@ -37,6 +38,41 @@ void AppUpdate()
 void AppTurnOff()
 {
 
+}
+
+void AppPostPrint()
+{
+    for (int i = 0; i < MAZEENEMYSIZE; i++)
+    {
+        if ((GetMazeEnemyArray() + i)->Visible == 1)
+        {
+            int width = GetCurrScene()->GetCamAddr()->CameraWidth;
+            int height = GetCurrScene()->GetCamAddr()->CameraHeight;
+            POSITION_2D position =
+                (GetMazeEnemyArray() + i)->ObjSelf.Position -
+                GetPlayer()->ObjSelf.Position;
+            if ((position.posX * position.posX <
+                (width / 2 * width / 2)) &&
+                (position.posY * position.posY <
+                    (height / 2 * height / 2)))
+            {
+                position =
+                    POSITION_2D(width / 2, height / 2) + position +
+                    GetCurrScene()->GetCamAddr()->CameraPosition;
+                COORD drawPos;
+                drawPos.X = position.posX;
+                drawPos.Y = position.posY;
+                SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), drawPos);
+                ChangeColorInConsole(BLACK_RED);
+                char temp[3];
+                temp[0] = *((GetMazeEnemyArray() + i)->Sprite);
+                temp[1] = *((GetMazeEnemyArray() + i)->Sprite + 1);
+                temp[2] = '\0';
+                printf("%s", temp);
+                ResetColorInConsole();
+            }
+        }
+    }
 }
 
 void AppKeyboardEvent(int keyCode)
