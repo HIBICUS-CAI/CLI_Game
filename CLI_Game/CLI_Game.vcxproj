@@ -153,6 +153,7 @@
     <ClCompile Include="InputDispose.cpp" />
     <ClCompile Include="LogsOutput.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MazeEnemy.cpp" />
     <ClCompile Include="MazeMap.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="SceneManager.cpp" />
@@ -176,6 +177,7 @@
     <ClInclude Include="GameAppStructs.h" />
     <ClInclude Include="InputDispose.h" />
     <ClInclude Include="LogsOutput.h" />
+    <ClInclude Include="MazeEnemy.h" />
     <ClInclude Include="MazeMap.h" />
     <ClInclude Include="ObjectStruct.h" />
     <ClInclude Include="Player.h" />

@@ -2,6 +2,7 @@
 #include "AppDeclared.h"
 #include "Player.h"
 #include "StartEndPoint.h"
+#include "MazeEnemy.h"
 
 void InitMazeMap()
 {
@@ -102,6 +103,9 @@ void LoadInfoFromFile(const char* fileName)
         }
         else if (flag == 5)
         {
+            //----------------------------------------------------
+            SetMazeEnemy(POSITION_2D(startX, startY));
+            //----------------------------------------------------
             SetEndPointPos(POSITION_2D(startX, startY));
             *(GetMazeMap()->GetMap() +
                 startY * MAZEMAPMAXLENGTH + startX) = 'E';

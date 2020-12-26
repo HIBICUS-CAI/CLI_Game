@@ -76,4 +76,18 @@ struct OBJECT
             (ColliRadius + obj.ColliRadius) * (ColliRadius + obj.ColliRadius)) ?
             1 : 0;
     }
+
+    int GetDeltaXWith(OBJECT obj)
+    {
+        int distX = (Width / 2.f + Position.posX) -
+            (obj.Width / 2.f + obj.Position.posX);
+        return distX;
+    }
+
+    int GetDeltaYWith(OBJECT obj)
+    {
+        int distY = (Height / 2.f + Position.posY) -
+            (obj.Height / 2.f + obj.Position.posY);
+        return distY;
+    }
 };

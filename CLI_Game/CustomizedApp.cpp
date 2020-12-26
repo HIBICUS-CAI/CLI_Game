@@ -5,6 +5,7 @@
 #include "Player.h"
 #include "MazeMap.h"
 #include "StartEndPoint.h"
+#include "MazeEnemy.h"
 
 void AppInit()
 {
@@ -12,6 +13,7 @@ void AppInit()
     InitPlayer(POSITION_2D(0, 0));
     InitMazeMap();
     InitStartEndPoint();
+    InitMazeEnemy();
 
     SwitchSceneToName("title");
 }
@@ -25,6 +27,7 @@ void AppUpdate()
     {
         UpdateMazeMap();
         UpdateStartEndPoint();
+        UpdateMazeEnemy();
         DrawPlayerToCamBuffer();
     }
 

@@ -44,3 +44,10 @@ STARTENDPOINT* GetStartEndPointArray()
 {
     return g_StartEndPoint;
 }
+
+MAZEENEMY g_MazeEnemy[MAZEENEMYSIZE];
+
+MAZEENEMY* GetMazeEnemyArray()
+{
+    return g_MazeEnemy;
+}

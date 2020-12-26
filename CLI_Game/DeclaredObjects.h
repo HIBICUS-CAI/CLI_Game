@@ -15,3 +15,6 @@ void SetIsPlayingMaze(int value);
 MAZEMAP* GetMazeMap();
 
 STARTENDPOINT* GetStartEndPointArray();
+
+#define MAZEENEMYSIZE 50
+MAZEENEMY* GetMazeEnemyArray();

@@ -96,6 +96,9 @@
     <ClInclude Include="StartEndPoint.h">
       <Filter>GameObjects</Filter>
     </ClInclude>
+    <ClInclude Include="MazeEnemy.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -147,6 +150,9 @@
       <Filter>GameObjects</Filter>
     </ClCompile>
     <ClCompile Include="StartEndPoint.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="MazeEnemy.cpp">
       <Filter>GameObjects</Filter>
     </ClCompile>
   </ItemGroup>

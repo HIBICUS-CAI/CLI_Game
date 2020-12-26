@@ -112,7 +112,35 @@
 维护几个实体数组，并都包含Object结构体，提供初始化、更新、绘制至缓冲、结束的方法
 在绘制场景方法执行前将这些内容绘制到摄像机缓冲当中
 几个实体数组（按实现顺序）:
-player - map - wall(依附于map) - start/end - enemy - item
+player - map - wall(依附于map) - start/end - 
+enemy - item（感觉可以不用，先写battleStage吧）
+写enemy的时候最好给mapbuffer加一个使用POSITION2D来查询内容物的方法，
+再通过适当的寻路算法进行动态追踪玩家
+如果实在实现困难的话就用测同一直线上是否有路障，有的话靠近，没有的话停留，
+草追踪有点麻烦，静态寻路用不了，BDFS有点慢有可能造成掉帧，
+先用最简单的实现着先，以后有机会再重构
+
+Enemy:object+sprite+visible
+InitEnemy()
+对数组进行初始化赋值
+UpdateEnemy()
+对数组中可见的敌人进行遍历更新，调用UpdateSingleEnemy
+UpdateSingleEnemy(ENEMY* enemy)
+调用ScanPlaer(ENEMY* enemy)
+调用ManageEnemyMove(ENEMY* enemy, int scanFlag)
+将此enemy绘制到cam缓冲
+计算与player是否碰撞，目前碰撞则输出log
+int ScanPlaer(ENEMY* enemy)
+以宽度为5，长度为15的标准对玩家object进行检测，
+如果为真则根据deltaXY的正负大小关系设置scanFlag为1234
+并且object此时需要追加返回XY距离的函数
+ManageEnemyMove(ENEMY* enemy, int scanFlag)
+根据scanFlag做不同处理，若不为0则分别调用相应的移动函数EnemyMoveFBLR()
+若为0则查看movingFlag是否为0，若为0则随机生成移动方向并赋值给movingFlag，
+生成时循环生成直至检测到可以移动（参考player移动），若不为0则调用相应的移动函数
+EnemyMoveFBLR()
+参考player移动，但若撞墙则将movingFlag设置为0
+
 在AppUpdate或者UpdateCurrScene当中进行更新
 定义一个绘制flag用于以不同的颜色绘制特殊的实体，consoleprint中添加一个后处理方法
 此后处理方法提供由GameApp中的客制化app提供

@@ -19,6 +19,28 @@ struct PLAYER
     }
 };
 
+struct MAZEENEMY
+{
+    int ID;
+    OBJECT ObjSelf;
+    char Sprite[2];
+    int Visible;
+
+    int ScanFlag;
+    int MovingFlag;
+    POSITION_2D PreMovePos;
+
+    void TurnOn()
+    {
+        Visible = 1;
+    }
+
+    void TurnOff()
+    {
+        Visible = 0;
+    }
+};
+
 struct WALL
 {
     OBJECT ObjSelf;
