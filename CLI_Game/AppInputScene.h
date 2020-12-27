@@ -5,21 +5,6 @@
 
 void InitInputScene()
 {
-    FILE* pFile = NULL;
-    fopen_s(&pFile, "katagana.txt", "r");
-    if (pFile == NULL)
-    {
-        ErrorLog("cannot open file");
-        return;
-    }
-    int kanaCount = 48;
-    char kana[48][3];
-    for (int i = 0; i < kanaCount; i++)
-    {
-        fscanf_s(pFile, "%s", *(kana + i), 3);
-    }
-    fclose(pFile);
-
     CreateSceneNode(SCENENODE("input", NULL,
         SCENECAMERA(POSITION_2D(0, 0), 1, 1)));
 
