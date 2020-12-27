@@ -77,3 +77,48 @@ char* GetBattleStageByOffset(int offset)
 {
     return g_BattleStage[offset];
 }
+
+char g_InputName[11];
+int g_InputHP;
+int g_InputATK;
+int g_InputPUSH;
+
+char* GetPlayerName()
+{
+    return g_InputName;
+}
+
+void SetPlayerName(char* name)
+{
+    strcpy_s(g_InputName, sizeof(g_InputName), name);
+}
+
+int GetInputHP()
+{
+    return g_InputHP;
+}
+
+void SetInputHP(int hp)
+{
+    g_InputHP = hp;
+}
+
+int GetInputATK()
+{
+    return g_InputATK;
+}
+
+void SetInputATK(int atk)
+{
+    g_InputATK = atk;
+}
+
+int GetInputPUSH()
+{
+    return g_InputPUSH;
+}
+
+void SetInputPUSH(int push)
+{
+    g_InputPUSH = push;
+}

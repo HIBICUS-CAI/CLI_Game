@@ -14,7 +14,7 @@ void InitTitleScene()
 
     CreateUIO("title", POSITION_2D(20, 20), 20, 6, UIO_DESIGN::STRAIGHT,
         NULL, NULL, 1);
-    GetUIObjByName("title")->AddBtn(UI_BUTTON(STARTGAME, POSITION_2D(6, 2),
+    GetUIObjByName("title")->AddBtn(UI_BUTTON(INPUTINFO, POSITION_2D(6, 2),
         (char*)"é_Ê¼", BTN_DESIGN::LINE));
     GetUIObjByName("title")->AddBtn(UI_BUTTON(GAMEHELP, POSITION_2D(6, 4),
         (char*)"ÕhÃ÷", BTN_DESIGN::LINE));

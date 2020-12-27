@@ -167,6 +167,7 @@
   <ItemGroup>
     <ClInclude Include="AppBattleScene.h" />
     <ClInclude Include="AppDeclared.h" />
+    <ClInclude Include="AppInputScene.h" />
     <ClInclude Include="AppMazeScene.h" />
     <ClInclude Include="AppStageSelectScene.h" />
     <ClInclude Include="AppTitleScene.h" />

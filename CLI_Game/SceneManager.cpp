@@ -4,11 +4,13 @@
 #include "AppStageSelectScene.h"
 #include "AppMazeScene.h"
 #include "AppBattleScene.h"
+#include "AppInputScene.h"
 
 #define TITLESCENEFLAG 1
 #define SELECTIONSCENEFLAG 2
 #define MAZESCENEFLAG 3
 #define BATTLESCENEFLAG 4
+#define INPUTSCENEFLAG 5
 int g_SceneFlag;
 
 void SetSceneFlag(int flag)
@@ -53,6 +55,11 @@ void InitCurrScene()
         SetSceneFlag(BATTLESCENEFLAG);
         SetSelectedBtn(GetSceneNodeByName("battle")->BaseUIObj->Buttons);
     }
+    else if (!strcmp(GetManagedCurrScene()->SceneName, "input"))
+    {
+        SetSceneFlag(INPUTSCENEFLAG);
+        SetSelectedBtn(GetSceneNodeByName("input")->BaseUIObj->Buttons);
+    }
 }
 
 void UpdateCurrScene()
@@ -73,6 +80,10 @@ void UpdateCurrScene()
 
     case BATTLESCENEFLAG:
         UpdateBattleScene();
+        break;
+
+    case INPUTSCENEFLAG:
+        UpdateInputScene();
         break;
 
     default:
@@ -101,6 +112,10 @@ void SwitchSceneToName(const char* sceneName)
         else if (!strcmp(sceneName, "battle"))
         {
             InitBattleScene();
+        }
+        else if (!strcmp(sceneName, "input"))
+        {
+            InitInputScene();
         }
 
         scene = GetSceneNodeByName(sceneName);

@@ -30,3 +30,19 @@ char* GetBattleStageByOffset(int offset);
 
 #define BATTLEENEMYSIZE 50
 BATTLEENEMY* GetBattleEnemyArray();
+
+char* GetPlayerName();
+
+void SetPlayerName(char* name);
+
+int GetInputHP();
+
+void SetInputHP(int hp);
+
+int GetInputATK();
+
+void SetInputATK(int atk);
+
+int GetInputPUSH();
+
+void SetInputPUSH(int push);

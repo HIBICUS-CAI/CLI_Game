@@ -11,6 +11,7 @@
 #define GIVEUPMAZE 0x000a
 #define CLOSECLEARUP 0x000b
 #define ENDBATTLE 0x000c
+#define INPUTINFO 0x000d
 
 #define SCENENODESIZE 20
 

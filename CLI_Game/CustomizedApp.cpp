@@ -321,6 +321,10 @@ void AppButtonEvent(int value)
         SwitchSceneToName("selection");
         break;
 
+    case INPUTINFO:
+        SwitchSceneToName("input");
+        break;
+
     case GAMEHELP:
         GetUIObjByName("help")->TurnOn();
         SetSelectedBtn(GetUIObjByName("help")->Buttons);

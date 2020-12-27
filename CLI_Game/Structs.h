@@ -159,7 +159,7 @@ enum class UIO_DESIGN
 struct UIOBJECT
 {
 #define TEXTSIZEINUIO 20
-#define BTNSIZEINUIO 20
+#define BTNSIZEINUIO 200
     TYPEID TypeID;
     int ID;
     char UIName[50];
