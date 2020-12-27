@@ -42,6 +42,24 @@ struct MAZEENEMY
     }
 };
 
+struct BATTLEENEMY
+{
+    int ID;
+    OBJECT ObjSelf;
+    char Sprite[2];
+    int Visible;
+
+    void TurnOn()
+    {
+        Visible = 1;
+    }
+
+    void TurnOff()
+    {
+        Visible = 0;
+    }
+};
+
 struct WALL
 {
     OBJECT ObjSelf;

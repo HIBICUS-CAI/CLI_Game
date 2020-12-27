@@ -52,6 +52,13 @@ MAZEENEMY* GetMazeEnemyArray()
     return g_MazeEnemy;
 }
 
+BATTLEENEMY g_BattleEnemy[BATTLEENEMYSIZE];
+
+BATTLEENEMY* GetBattleEnemyArray()
+{
+    return g_BattleEnemy;
+}
+
 int g_PlayingBattle = 0;
 
 int IsPlayingBattle()

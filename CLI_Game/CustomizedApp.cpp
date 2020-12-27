@@ -8,6 +8,7 @@
 #include "MazeEnemy.h"
 #include "Tools.h"
 #include "BattleStage.h"
+#include "BattleEnemy.h"
 
 void AppInit()
 {
@@ -17,6 +18,7 @@ void AppInit()
     InitStartEndPoint();
     InitMazeEnemy();
     InitBattleStage();
+    InitBattleEnemy();
 
     SwitchSceneToName("title");
 }
@@ -37,6 +39,8 @@ void AppUpdate()
     {
         DrawStageToCamBuffer(0);
         UpdatePlayerInBattle();
+        UpdateBattleEnemy();
+        DrawBattleEnemyToCamBuffer();
         DrawPlayerToCamBuffer();
     }
 
@@ -70,6 +74,42 @@ void AppPostPrint()
                 COORD drawPos;
                 drawPos.X = position.posX;
                 drawPos.Y = position.posY;
+                SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), drawPos);
+                ChangeColorInConsole(BLACK_RED);
+                char temp[3];
+                temp[0] = *((GetMazeEnemyArray() + i)->Sprite);
+                temp[1] = *((GetMazeEnemyArray() + i)->Sprite + 1);
+                temp[2] = '\0';
+                printf("%s", temp);
+                ResetColorInConsole();
+            }
+        }
+    }
+
+    if (IsPlayingBattle())
+    {
+        for (int i = 0; i < BATTLEENEMYSIZE; i++)
+        {
+            if ((GetBattleEnemyArray() + i)->ID == -1)
+            {
+                break;
+            }
+
+            if ((GetBattleEnemyArray() + i)->Visible == 1)
+            {
+                int width = GetManagedCurrScene()->GetCamAddr()->
+                    CameraWidth;
+                int height = GetManagedCurrScene()->GetCamAddr()->
+                    CameraHeight;
+                POSITION_2D pos =
+                    (GetBattleEnemyArray() + i)->ObjSelf.Position;
+                POSITION_2D camPos =
+                    GetManagedCurrScene()->GetCamAddr()->CameraPosition;
+                pos = pos + camPos;
+
+                COORD drawPos;
+                drawPos.X = pos.posX;
+                drawPos.Y = pos.posY;
                 SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), drawPos);
                 ChangeColorInConsole(BLACK_RED);
                 char temp[3];
@@ -296,6 +336,8 @@ void AppButtonEvent(int value)
         break;
 
     case ENDBATTLE:
+        TurnOffAllBattleEnemy();
+        ClearBattleEnemyArray();
         SwitchSceneToName("maze");
         SetIsPlayingBattle(0);
         SetIsPlayingMaze(1);

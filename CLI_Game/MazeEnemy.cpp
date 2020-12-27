@@ -2,6 +2,7 @@
 #include "AppDeclared.h"
 #include "Tools.h"
 #include "SceneManager.h"
+#include "BattleEnemy.h"
 
 void InitMazeEnemy()
 {
@@ -101,6 +102,7 @@ void UpdateSingleMazeEnemy(MAZEENEMY* mazeEnemy)
         mazeEnemy->IsDead = 1;
         mazeEnemy->TurnOff();
         SwitchSceneToName("battle");
+        SetEnemyToBattleRandomly();
         SetIsPlayingMaze(0);
         SetIsPlayingBattle(1);
         TurnOffAllEnemy();

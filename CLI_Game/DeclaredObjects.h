@@ -27,3 +27,6 @@ void SetIsPlayingBattle(int value);
 #define BATTLESTAGEHEIGHT 33
 #define BATTLESTAGECOUNT 3
 char* GetBattleStageByOffset(int offset);
+
+#define BATTLEENEMYSIZE 50
+BATTLEENEMY* GetBattleEnemyArray();
