@@ -2,11 +2,14 @@
 #include "Tools.h"
 #include "SceneManager.h"
 
+int g_HurtCoolDown = 5;
+
 void InitBattleEnemy()
 {
     for (int i = 0; i < BATTLEENEMYSIZE; i++)
     {
         (GetBattleEnemyArray() + i)->ID = -1;
+        (GetBattleEnemyArray() + i)->HP = 10;
         (GetBattleEnemyArray() + i)->LeftMoveFlag = 1;
         (GetBattleEnemyArray() + i)->ObjSelf.Position =
             POSITION_2D(0, 0);
@@ -67,7 +70,7 @@ void SetEnemyToBattleRandomly()
     {
         int posX = CreateRandomNumIn(5, 113);
 
-        while (IsValueExistInArray(posX, posXRecord) || 
+        while (IsValueExistInArray(posX, posXRecord) ||
             (posX >= 50 && posX <= 70))
         {
             posX = CreateRandomNumIn(5, 113);
@@ -162,6 +165,27 @@ void UpdateBattleEnemy()
                 else
                 {
                     (GetBattleEnemyArray() + i)->Move();
+                }
+            }
+        }
+
+        if ((GetBattleEnemyArray() + i)->ObjSelf.IsCollied(
+            GetPlayer()->ObjInBattle))
+        {
+            if (g_HurtCoolDown == 5)
+            {
+                --GetPlayer()->HP;
+                --g_HurtCoolDown;
+            }
+            else
+            {
+                if (g_HurtCoolDown == 0)
+                {
+                    g_HurtCoolDown = 5;
+                }
+                else
+                {
+                    --g_HurtCoolDown;
                 }
             }
         }

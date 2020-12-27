@@ -9,6 +9,10 @@ struct PLAYER
     char Sprite[2];
     int Visible;
 
+    int HP;
+    int ATK;
+    int PUSH;
+
     void TurnOn()
     {
         Visible = 1;
@@ -49,6 +53,7 @@ struct BATTLEENEMY
     char Sprite[2];
     int Visible;
 
+    int HP;
     int LeftMoveFlag;
 
     void TurnOn()

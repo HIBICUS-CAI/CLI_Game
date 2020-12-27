@@ -33,3 +33,5 @@ void PlayerBattleMoveRight();
 void PlayerBattleJumpUp();
 
 void PlayerBattleFallDown();
+
+void PlayerAttack();

@@ -8,6 +8,9 @@ int g_JumpCounter = 0;
 
 void InitPlayer(POSITION_2D pos)
 {
+    GetPlayer()->HP = 20;
+    GetPlayer()->ATK = 10;
+    GetPlayer()->PUSH = 5;
     GetPlayer()->ObjSelf.Position = pos;
     GetPlayer()->ObjSelf.Width = 2;
     GetPlayer()->ObjSelf.Height = 1;
@@ -170,4 +173,9 @@ void PlayerBattleJumpUp()
 void PlayerBattleFallDown()
 {
     GetPlayer()->ObjInBattle.Position.posY += 1;
+}
+
+void PlayerAttack()
+{
+
 }
