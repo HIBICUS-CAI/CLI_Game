@@ -5,6 +5,8 @@
 #include "Player.h"
 
 int g_HurtCoolDown = 5;
+char g_BufferBackUp[118 * 35];
+BATTLEENEMY g_EnemyBackUp[BATTLEENEMYSIZE];
 
 void InitBattleEnemy()
 {
@@ -108,6 +110,7 @@ void UpdateBattleEnemy()
             if ((GetBattleEnemyArray() + i)->HP <= 0)
             {
                 (GetBattleEnemyArray() + i)->TurnOff();
+                continue;
             }
 
             battlePos = (GetBattleEnemyArray() + i)->ObjSelf.Position;
@@ -121,7 +124,7 @@ void UpdateBattleEnemy()
 
             if ((GetBattleEnemyArray() + i)->LeftMoveFlag)
             {
-                if (battlePos.posX <= 3 ||
+                if (battlePos.posX <= 10 ||
                     *(camBuffer + (battlePos.posY + 1) * camWidth +
                         battlePos.posX - 1) != '-' ||
                     *(camBuffer + (battlePos.posY + 1) * camWidth +
@@ -150,7 +153,7 @@ void UpdateBattleEnemy()
             }
             else
             {
-                if (battlePos.posX >= 115 ||
+                if (battlePos.posX >= 108 ||
                     *(camBuffer + (battlePos.posY + 1) * camWidth +
                         battlePos.posX + 1) != '-' ||
                     *(camBuffer + (battlePos.posY + 1) * camWidth +
@@ -213,12 +216,15 @@ void DrawBattleEnemyToCamBuffer()
     {
         POSITION_2D pos = (GetBattleEnemyArray() + index)->ObjSelf.Position;
         if (pos.posY <= 33 &&
-            (GetBattleEnemyArray() + index)->Visible == 1)
+            (GetBattleEnemyArray() + index)->HP > 1)
         {
+            //-----------------------------
+            BATTLEENEMY* temp = GetBattleEnemyArray() + index;
+
             *(buffer + pos.posY * width + pos.posX) =
-                *((GetBattleEnemyArray() + index)->Sprite);
+                *(temp->Sprite);
             *(buffer + pos.posY * width + pos.posX + 1) =
-                *((GetBattleEnemyArray() + index)->Sprite + 1);
+                *(temp->Sprite + 1);
         }
         ++index;
     }
@@ -227,7 +233,9 @@ void DrawBattleEnemyToCamBuffer()
     int width1 = GetManagedCurrScene()->GetCamAddr()->CameraWidth;
     char* buffer1 = GetManagedCurrScene()->GetCamAddr()->GetCamBuffer();
 
-    int clearFlag = 1;
+    int clearFlag1 = 1;
+    int clearFlag2 = 1;
+
     for (int i = 0; i < height1; i++)
     {
         for (int j = 0; j < width1; j++)
@@ -235,12 +243,13 @@ void DrawBattleEnemyToCamBuffer()
             if (*(buffer1 + i * width1 + j) ==
                 *(GetBattleEnemyArray()->Sprite))
             {
-                clearFlag = 0;
+                clearFlag1 = 0;
                 break;
             }
         }
     }
-    if (clearFlag)
+
+    if (clearFlag1)
     {
         DebugLog("team kill");
         TurnOffAllBattleEnemy();
@@ -281,17 +290,6 @@ void PushEnemyByPlayer(BATTLEENEMY* enemy, int direction)
     POSITION_2D position = enemy->ObjSelf.Position;
 
     int count = GetPlayer()->PUSH;
-
-    /*if (position.posX <= count)
-    {
-        enemy->ObjSelf.Position.posX = 3;
-        return;
-    }
-    else if (position.posX <= count)
-    {
-        enemy->ObjSelf.Position.posX = 115;
-        return;
-    }*/
 
     while (count)
     {

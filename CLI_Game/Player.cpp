@@ -247,36 +247,39 @@ void PlayerAttack()
                 break;
             }
 
-            if (g_LastestDirectionInput)
+            if ((GetBattleEnemyArray() + i)->HP > 0)
             {
-                if ((GetBattleEnemyArray() + i)->
-                    ObjSelf.GetDeltaYWith(GetPlayer()->ObjInBattle) <= 1 &&
-                    (GetBattleEnemyArray() + i)->
-                    ObjSelf.GetDeltaYWith(GetPlayer()->ObjInBattle) >= -1 &&
-                    (GetBattleEnemyArray() + i)->
-                    ObjSelf.GetDeltaXWith(GetPlayer()->ObjInBattle) <= 6 &&
-                    (GetBattleEnemyArray() + i)->
-                    ObjSelf.GetDeltaXWith(GetPlayer()->ObjInBattle) >= 0)
+                if (g_LastestDirectionInput)
                 {
-                    PushEnemyByPlayer(GetBattleEnemyArray() + i,
-                        g_LastestDirectionInput);
-                    (GetBattleEnemyArray() + i)->HP -= GetPlayer()->ATK;
+                    if ((GetBattleEnemyArray() + i)->
+                        ObjSelf.GetDeltaYWith(GetPlayer()->ObjInBattle) <= 1 &&
+                        (GetBattleEnemyArray() + i)->
+                        ObjSelf.GetDeltaYWith(GetPlayer()->ObjInBattle) >= -1 &&
+                        (GetBattleEnemyArray() + i)->
+                        ObjSelf.GetDeltaXWith(GetPlayer()->ObjInBattle) <= 6 &&
+                        (GetBattleEnemyArray() + i)->
+                        ObjSelf.GetDeltaXWith(GetPlayer()->ObjInBattle) >= 0)
+                    {
+                        PushEnemyByPlayer(GetBattleEnemyArray() + i,
+                            g_LastestDirectionInput);
+                        (GetBattleEnemyArray() + i)->HP -= GetPlayer()->ATK;
+                    }
                 }
-            }
-            else
-            {
-                if ((GetBattleEnemyArray() + i)->
-                    ObjSelf.GetDeltaYWith(GetPlayer()->ObjInBattle) <= 1 &&
-                    (GetBattleEnemyArray() + i)->
-                    ObjSelf.GetDeltaYWith(GetPlayer()->ObjInBattle) >= -1 &&
-                    (GetBattleEnemyArray() + i)->
-                    ObjSelf.GetDeltaXWith(GetPlayer()->ObjInBattle) <= 0 &&
-                    (GetBattleEnemyArray() + i)->
-                    ObjSelf.GetDeltaXWith(GetPlayer()->ObjInBattle) >= -6)
+                else
                 {
-                    PushEnemyByPlayer(GetBattleEnemyArray() + i,
-                        g_LastestDirectionInput);
-                    (GetBattleEnemyArray() + i)->HP -= GetPlayer()->ATK;
+                    if ((GetBattleEnemyArray() + i)->
+                        ObjSelf.GetDeltaYWith(GetPlayer()->ObjInBattle) <= 1 &&
+                        (GetBattleEnemyArray() + i)->
+                        ObjSelf.GetDeltaYWith(GetPlayer()->ObjInBattle) >= -1 &&
+                        (GetBattleEnemyArray() + i)->
+                        ObjSelf.GetDeltaXWith(GetPlayer()->ObjInBattle) <= 0 &&
+                        (GetBattleEnemyArray() + i)->
+                        ObjSelf.GetDeltaXWith(GetPlayer()->ObjInBattle) >= -6)
+                    {
+                        PushEnemyByPlayer(GetBattleEnemyArray() + i,
+                            g_LastestDirectionInput);
+                        (GetBattleEnemyArray() + i)->HP -= GetPlayer()->ATK;
+                    }
                 }
             }
         }
