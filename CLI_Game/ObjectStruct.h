@@ -49,6 +49,8 @@ struct BATTLEENEMY
     char Sprite[2];
     int Visible;
 
+    int LeftMoveFlag;
+
     void TurnOn()
     {
         Visible = 1;
@@ -57,6 +59,30 @@ struct BATTLEENEMY
     void TurnOff()
     {
         Visible = 0;
+    }
+
+    void SwitchLeftMoveFlag()
+    {
+        if (LeftMoveFlag)
+        {
+            LeftMoveFlag = 0;
+        }
+        else
+        {
+            LeftMoveFlag = 1;
+        }
+    }
+
+    void Move()
+    {
+        if (LeftMoveFlag)
+        {
+            --ObjSelf.Position.posX;
+        }
+        else
+        {
+            ++ObjSelf.Position.posX;
+        }
     }
 };
 

@@ -7,6 +7,7 @@ void InitBattleEnemy()
     for (int i = 0; i < BATTLEENEMYSIZE; i++)
     {
         (GetBattleEnemyArray() + i)->ID = -1;
+        (GetBattleEnemyArray() + i)->LeftMoveFlag = 1;
         (GetBattleEnemyArray() + i)->ObjSelf.Position =
             POSITION_2D(0, 0);
         (GetBattleEnemyArray() + i)->ObjSelf.Width = 2;
@@ -66,7 +67,8 @@ void SetEnemyToBattleRandomly()
     {
         int posX = CreateRandomNumIn(5, 113);
 
-        while (IsValueExistInArray(posX, posXRecord))
+        while (IsValueExistInArray(posX, posXRecord) || 
+            (posX >= 50 && posX <= 70))
         {
             posX = CreateRandomNumIn(5, 113);
         }
@@ -104,6 +106,63 @@ void UpdateBattleEnemy()
                     battlePos.posX + 1) != '-')
             {
                 ++(GetBattleEnemyArray() + i)->ObjSelf.Position.posY;
+            }
+
+            if ((GetBattleEnemyArray() + i)->LeftMoveFlag)
+            {
+                if (*(camBuffer + (battlePos.posY + 1) * camWidth +
+                    battlePos.posX - 1) != '-' ||
+                    *(camBuffer + (battlePos.posY + 1) * camWidth +
+                        battlePos.posX - 2) != '-' ||
+                    *(camBuffer + battlePos.posY * camWidth +
+                        battlePos.posX - 1) == '-' ||
+                    *(camBuffer + battlePos.posY * camWidth +
+                        battlePos.posX - 2) == '-' ||
+                    *(camBuffer + battlePos.posY * camWidth +
+                        battlePos.posX - 1) == '*' ||
+                    *(camBuffer + battlePos.posY * camWidth +
+                        battlePos.posX - 2) == '*' ||
+                    *(camBuffer + battlePos.posY * camWidth +
+                        battlePos.posX - 1) ==
+                    *((GetBattleEnemyArray() + i)->Sprite + 1) ||
+                    *(camBuffer + battlePos.posY * camWidth +
+                        battlePos.posX - 2) ==
+                    *((GetBattleEnemyArray() + i)->Sprite + 1))
+                {
+                    (GetBattleEnemyArray() + i)->SwitchLeftMoveFlag();
+                }
+                else
+                {
+                    (GetBattleEnemyArray() + i)->Move();
+                }
+            }
+            else
+            {
+                if (*(camBuffer + (battlePos.posY + 1) * camWidth +
+                    battlePos.posX + 1) != '-' ||
+                    *(camBuffer + (battlePos.posY + 1) * camWidth +
+                        battlePos.posX + 2) != '-' ||
+                    *(camBuffer + battlePos.posY * camWidth +
+                        battlePos.posX + 1) == '-' ||
+                    *(camBuffer + battlePos.posY * camWidth +
+                        battlePos.posX + 2) == '-' ||
+                    *(camBuffer + battlePos.posY * camWidth +
+                        battlePos.posX + 1) == '*' ||
+                    *(camBuffer + battlePos.posY * camWidth +
+                        battlePos.posX + 2) == '*' ||
+                    *(camBuffer + battlePos.posY * camWidth +
+                        battlePos.posX + 1) ==
+                    *((GetBattleEnemyArray() + i)->Sprite) ||
+                    *(camBuffer + battlePos.posY * camWidth +
+                        battlePos.posX + 2) ==
+                    *((GetBattleEnemyArray() + i)->Sprite))
+                {
+                    (GetBattleEnemyArray() + i)->SwitchLeftMoveFlag();
+                }
+                else
+                {
+                    (GetBattleEnemyArray() + i)->Move();
+                }
             }
         }
     }
