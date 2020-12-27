@@ -111,7 +111,32 @@ void AppPostPrint()
                 drawPos.X = pos.posX;
                 drawPos.Y = pos.posY;
                 SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), drawPos);
-                ChangeColorInConsole(BLACK_RED);
+
+                if ((float)(GetBattleEnemyArray() + i)->HP /
+                    (float)BATTLEENEMYMAXHP > 0.75f)
+                {
+                    ChangeColorInConsole(BLACK_YELLOW);
+                }
+                else if ((float)(GetBattleEnemyArray() + i)->HP /
+                    (float)BATTLEENEMYMAXHP > 0.5f)
+                {
+                    ChangeColorInConsole(BLACK_RED);
+                }
+                else if ((float)(GetBattleEnemyArray() + i)->HP /
+                    (float)BATTLEENEMYMAXHP > 0.25f)
+                {
+                    ChangeColorInConsole(BLACK_DARKRED);
+                }
+                else if ((float)(GetBattleEnemyArray() + i)->HP /
+                    (float)BATTLEENEMYMAXHP > 0.f)
+                {
+                    ChangeColorInConsole(BLACK_DARKYELLOW);
+                }
+                else
+                {
+                    continue;
+                }
+
                 char temp[3];
                 temp[0] = *((GetMazeEnemyArray() + i)->Sprite);
                 temp[1] = *((GetMazeEnemyArray() + i)->Sprite + 1);
@@ -145,6 +170,7 @@ void AppKeyboardEvent(int keyCode)
         if (IsPlayingBattle())
         {
             DebugLog("attack");
+            PlayerAttack();
         }
     }
     if (keyCode == W_VALUE)
@@ -242,6 +268,7 @@ void AppKeyboardEvent(int keyCode)
             {
                 PlayerBattleMoveLeft();
             }
+            SetLastestDirectionInput(0);
         }
     }
     if (keyCode == D_VALUE)
@@ -281,6 +308,7 @@ void AppKeyboardEvent(int keyCode)
             {
                 PlayerBattleMoveRight();
             }
+            SetLastestDirectionInput(1);
         }
     }
 }
@@ -310,6 +338,8 @@ void AppButtonEvent(int value)
     case GETINMAZE1:
         SwitchSceneToName("maze");
         SetStageID(1);
+        GetPlayer()->HP = 2000;
+        ResetPlayerPosInBattle();
         LoadMazeMap();
         break;
 
@@ -333,6 +363,10 @@ void AppButtonEvent(int value)
     case CLOSECLEARUP:
         GetUIObjByName("after-clear")->TurnOff();
         SetSelectedBtn(GetUIObjByName("selection")->Buttons);
+        GetUIObjByName("after-clear")->Texts->
+            ChangeTextTo("¥¹¥Æ©`¥¸¥¯¥ê¥¢¤·¤Þ¤·¤¿£¡");
+        (GetUIObjByName("after-clear")->Texts + 1)->
+            ChangeTextTo("¤ª¤á¤Ç¤È¤¦¤´¤¶¤¤¤Þ¤¹£¡");
         break;
 
     case ENDBATTLE:

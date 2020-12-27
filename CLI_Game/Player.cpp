@@ -2,15 +2,19 @@
 #include "AppDeclared.h"
 #include "SceneManager.h"
 #include "SceneNode.h"
+#include "BattleEnemy.h"
+#include "MazeEnemy.h"
 
 int g_JumpFlag = 0;
 int g_JumpCounter = 0;
+int g_AttackCoolDown = 0;
+int g_LastestDirectionInput;
 
 void InitPlayer(POSITION_2D pos)
 {
     GetPlayer()->HP = 20;
-    GetPlayer()->ATK = 10;
-    GetPlayer()->PUSH = 5;
+    GetPlayer()->ATK = 5;
+    GetPlayer()->PUSH = 20;
     GetPlayer()->ObjSelf.Position = pos;
     GetPlayer()->ObjSelf.Width = 2;
     GetPlayer()->ObjSelf.Height = 1;
@@ -67,6 +71,21 @@ void UpdatePlayer()
 
 void UpdatePlayerInBattle()
 {
+    if (GetPlayer()->HP <= 0)
+    {
+        ClearBattleEnemyArray();
+        TurnOffAllEnemy();
+        SetStageID(0);
+        SetIsPlayingMaze(0);
+        SetIsPlayingBattle(0);
+        SwitchSceneToName("selection");
+        GetUIObjByName("after-clear")->TurnOn();
+        GetUIObjByName("after-clear")->Texts->ChangeTextTo("Ï§¤·¤¤¤Ç¤¹£¡");
+        (GetUIObjByName("after-clear")->Texts + 1)->
+            ChangeTextTo("¤â¤¦Ò»»ØîBˆ¤Ã¤Æ¤¯¤À¤µ¤¤£¡");
+        SetSelectedBtn(GetUIObjByName("after-clear")->Buttons);
+    }
+
     char* camBuffer = GetManagedCurrScene()->GetCamAddr()->GetCamBuffer();
     int camWidth = GetManagedCurrScene()->GetCamAddr()->CameraWidth;
     POSITION_2D battlePos = GetPlayer()->ObjInBattle.Position;
@@ -111,12 +130,52 @@ void DrawPlayerToCamBuffer()
     else if (IsPlayingBattle())
     {
         POSITION_2D battlePos = GetPlayer()->ObjInBattle.Position;
-        if (battlePos.posY <= 33)
+        if (battlePos.posY <= 33 && battlePos.posY >= 3)
         {
             *(buffer + battlePos.posY * width + battlePos.posX) =
                 *(GetPlayer()->Sprite);
             *(buffer + battlePos.posY * width + battlePos.posX + 1) =
                 *(GetPlayer()->Sprite + 1);
+        }
+        if (g_AttackCoolDown)
+        {
+            switch (g_LastestDirectionInput)
+            {
+            case 0:
+                if (battlePos.posX >= 3 && battlePos.posX <= 115)
+                {
+                    *(buffer + battlePos.posY * width +
+                        battlePos.posX - 1) = '-';
+                    *(buffer + battlePos.posY * width +
+                        battlePos.posX - 2) = '<';
+                }
+                else
+                {
+                    *(buffer + battlePos.posY * width +
+                        battlePos.posX - 1) = '-';
+                }
+                break;
+
+            case 1:
+                if (battlePos.posX >= 3 && battlePos.posX <= 115)
+                {
+                    *(buffer + battlePos.posY * width +
+                        battlePos.posX + 2) = '-';
+                    *(buffer + battlePos.posY * width +
+                        battlePos.posX + 3) = '>';
+                }
+                else
+                {
+                    *(buffer + battlePos.posY * width +
+                        battlePos.posX + 2) = '-';
+                }
+                break;
+
+            default:
+                break;
+            }
+
+            --g_AttackCoolDown;
         }
     }
 }
@@ -177,5 +236,59 @@ void PlayerBattleFallDown()
 
 void PlayerAttack()
 {
+    if (!g_AttackCoolDown)
+    {
+        g_AttackCoolDown = 10;
 
+        for (int i = 0; i < BATTLEENEMYSIZE; i++)
+        {
+            if ((GetBattleEnemyArray() + i)->ID == -1)
+            {
+                break;
+            }
+
+            if (g_LastestDirectionInput)
+            {
+                if ((GetBattleEnemyArray() + i)->
+                    ObjSelf.GetDeltaYWith(GetPlayer()->ObjInBattle) <= 1 &&
+                    (GetBattleEnemyArray() + i)->
+                    ObjSelf.GetDeltaYWith(GetPlayer()->ObjInBattle) >= -1 &&
+                    (GetBattleEnemyArray() + i)->
+                    ObjSelf.GetDeltaXWith(GetPlayer()->ObjInBattle) <= 6 &&
+                    (GetBattleEnemyArray() + i)->
+                    ObjSelf.GetDeltaXWith(GetPlayer()->ObjInBattle) >= 0)
+                {
+                    PushEnemyByPlayer(GetBattleEnemyArray() + i,
+                        g_LastestDirectionInput);
+                    (GetBattleEnemyArray() + i)->HP -= GetPlayer()->ATK;
+                }
+            }
+            else
+            {
+                if ((GetBattleEnemyArray() + i)->
+                    ObjSelf.GetDeltaYWith(GetPlayer()->ObjInBattle) <= 1 &&
+                    (GetBattleEnemyArray() + i)->
+                    ObjSelf.GetDeltaYWith(GetPlayer()->ObjInBattle) >= -1 &&
+                    (GetBattleEnemyArray() + i)->
+                    ObjSelf.GetDeltaXWith(GetPlayer()->ObjInBattle) <= 0 &&
+                    (GetBattleEnemyArray() + i)->
+                    ObjSelf.GetDeltaXWith(GetPlayer()->ObjInBattle) >= -6)
+                {
+                    PushEnemyByPlayer(GetBattleEnemyArray() + i,
+                        g_LastestDirectionInput);
+                    (GetBattleEnemyArray() + i)->HP -= GetPlayer()->ATK;
+                }
+            }
+        }
+    }
+}
+
+void SetLastestDirectionInput(int value)
+{
+    g_LastestDirectionInput = value;
+}
+
+int GetLastestDirectionInput()
+{
+    return g_LastestDirectionInput;
 }

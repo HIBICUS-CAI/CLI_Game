@@ -46,6 +46,7 @@ struct MAZEENEMY
     }
 };
 
+#define BATTLEENEMYMAXHP 20
 struct BATTLEENEMY
 {
     int ID;

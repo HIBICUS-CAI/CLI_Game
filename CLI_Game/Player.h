@@ -35,3 +35,7 @@ void PlayerBattleJumpUp();
 void PlayerBattleFallDown();
 
 void PlayerAttack();
+
+void SetLastestDirectionInput(int value);
+
+int GetLastestDirectionInput();

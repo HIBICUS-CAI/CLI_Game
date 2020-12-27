@@ -1,6 +1,8 @@
 #include "BattleEnemy.h"
 #include "Tools.h"
 #include "SceneManager.h"
+#include "MazeEnemy.h"
+#include "Player.h"
 
 int g_HurtCoolDown = 5;
 
@@ -9,7 +11,7 @@ void InitBattleEnemy()
     for (int i = 0; i < BATTLEENEMYSIZE; i++)
     {
         (GetBattleEnemyArray() + i)->ID = -1;
-        (GetBattleEnemyArray() + i)->HP = 10;
+        (GetBattleEnemyArray() + i)->HP = BATTLEENEMYMAXHP;
         (GetBattleEnemyArray() + i)->LeftMoveFlag = 1;
         (GetBattleEnemyArray() + i)->ObjSelf.Position =
             POSITION_2D(0, 0);
@@ -28,6 +30,7 @@ void ClearBattleEnemyArray()
     for (int i = 0; i < BATTLEENEMYSIZE; i++)
     {
         (GetBattleEnemyArray() + i)->ID = -1;
+        (GetBattleEnemyArray() + i)->HP = BATTLEENEMYMAXHP;
         (GetBattleEnemyArray() + i)->TurnOff();
     }
 }
@@ -102,6 +105,11 @@ void UpdateBattleEnemy()
 
         if ((GetBattleEnemyArray() + i)->Visible == 1)
         {
+            if ((GetBattleEnemyArray() + i)->HP <= 0)
+            {
+                (GetBattleEnemyArray() + i)->TurnOff();
+            }
+
             battlePos = (GetBattleEnemyArray() + i)->ObjSelf.Position;
             if (*(camBuffer + (battlePos.posY + 1) * camWidth +
                 battlePos.posX) != '-' ||
@@ -113,8 +121,9 @@ void UpdateBattleEnemy()
 
             if ((GetBattleEnemyArray() + i)->LeftMoveFlag)
             {
-                if (*(camBuffer + (battlePos.posY + 1) * camWidth +
-                    battlePos.posX - 1) != '-' ||
+                if (battlePos.posX <= 3 ||
+                    *(camBuffer + (battlePos.posY + 1) * camWidth +
+                        battlePos.posX - 1) != '-' ||
                     *(camBuffer + (battlePos.posY + 1) * camWidth +
                         battlePos.posX - 2) != '-' ||
                     *(camBuffer + battlePos.posY * camWidth +
@@ -141,8 +150,9 @@ void UpdateBattleEnemy()
             }
             else
             {
-                if (*(camBuffer + (battlePos.posY + 1) * camWidth +
-                    battlePos.posX + 1) != '-' ||
+                if (battlePos.posX >= 115 ||
+                    *(camBuffer + (battlePos.posY + 1) * camWidth +
+                        battlePos.posX + 1) != '-' ||
                     *(camBuffer + (battlePos.posY + 1) * camWidth +
                         battlePos.posX + 2) != '-' ||
                     *(camBuffer + battlePos.posY * camWidth +
@@ -170,7 +180,8 @@ void UpdateBattleEnemy()
         }
 
         if ((GetBattleEnemyArray() + i)->ObjSelf.IsCollied(
-            GetPlayer()->ObjInBattle))
+            GetPlayer()->ObjInBattle) &&
+            (GetBattleEnemyArray() + i)->Visible == 1)
         {
             if (g_HurtCoolDown == 5)
             {
@@ -201,7 +212,8 @@ void DrawBattleEnemyToCamBuffer()
     while ((GetBattleEnemyArray() + index)->ID != -1)
     {
         POSITION_2D pos = (GetBattleEnemyArray() + index)->ObjSelf.Position;
-        if (pos.posY <= 33)
+        if (pos.posY <= 33 &&
+            (GetBattleEnemyArray() + index)->Visible == 1)
         {
             *(buffer + pos.posY * width + pos.posX) =
                 *((GetBattleEnemyArray() + index)->Sprite);
@@ -209,6 +221,35 @@ void DrawBattleEnemyToCamBuffer()
                 *((GetBattleEnemyArray() + index)->Sprite + 1);
         }
         ++index;
+    }
+
+    int height1 = GetManagedCurrScene()->GetCamAddr()->CameraHeight;
+    int width1 = GetManagedCurrScene()->GetCamAddr()->CameraWidth;
+    char* buffer1 = GetManagedCurrScene()->GetCamAddr()->GetCamBuffer();
+
+    int clearFlag = 1;
+    for (int i = 0; i < height1; i++)
+    {
+        for (int j = 0; j < width1; j++)
+        {
+            if (*(buffer1 + i * width1 + j) ==
+                *(GetBattleEnemyArray()->Sprite))
+            {
+                clearFlag = 0;
+                break;
+            }
+        }
+    }
+    if (clearFlag)
+    {
+        DebugLog("team kill");
+        TurnOffAllBattleEnemy();
+        ClearBattleEnemyArray();
+        SwitchSceneToName("maze");
+        SetIsPlayingBattle(0);
+        SetIsPlayingMaze(1);
+        TurnOnAllEnemy();
+        ResetPlayerPosInBattle();
     }
 }
 
@@ -229,5 +270,69 @@ void TurnOnAllBattleEnemy()
     {
         (GetBattleEnemyArray() + index)->TurnOn();
         ++index;
+    }
+}
+
+void PushEnemyByPlayer(BATTLEENEMY* enemy, int direction)
+{
+    char* buffer = GetManagedCurrScene()->GetCamAddr()->GetCamBuffer();
+    int width = GetManagedCurrScene()->GetCamAddr()->CameraWidth;
+    int height = GetManagedCurrScene()->GetCamAddr()->CameraHeight;
+    POSITION_2D position = enemy->ObjSelf.Position;
+
+    int count = GetPlayer()->PUSH;
+
+    /*if (position.posX <= count)
+    {
+        enemy->ObjSelf.Position.posX = 3;
+        return;
+    }
+    else if (position.posX <= count)
+    {
+        enemy->ObjSelf.Position.posX = 115;
+        return;
+    }*/
+
+    while (count)
+    {
+        if (direction == 0)
+        {
+            if (position.posX >= 10 &&
+                *(buffer + position.posY * width +
+                    position.posX - 1) != '-' &&
+                *(buffer + position.posY * width +
+                    position.posX - 2) != '-' &&
+                *(buffer + position.posY * width +
+                    position.posX - 1) != '*' &&
+                *(buffer + position.posY * width +
+                    position.posX - 2) != '*')
+            {
+                --enemy->ObjSelf.Position.posX;
+            }
+            else
+            {
+                break;
+            }
+        }
+        else if (direction == 1)
+        {
+            if (position.posX <= 108 &&
+                *(buffer + position.posY * width +
+                    position.posX + 1) != '-' &&
+                *(buffer + position.posY * width +
+                    position.posX + 2) != '-' &&
+                *(buffer + position.posY * width +
+                    position.posX + 1) != '*' &&
+                *(buffer + position.posY * width +
+                    position.posX + 2) != '*')
+            {
+                ++enemy->ObjSelf.Position.posX;
+            }
+            else
+            {
+                break;
+            }
+        }
+        --count;
     }
 }

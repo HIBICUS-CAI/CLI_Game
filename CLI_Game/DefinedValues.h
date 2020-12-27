@@ -20,6 +20,9 @@
 #define BLACK_WHITE 0x0f
 #define WHITE_BLACK 0xf0
 #define BLACK_RED 0x0c
+#define BLACK_DARKRED 0x04
+#define BLACK_YELLOW 0x0e
+#define BLACK_DARKYELLOW 0x06
 
 #define TEST_OPENSUB 0x0001
 #define TEST_CLOSETHIS 0x0002

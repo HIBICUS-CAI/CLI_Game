@@ -3,6 +3,9 @@
 #include "CustomizedApp.h"
 #include "SceneNode.h"
 #include "DeclaredObjects.h"
+#include "BattleEnemy.h"
+#include "MazeEnemy.h"
+#include "Player.h"
 
 void InitBattleScene()
 {

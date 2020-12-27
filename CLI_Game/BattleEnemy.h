@@ -15,3 +15,5 @@ void ClearBattleEnemyArray();
 void TurnOffAllBattleEnemy();
 
 void TurnOnAllBattleEnemy();
+
+void PushEnemyByPlayer(BATTLEENEMY* enemy, int direction);
