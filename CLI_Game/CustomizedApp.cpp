@@ -146,6 +146,20 @@ void AppPostPrint()
             }
         }
     }
+
+    if (IsInputting())
+    {
+        UI_TEXT* temp = GetInputtingStr();
+        POSITION_2D pos = temp->Position;
+
+        COORD drawPos;
+        drawPos.X = pos.posX;
+        drawPos.Y = pos.posY;
+        SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), drawPos);
+        ChangeColorInConsole(WHITE_BLACK);
+        printf("%s", temp->Text);
+        ResetColorInConsole();
+    }
 }
 
 void AppKeyboardEvent(int keyCode)
@@ -319,10 +333,21 @@ void AppButtonEvent(int value)
     {
     case STARTGAME:
         SwitchSceneToName("selection");
+        SetIsInputting(0);
+        SetInputtingStr(NULL);
         break;
 
     case INPUTINFO:
         SwitchSceneToName("input");
+        GetUIObjByName("input")->Texts->
+            ChangeTextTo("プレイヤーのお名前：");
+        (GetUIObjByName("input")->Texts + 1)->
+            ChangeTextTo("攻撃ナカマのお名前：");
+        (GetUIObjByName("input")->Texts + 2)->
+            ChangeTextTo("強さナカマのお名前：");
+        SetIsInputting(1);
+        SetInputIndex(0);
+        SetInputtingStr(GetUIObjByName("input")->Texts);
         break;
 
     case GAMEHELP:
@@ -381,6 +406,162 @@ void AppButtonEvent(int value)
         SetIsPlayingMaze(1);
         TurnOnAllEnemy();
         ResetPlayerPosInBattle();
+        break;
+
+    case PREVIOUSSTR:
+        if (GetInputIndex() > 0)
+        {
+            SetInputIndex(GetInputIndex() - 1);
+            SetInputtingStr(GetUIObjByName("input")->
+                Texts + GetInputIndex());
+        }
+        break;
+
+    case NEXTSTR:
+        if (GetInputIndex() < 2)
+        {
+            SetInputIndex(GetInputIndex() + 1);
+            SetInputtingStr(GetUIObjByName("input")->
+                Texts + GetInputIndex());
+        }
+        break;
+
+    case A_KANA:
+        break;
+
+    case I_KANA:
+        break;
+
+    case U_KANA:
+        break;
+
+    case E_KANA:
+        break;
+
+    case O_KANA:
+        break;
+
+    case KA_KANA:
+        break;
+
+    case KI_KANA:
+        break;
+
+    case KU_KANA:
+        break;
+
+    case KE_KANA:
+        break;
+
+    case KO_KANA:
+        break;
+
+    case SA_KANA:
+        break;
+
+    case SHI_KANA:
+        break;
+
+    case SU_KANA:
+        break;
+
+    case SE_KANA:
+        break;
+
+    case SO_KANA:
+        break;
+
+    case TA_KANA:
+        break;
+
+    case CHI_KANA:
+        break;
+
+    case TSU_KANA:
+        break;
+
+    case TE_KANA:
+        break;
+
+    case TO_KANA:
+        break;
+
+    case NA_KANA:
+        break;
+
+    case NI_KANA:
+        break;
+
+    case NU_KANA:
+        break;
+
+    case NE_KANA:
+        break;
+
+    case NO_KANA:
+        break;
+
+    case HA_KANA:
+        break;
+
+    case HI_KANA:
+        break;
+
+    case FU_KANA:
+        break;
+
+    case HE_KANA:
+        break;
+
+    case HO_KANA:
+        break;
+
+    case MA_KANA:
+        break;
+
+    case MI_KANA:
+        break;
+
+    case MU_KANA:
+        break;
+
+    case ME_KANA:
+        break;
+
+    case MO_KANA:
+        break;
+
+    case YA_KANA:
+        break;
+
+    case YU_KANA:
+        break;
+
+    case YO_KANA:
+        break;
+
+    case RA_KANA:
+        break;
+
+    case RI_KANA:
+        break;
+
+    case RU_KANA:
+        break;
+
+    case RE_KANA:
+        break;
+
+    case RO_KANA:
+        break;
+
+    case WA_KANA:
+        break;
+
+    case WO_KANA:
+        break;
+
+    case NN_KANA:
         break;
 
     default:

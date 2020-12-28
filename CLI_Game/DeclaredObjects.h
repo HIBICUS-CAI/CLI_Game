@@ -46,3 +46,15 @@ void SetInputATK(int atk);
 int GetInputPUSH();
 
 void SetInputPUSH(int push);
+
+int IsInputting();
+
+void SetIsInputting(int value);
+
+UI_TEXT* GetInputtingStr();
+
+void SetInputtingStr(UI_TEXT* text);
+
+int GetInputIndex();
+
+void SetInputIndex(int value);

@@ -122,3 +122,39 @@ void SetInputPUSH(int push)
 {
     g_InputPUSH = push;
 }
+
+int g_IsInputting = 0;
+
+UI_TEXT* gp_InputtingStr = NULL;
+
+int IsInputting()
+{
+    return g_IsInputting;
+}
+
+void SetIsInputting(int value)
+{
+    g_IsInputting = value;
+}
+
+UI_TEXT* GetInputtingStr()
+{
+    return gp_InputtingStr;
+}
+
+void SetInputtingStr(UI_TEXT* text)
+{
+    gp_InputtingStr = text;
+}
+
+int g_InputIndex = 0;
+
+int GetInputIndex()
+{
+    return g_InputIndex;
+}
+
+void SetInputIndex(int value)
+{
+    g_InputIndex = value;
+}
