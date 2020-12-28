@@ -58,3 +58,7 @@ void SetInputtingStr(UI_TEXT* text);
 int GetInputIndex();
 
 void SetInputIndex(int value);
+
+int GetInputCount();
+
+void SetInputCount(int value);

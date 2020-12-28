@@ -427,142 +427,833 @@ void AppButtonEvent(int value)
         break;
 
     case A_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "あ";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 0)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 0)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case I_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "い";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 11)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 11)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case U_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "う";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 19)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 19)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case E_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "え";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 30)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 30)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case O_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "お";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 38)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 38)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case KA_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "か";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 1)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 1)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case KI_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "き";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 12)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 12)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case KU_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "く";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 20)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 20)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case KE_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "け";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 31)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 31)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case KO_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "こ";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 39)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 39)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case SA_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "さ";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 2)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 2)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case SHI_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "し";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 13)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 13)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case SU_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "す";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 21)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 21)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case SE_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "せ";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 32)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 32)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case SO_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "そ";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 40)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 40)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case TA_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "た";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 3)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 3)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
+    break;
 
     case CHI_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "ち";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 14)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 14)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case TSU_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "つ";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 22)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 22)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case TE_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "て";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 33)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 33)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case TO_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "と";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 41)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 41)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case NA_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "な";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 4)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 4)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case NI_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "に";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 15)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 15)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case NU_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "ぬ";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 23)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 23)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case NE_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "ね";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 34)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 34)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case NO_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "の";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 42)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 42)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case HA_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "は";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 5)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 5)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case HI_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "ひ";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 16)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 16)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case FU_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "ふ";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 24)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 24)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case HE_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "へ";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 35)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 35)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case HO_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "ほ";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 43)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 43)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case MA_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "ま";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 6)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 6)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case MI_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "み";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 17)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 17)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case MU_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "む";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 25)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 25)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case ME_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "め";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 36)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 36)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case MO_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "も";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 44)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 44)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case YA_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "や";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 7)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 7)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case YU_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "ゆ";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 26)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 26)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case YO_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "よ";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 45)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 45)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case RA_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "ら";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 8)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 8)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case RI_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "り";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 18)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 18)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case RU_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "る";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 27)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 27)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case RE_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "れ";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 37)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 37)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case RO_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "ろ";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 46)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 46)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case WA_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "わ";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 9)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 9)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case WO_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "を";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 28)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 28)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     case NN_KANA:
+    {
+        if (GetInputCount() < 18)
+        {
+            SetInputCount(GetInputCount() + 1);
+            char temp[3] = "ん";
+            char text[512];
+            sprintf_s(text, sizeof(text), "%s%s",
+                GetInputtingStr()->Text, temp);
+            GetInputtingStr()->ChangeTextTo((const char*)text);
+            (GetUIObjByName("input")->Buttons + 47)->Event = -1;
+            strcpy_s((GetUIObjByName("input")->Buttons + 47)->Text,
+                sizeof(char) * 3, "  ");
+        }
+        
         break;
+    }
 
     default:
         break;

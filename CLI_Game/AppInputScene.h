@@ -6,7 +6,7 @@
 void InitInputScene()
 {
     CreateSceneNode(SCENENODE("input", NULL,
-        SCENECAMERA(POSITION_2D(0, 0), 1, 1)));
+        SCENECAMERA(POSITION_2D(50, 0), 1, 1)));
 
     CreateUIO("input", POSITION_2D(1, 1), 118, 38, UIO_DESIGN::STRAIGHT,
         NULL, NULL, 1);
@@ -176,4 +176,45 @@ void InitInputScene()
 void UpdateInputScene()
 {
     ClearSceneCamBuffer(GetSceneNodeByName("input"));
+}
+
+void ResetInputBtn()
+{
+    char kana[49][3] = {
+        "あ","か","さ","た","な",
+        "は","ま","や","ら","わ","",
+        "い","き","し","ち","に",
+        "ひ","み","り",
+        "う","く","す","つ","ぬ",
+        "ふ","む","ゆ","る","を","",
+        "え","け","せ","て","ね",
+        "へ","め","れ",
+        "お","こ","そ","と","の",
+        "ほ","も","よ","ろ","ん",""
+    };
+
+    int event[49] = {
+        A_KANA,KA_KANA,SA_KANA,TA_KANA,NA_KANA,
+        HA_KANA,MA_KANA,YA_KANA,RA_KANA,WA_KANA,1,
+        I_KANA,KI_KANA,SHI_KANA,CHI_KANA,NI_KANA,
+        HI_KANA,MI_KANA,RI_KANA,
+        U_KANA,KU_KANA,SU_KANA,TSU_KANA,NU_KANA,
+        FU_KANA,MU_KANA,YU_KANA,RU_KANA,WO_KANA,1,
+        E_KANA,KE_KANA,SE_KANA,TE_KANA,NE_KANA,
+        HE_KANA,ME_KANA,RE_KANA,
+        O_KANA,KO_KANA,SO_KANA,TO_KANA,NO_KANA,
+        HO_KANA,MO_KANA,YO_KANA,RO_KANA,NN_KANA,1
+    };
+
+    for (int i = 0; i < 49; i++)
+    {
+        if (i != 10 && i != 29 && i != 48)
+        {
+            (GetUIObjByName("input")->Buttons + i)->Event = event[i];
+            strcpy_s((GetUIObjByName("input")->Buttons + i)->Text,
+                sizeof(char) * 3, kana[i]);
+        }
+    }
+
+    SetInputCount(0);
 }

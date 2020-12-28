@@ -57,6 +57,7 @@ void InitCurrScene()
     }
     else if (!strcmp(GetManagedCurrScene()->SceneName, "input"))
     {
+        ResetInputBtn();
         SetSceneFlag(INPUTSCENEFLAG);
         SetSelectedBtn(GetSceneNodeByName("input")->BaseUIObj->Buttons);
     }

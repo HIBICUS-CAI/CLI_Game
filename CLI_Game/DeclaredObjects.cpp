@@ -158,3 +158,15 @@ void SetInputIndex(int value)
 {
     g_InputIndex = value;
 }
+
+int g_InputCount = 0;
+
+int GetInputCount()
+{
+    return g_InputCount;
+}
+
+void SetInputCount(int value)
+{
+    g_InputCount = value;
+}
