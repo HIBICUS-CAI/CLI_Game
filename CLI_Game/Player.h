@@ -39,3 +39,7 @@ void PlayerAttack();
 void SetLastestDirectionInput(int value);
 
 int GetLastestDirectionInput();
+
+void ResetPlayerStatus();
+
+void ResetPlayerHP();

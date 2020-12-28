@@ -335,6 +335,7 @@ void AppButtonEvent(int value)
         SwitchSceneToName("selection");
         SetIsInputting(0);
         SetInputtingStr(NULL);
+        ResetPlayerStatus();
         break;
 
     case INPUTINFO:
@@ -367,7 +368,7 @@ void AppButtonEvent(int value)
     case GETINMAZE1:
         SwitchSceneToName("maze");
         SetStageID(1);
-        GetPlayer()->HP = 2000;
+        //ResetPlayerHP();
         ResetPlayerPosInBattle();
         LoadMazeMap();
         break;

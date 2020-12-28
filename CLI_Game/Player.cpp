@@ -295,3 +295,95 @@ int GetLastestDirectionInput()
 {
     return g_LastestDirectionInput;
 }
+
+void ResetPlayerStatus()
+{
+    char hpText[40];
+    char atkText[40];
+    char pushText[40];
+
+    strcpy_s(hpText, sizeof(hpText),
+        (GetUIObjByName("input")->Texts + 0)->Text + 20);
+    strcpy_s(atkText, sizeof(hpText),
+        (GetUIObjByName("input")->Texts + 1)->Text + 20);
+    strcpy_s(pushText, sizeof(hpText),
+        (GetUIObjByName("input")->Texts + 2)->Text + 20);
+
+    int hpLen = strlen(hpText);
+    int atkLen = strlen(atkText);
+    int pushLen = strlen(pushText);
+
+    if (!hpLen)
+    {
+        GetPlayer()->HP = 1 + 100;
+    }
+    else
+    {
+        int hp = 0;
+        for (int i = 0; i < hpLen; i++)
+        {
+            if (hpText[i] < 0)
+            {
+                hp -= hpText[i];
+            }
+            else
+            {
+                hp += hpText[i];
+            }
+        }
+        hp /= hpLen;
+        GetPlayer()->HP = hp + 100;
+        DebugLogI1("hp", hp + 100);
+    }
+
+    if (!atkLen)
+    {
+        GetPlayer()->ATK = 1 + 3;
+    }
+    else
+    {
+        int atk = 0;
+        for (int i = 0; i < atkLen; i++)
+        {
+            if (atkText[i] < 0)
+            {
+                atk -= atkText[i];
+            }
+            else
+            {
+                atk += atkText[i];
+            }
+        }
+        atk /= atkLen;
+        GetPlayer()->ATK = atk + 3;
+        DebugLogI1("atk", atk + 3);
+    }
+
+    if (!pushLen)
+    {
+        GetPlayer()->PUSH = 1 + 10;
+    }
+    else
+    {
+        int push = 0;
+        for (int i = 0; i < pushLen; i++)
+        {
+            if (pushText[i] < 0)
+            {
+                push -= pushText[i];
+            }
+            else
+            {
+                push += pushText[i];
+            }
+        }
+        push /= pushLen;
+        GetPlayer()->PUSH = push + 10;
+        DebugLogI1("push", push + 10);
+    }
+}
+
+void ResetPlayerHP()
+{
+    GetPlayer()->HP = GetInputHP();
+}
