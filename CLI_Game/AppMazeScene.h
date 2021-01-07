@@ -2,6 +2,7 @@
 
 #include "CustomizedApp.h"
 #include "SceneNode.h"
+#include "DeclaredObjects.h"
 
 void InitMazeScene()
 {
@@ -11,7 +12,13 @@ void InitMazeScene()
     CreateUIO("maze", POSITION_2D(82, 1), 37, 39, UIO_DESIGN::STRAIGHT,
         NULL, NULL, 1);
     GetUIObjByName("maze")->AddText(UI_TEXT(POSITION_2D(1, 1),
-        (char*)"メインＵＩ"));
+        (char*)"Ending(E)へ向かいましょう！"));
+    GetUIObjByName("maze")->AddText(UI_TEXT(POSITION_2D(2, 3),
+        (char*)"生命値　10"));
+    GetUIObjByName("maze")->AddText(UI_TEXT(POSITION_2D(2, 4),
+        (char*)"攻撃力　10"));
+    GetUIObjByName("maze")->AddText(UI_TEXT(POSITION_2D(2, 5),
+        (char*)"撃退力　10"));
     GetUIObjByName("maze")->AddBtn(UI_BUTTON(-1, POSITION_2D(2, 10),
         (char*)"テスト用", BTN_DESIGN::STRAIGHT));
     GetUIObjByName("maze")->AddBtn(UI_BUTTON(GIVEUPMAZE, POSITION_2D(2, 15),
@@ -24,6 +31,13 @@ void InitMazeScene()
 void UpdateMazeScene()
 {
     ClearSceneCamBuffer(GetSceneNodeByName("maze"));
+
+    (GetUIObjByName("maze")->Texts + 1)->
+        ChangeTextTo("生命値 ", GetPlayer()->HP);
+    (GetUIObjByName("maze")->Texts + 2)->
+        ChangeTextTo("攻撃力 ", GetPlayer()->ATK);
+    (GetUIObjByName("maze")->Texts + 3)->
+        ChangeTextTo("撃退力 ", GetPlayer()->PUSH);
 }
 
 void CloseMazeScene()

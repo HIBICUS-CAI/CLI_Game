@@ -104,8 +104,9 @@ void LoadInfoFromFile(const char* fileName)
         else if (flag == 5)
         {
             //----------------------------------------------------
-            SetMazeEnemy(POSITION_2D(startX, startY + 1));
-            SetMazeEnemy(POSITION_2D(startX + 20, startY + 1));
+            SetMazeEnemy(POSITION_2D(58, 68));
+            SetMazeEnemy(POSITION_2D(100, 58));
+            SetMazeEnemy(POSITION_2D(145, 88));
             //----------------------------------------------------
             SetEndPointPos(POSITION_2D(startX, startY));
             *(GetMazeMap()->GetMap() +
