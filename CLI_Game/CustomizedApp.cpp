@@ -37,7 +37,7 @@ void AppUpdate()
     }
     if (IsPlayingBattle())
     {
-        DrawStageToCamBuffer(0);
+        DrawStageToCamBuffer(GetBattleStageToOffset());
         UpdatePlayerInBattle();
         UpdateBattleEnemy();
         DrawBattleEnemyToCamBuffer();
@@ -441,7 +441,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 0)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -459,7 +459,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 11)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -477,7 +477,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 19)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -495,7 +495,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 30)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -513,7 +513,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 38)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -531,7 +531,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 1)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -549,7 +549,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 12)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -567,7 +567,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 20)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -585,7 +585,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 31)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -603,7 +603,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 39)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -621,7 +621,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 2)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -639,7 +639,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 13)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -657,7 +657,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 21)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -675,7 +675,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 32)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -693,7 +693,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 40)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -711,7 +711,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 3)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
     break;
@@ -730,7 +730,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 14)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -748,7 +748,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 22)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -766,7 +766,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 33)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -784,7 +784,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 41)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -802,7 +802,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 4)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -820,7 +820,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 15)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -838,7 +838,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 23)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -856,7 +856,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 34)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -874,7 +874,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 42)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -892,7 +892,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 5)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -910,7 +910,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 16)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -928,7 +928,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 24)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -946,7 +946,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 35)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -964,7 +964,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 43)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -982,7 +982,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 6)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -1000,7 +1000,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 17)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -1018,7 +1018,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 25)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -1036,7 +1036,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 36)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -1054,7 +1054,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 44)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -1072,7 +1072,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 7)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -1090,7 +1090,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 26)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -1108,7 +1108,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 45)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -1126,7 +1126,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 8)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -1144,7 +1144,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 18)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -1162,7 +1162,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 27)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -1180,7 +1180,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 37)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -1198,7 +1198,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 46)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -1216,7 +1216,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 9)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -1234,7 +1234,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 28)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 
@@ -1252,7 +1252,7 @@ void AppButtonEvent(int value)
             strcpy_s((GetUIObjByName("input")->Buttons + 47)->Text,
                 sizeof(char) * 3, "  ");
         }
-        
+
         break;
     }
 

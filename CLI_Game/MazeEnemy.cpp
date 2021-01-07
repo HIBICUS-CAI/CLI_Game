@@ -102,6 +102,7 @@ void UpdateSingleMazeEnemy(MAZEENEMY* mazeEnemy)
         mazeEnemy->IsDead = 1;
         mazeEnemy->TurnOff();
         SwitchSceneToName("battle");
+        RandomlySetBattleStageOffset();
         SetEnemyToBattleRandomly();
         SetIsPlayingMaze(0);
         SetIsPlayingBattle(1);

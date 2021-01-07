@@ -1,4 +1,5 @@
 #include "DeclaredObjects.h"
+#include "Tools.h"
 
 PLAYER g_Player;
 
@@ -76,6 +77,19 @@ char g_BattleStage[BATTLESTAGECOUNT][BATTLESTAGEHEIGHT * BATTLESTAGEWIDTH];
 char* GetBattleStageByOffset(int offset)
 {
     return g_BattleStage[offset];
+}
+
+int g_BattleStageOffset = 0;
+
+int GetBattleStageToOffset()
+{
+    return g_BattleStageOffset;
+}
+
+void RandomlySetBattleStageOffset()
+{
+    SetRandom();
+    g_BattleStageOffset = CreateRandomNumIn(0, 2);
 }
 
 char g_InputName[11];

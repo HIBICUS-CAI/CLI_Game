@@ -28,6 +28,10 @@ void SetIsPlayingBattle(int value);
 #define BATTLESTAGECOUNT 3
 char* GetBattleStageByOffset(int offset);
 
+int GetBattleStageToOffset();
+
+void RandomlySetBattleStageOffset();
+
 #define BATTLEENEMYSIZE 50
 BATTLEENEMY* GetBattleEnemyArray();
 

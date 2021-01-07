@@ -1,5 +1,6 @@
 #include "BattleStage.h"
 #include "SceneNode.h"
+#include "Tools.h"
 
 void InitBattleStage()
 {
@@ -20,38 +21,48 @@ void LoadBattleStage()
     int startX = 0;
     int startY = 0;
     int flag = 0;
-    fopen_s(&pFile, "BattleStage1.txt", "r");
-    if (pFile == NULL)
-    {
-        ErrorLog("cannot open file");
-        return;
-    }
+    char fileName[20];
 
-    while (flag != 3)
+    for (int i = 0; i < 3; i++)
     {
-        fscanf_s(pFile, "%d", &flag);
-        switch (flag)
+        startX = 0;
+        startY = 0;
+        flag = 0;
+        sprintf_s(fileName, sizeof(fileName),
+            "BattleStage%d.txt", i + 1);
+        fopen_s(&pFile, fileName, "r");
+        if (pFile == NULL)
         {
-        case 0:
-            ++startX;
-            break;
+            ErrorLog("cannot open file");
+            return;
+        }
 
-        case 1:
-            *(GetBattleStageByOffset(0) +
-                startY * BATTLESTAGEWIDTH + startX) = '-';
-            ++startX;
-            break;
+        while (flag != 3)
+        {
+            fscanf_s(pFile, "%d", &flag);
+            switch (flag)
+            {
+            case 0:
+                ++startX;
+                break;
 
-        case 2:
-            startX = 0;
-            ++startY;
-            break;
+            case 1:
+                *(GetBattleStageByOffset(i) +
+                    startY * BATTLESTAGEWIDTH + startX) = '-';
+                ++startX;
+                break;
 
-        case 3:
-            break;
+            case 2:
+                startX = 0;
+                ++startY;
+                break;
 
-        default:
-            break;
+            case 3:
+                break;
+
+            default:
+                break;
+            }
         }
     }
 }
