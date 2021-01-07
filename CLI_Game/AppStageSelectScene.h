@@ -1,8 +1,17 @@
+//------------------------------------------------------------------------
+// ファイル名: AppStageSelectScene.h
+// 機能: ステージ選択シーンの声明と更新など
+//------------------------------------------------------------------------
+
 #pragma once
 
 #include "CustomizedApp.h"
 #include "SceneNode.h"
 
+
+/// <summary>
+/// シーンの要素を作る
+/// </summary>
 void InitSelectionScene()
 {
     CreateSceneNode(SCENENODE("selection", NULL,
@@ -33,6 +42,9 @@ void InitSelectionScene()
     GetSceneNodeByName("selection")->SetBaseUIO(GetUIObjByName("selection"));
 }
 
+/// <summary>
+/// 必要なものを更新する
+/// </summary>
 void UpdateSelectionScene()
 {
     ClearSceneCamBuffer(GetSceneNodeByName("selection"));
@@ -51,6 +63,9 @@ void UpdateSelectionScene()
     *(temp + 8 * width + 36) = '3';
 }
 
+/// <summary>
+/// 必要なものを閉じる
+/// </summary>
 void CloseSelectionScene()
 {
 

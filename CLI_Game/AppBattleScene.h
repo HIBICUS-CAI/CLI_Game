@@ -1,3 +1,8 @@
+//------------------------------------------------------------------------
+// ファイル名: AppBattleScene.h
+// 機能: 戦闘シーンの声明と更新など
+//------------------------------------------------------------------------
+
 #pragma once
 
 #include "CustomizedApp.h"
@@ -7,6 +12,9 @@
 #include "MazeEnemy.h"
 #include "Player.h"
 
+/// <summary>
+/// シーンの要素を作る
+/// </summary>
 void InitBattleScene()
 {
     CreateSceneNode(SCENENODE("battle", NULL,
@@ -30,6 +38,9 @@ void InitBattleScene()
     SetSelectedBtn(NULL);
 }
 
+/// <summary>
+/// 必要なものを更新する
+/// </summary>
 void UpdateBattleScene()
 {
     ClearSceneCamBuffer(GetSceneNodeByName("battle"));
@@ -56,6 +67,9 @@ void UpdateBattleScene()
         ChangeTextTo("撃退力 ", GetPlayer()->PUSH);
 }
 
+/// <summary>
+/// 必要なものを閉じる
+/// </summary>
 void CloseBattleScene()
 {
 

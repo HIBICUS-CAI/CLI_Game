@@ -1,8 +1,16 @@
+//------------------------------------------------------------------------
+// ファイル名: AppInputScene.h
+// 機能: 名前入力シーンの声明と更新など
+//------------------------------------------------------------------------
+
 #pragma once
 
 #include "CustomizedApp.h"
 #include "SceneNode.h"
 
+/// <summary>
+/// シーンの要素を作る
+/// </summary>
 void InitInputScene()
 {
     CreateSceneNode(SCENENODE("input", NULL,
@@ -173,11 +181,17 @@ void InitInputScene()
     GetSceneNodeByName("input")->SetBaseUIO(GetUIObjByName("input"));
 }
 
+/// <summary>
+/// 必要なものを更新する
+/// </summary>
 void UpdateInputScene()
 {
     ClearSceneCamBuffer(GetSceneNodeByName("input"));
 }
 
+/// <summary>
+/// ボタンをリセット
+/// </summary>
 void ResetInputBtn()
 {
     char kana[49][3] = {

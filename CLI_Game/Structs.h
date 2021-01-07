@@ -1,3 +1,8 @@
+//------------------------------------------------------------------------
+// ファイル名: Structs.h
+// 機能: 基本な構造体を声明する
+//------------------------------------------------------------------------
+
 #pragma once
 
 #include <string.h>
@@ -5,6 +10,9 @@
 #include "DefinedValues.h"
 #include "LogsOutput.h"
 
+/// <summary>
+/// 座標の構造体
+/// </summary>
 struct POSITION_2D
 {
     int posX;
@@ -65,18 +73,27 @@ struct POSITION_2D
     }
 };
 
+/// <summary>
+/// リスト要素の構造体
+/// </summary>
 struct QSINGLENODE
 {
     int Data;
     QSINGLENODE* Next;
 };
 
+/// <summary>
+/// ＩＮＴ型リストの構造体
+/// </summary>
 struct QUEUE_INT
 {
     QSINGLENODE* Top;
     QSINGLENODE* End;
 };
 
+/// <summary>
+/// ＵＩアイテム中の文字部分
+/// </summary>
 struct UI_TEXT
 {
     TYPEID TypeID;
@@ -118,6 +135,9 @@ enum class BTN_DESIGN
     STRAIGHT
 };
 
+/// <summary>
+/// ＵＩアイテム中のボタン部分
+/// </summary>
 struct UI_BUTTON
 {
     TYPEID TypeID;
@@ -156,6 +176,9 @@ enum class UIO_DESIGN
     STRAIGHT
 };
 
+/// <summary>
+/// ＵＩアイテムの構造体
+/// </summary>
 struct UIOBJECT
 {
 #define TEXTSIZEINUIO 20
@@ -214,6 +237,10 @@ struct UIOBJECT
         ChildUIO = child;
     }
 
+    /// <summary>
+    /// このアイテムに文字内容を添付する
+    /// </summary>
+    /// <param name="text">文字内容</param>
     void AddText(UI_TEXT text)
     {
         int index = 0;
@@ -245,6 +272,10 @@ struct UIOBJECT
         }
     }
 
+    /// <summary>
+    /// このアイテムにボタン内容を添付する
+    /// </summary>
+    /// <param name="btn">ボタン内容</param>
     void AddBtn(UI_BUTTON btn)
     {
         int index = 0;
@@ -284,6 +315,7 @@ struct UIOBJECT
                 break;
             }
 
+            // ボタンの間で位置関係を自動的に確定する
             int deltaX = (btn.Position.posX - Buttons[index].Position.posX) / 2;
             int deltaY = btn.Position.posY - Buttons[index].Position.posY;
             int deltaXY = deltaX * deltaX - deltaY * deltaY;
@@ -349,6 +381,9 @@ struct UIOBJECT
     }
 };
 
+/// <summary>
+/// 位置を示す構造体
+/// </summary>
 struct Object
 {
     POSITION_2D Position;

@@ -1,3 +1,8 @@
+//------------------------------------------------------------------------
+// ファイル名: AppTitleScene.h
+// 機能: タイトルシーンの声明と更新など
+//------------------------------------------------------------------------
+
 #pragma once
 
 #include "CustomizedApp.h"
@@ -7,6 +12,9 @@
 float test = 0.f;
 int testflag = 1;
 
+/// <summary>
+/// シーンの要素を作る
+/// </summary>
 void InitTitleScene()
 {
     CreateSceneNode(SCENENODE("title", NULL,
@@ -35,6 +43,9 @@ void InitTitleScene()
     GetSceneNodeByName("title")->SetBaseUIO(GetUIObjByName("title"));
 }
 
+/// <summary>
+/// 必要なものを更新する
+/// </summary>
 void UpdateTitleScene()
 {
     ClearSceneCamBuffer(GetSceneNodeByName("title"));
@@ -83,6 +94,9 @@ void UpdateTitleScene()
     }
 }
 
+/// <summary>
+/// 必要なものを削除、閉じる
+/// </summary>
 void CloseTitleScene()
 {
 

@@ -1,9 +1,17 @@
+//------------------------------------------------------------------------
+// ファイル名: AppMazeScene.h
+// 機能: 迷宮シーンの声明と更新など
+//------------------------------------------------------------------------
+
 #pragma once
 
 #include "CustomizedApp.h"
 #include "SceneNode.h"
 #include "DeclaredObjects.h"
 
+/// <summary>
+/// シーンの要素を作る
+/// </summary>
 void InitMazeScene()
 {
     CreateSceneNode(SCENENODE("maze", NULL,
@@ -28,6 +36,9 @@ void InitMazeScene()
     SetSelectedBtn(GetUIObjByName("maze")->Buttons);
 }
 
+/// <summary>
+/// 必要なものを更新する
+/// </summary>
 void UpdateMazeScene()
 {
     ClearSceneCamBuffer(GetSceneNodeByName("maze"));
@@ -40,6 +51,9 @@ void UpdateMazeScene()
         ChangeTextTo("撃退力 ", GetPlayer()->PUSH);
 }
 
+/// <summary>
+/// 必要なものを閉じる
+/// </summary>
 void CloseMazeScene()
 {
 

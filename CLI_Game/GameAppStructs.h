@@ -1,7 +1,15 @@
+//------------------------------------------------------------------------
+// ファイル名: GameAppStructs.h
+// 機能: ミドルウェアみたいな構造体
+//------------------------------------------------------------------------
+
 #pragma once
 
 #include "Structs.h"
 
+/// <summary>
+/// シーンのカメラ構造体
+/// </summary>
 struct SCENECAMERA
 {
     char CamBuffer[CONSOLE_HEIGHT * CONSOLE_WIDTH];
@@ -25,6 +33,9 @@ struct SCENECAMERA
     }
 };
 
+/// <summary>
+/// シーン構造体
+/// </summary>
 struct SCENENODE
 {
     int SceneID;
@@ -58,6 +69,9 @@ struct SCENENODE
     }
 };
 
+/// <summary>
+/// 基本な対象者構造体
+/// </summary>
 struct OBJECT
 {
     POSITION_2D Position;
