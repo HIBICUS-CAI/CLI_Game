@@ -90,9 +90,6 @@
     <ClInclude Include="MazeMap.h">
       <Filter>GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="StartEndPoint.h">
       <Filter>GameObjects</Filter>
     </ClInclude>
@@ -179,6 +176,12 @@
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="BattleStage1.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="BattleStage2.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="BattleStage3.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

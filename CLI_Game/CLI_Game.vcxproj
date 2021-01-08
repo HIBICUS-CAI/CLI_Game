@@ -187,7 +187,6 @@
     <ClInclude Include="MazeMap.h" />
     <ClInclude Include="ObjectStruct.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="resource.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SceneNode.h" />
     <ClInclude Include="StartEndPoint.h" />
@@ -197,6 +196,8 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="BattleStage1.txt" />
+    <Text Include="BattleStage2.txt" />
+    <Text Include="BattleStage3.txt" />
     <Text Include="Maze1.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
