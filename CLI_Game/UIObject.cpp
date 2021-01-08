@@ -6,18 +6,15 @@
 
 void InitUIObj()
 {
-    //g_UIObjIndex = 0;
     SetUIOIndex(0);
     for (int i = 0; i < UIOBJSIZE; i++)
     {
-        //g_UIObjs[i].ID = -1;
         (GetUIObj() + i)->ID = -1;
     }
 }
 
 UIOBJECT* GetUIObjByID(int id)
 {
-    //if (g_UIObjs[id - 10000].ID != -1)
     if ((GetUIObj() + (id - 10000))->ID != -1)
     {
         return GetUIObj() + (id - 10000);
@@ -59,10 +56,8 @@ UIOBJECT* CreateUIO(const char* name, POSITION_2D startPoint, int width, int hei
 
     UIOBJECT temp(TYPEID::UIObj, id, (char*)name, startPoint, width, height,
         design, parent, child, visiblity);
-    //g_UIObjs[g_UIObjIndex] = temp;
     *(GetUIObj() + *GetUIOIndex()) = temp;
     SetUIOIndex(*GetUIOIndex() + 1);
-    //AddUIOIndex();
 
     return GetUIObj() + *GetUIOIndex() - 1;
 }
@@ -72,10 +67,6 @@ void DrawUIO(UIOBJECT* uiObject)
     if (uiObject->Visiblity != 0)
     {
         SetTopUIO(uiObject);
-        /*if (GetAutoSelectBtnFlag())
-        {
-            SetSelectedBtn(uiObject->Buttons + 0);
-        }*/
 
         for (int i = uiObject->StartPoint.posY;
             i < uiObject->StartPoint.posY + uiObject->Height; i++)
@@ -189,12 +180,10 @@ void DrawUIO(UIOBJECT* uiObject)
         }
         if (uiObject->ChildUIO != NULL)
         {
-            //SetAutoSelectBtnFlag(1);
             DrawUIO(uiObject->ChildUIO);
         }
         else
         {
-            //SetAutoSelectBtnFlag(0);
         }
     }
 }

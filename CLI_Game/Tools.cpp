@@ -1,8 +1,6 @@
 #include "Tools.h"
 #include "DeclaredValues.h"
 
-//static HANDLE g_HandleTitle = NULL;
-
 void SetDeltaTime(int time)
 {
     SetDeclaredDeltaTime(time);

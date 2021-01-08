@@ -368,7 +368,6 @@ void AppButtonEvent(int value)
     case GETINMAZE1:
         SwitchSceneToName("maze");
         SetStageID(1);
-        //ResetPlayerHP();
         ResetPlayerPosInBattle();
         LoadMazeMap();
         break;

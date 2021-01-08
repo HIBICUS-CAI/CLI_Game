@@ -74,8 +74,6 @@ void PrintOutputBuffer()
 #ifdef MUTIPRINT
     EnterCriticalSection(GetPrintCS());
 
-    // TODO 修改此处的运行方式
-    //---------------------------------------
     while (1)
     {
         system("cls");

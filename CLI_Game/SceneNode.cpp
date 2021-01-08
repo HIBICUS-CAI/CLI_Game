@@ -64,7 +64,6 @@ void CreateSceneNode(SCENENODE sceneNode)
         if ((GetSceneNodeArray() + index)->SceneID == -1)
         {
             sceneNode.SceneID = index;
-            //*(GetSceneNodeArray() + index) = sceneNode;
             SetSceneNodeArray(index, sceneNode);
             break;
         }
