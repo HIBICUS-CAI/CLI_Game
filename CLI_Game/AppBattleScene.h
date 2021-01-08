@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
-// ファイル名: AppBattleScene.h
-// 機能: 戦闘シーンの声明と更新など
+// 僼傽僀儖柤: AppBattleScene.h
+// 婡擻: 愴摤僔乕儞偺惡柧偲峏怴側偳
 //------------------------------------------------------------------------
 
 #pragma once
@@ -13,7 +13,7 @@
 #include "Player.h"
 
 /// <summary>
-/// シーンの要素を作る
+/// 僔乕儞偺梫慺傪嶌傞
 /// </summary>
 void InitBattleScene()
 {
@@ -24,22 +24,22 @@ void InitBattleScene()
     CreateUIO("battle", POSITION_2D(1, CONSOLE_HEIGHT - 4),
         CONSOLE_WIDTH - 2, 4, UIO_DESIGN::STRAIGHT, NULL, NULL, 1);
     GetUIObjByName("battle")->AddText(UI_TEXT(POSITION_2D(1, 1),
-        (char*)"WASDで移動　Oでジャンプ　Pで攻撃"));
+        (char*)"WASD偱堏摦丂O偱僕儍儞僾丂P偱峌寕"));
     GetUIObjByName("battle")->AddText(UI_TEXT(POSITION_2D(50, 1),
-        (char*)"生命値 10"));
+        (char*)"惗柦抣 10"));
     GetUIObjByName("battle")->AddText(UI_TEXT(POSITION_2D(60, 1),
-        (char*)"攻撃力 5"));
+        (char*)"峌寕椡 5"));
     GetUIObjByName("battle")->AddText(UI_TEXT(POSITION_2D(70, 1),
-        (char*)"撃退力 3"));
+        (char*)"寕戅椡 3"));
     GetUIObjByName("battle")->AddBtn(UI_BUTTON(ENDBATTLE, POSITION_2D(3, 2),
-        (char*)"テスト用", BTN_DESIGN::LINE));
+        (char*)"僥僗僩梡", BTN_DESIGN::LINE));
 
     GetSceneNodeByName("battle")->SetBaseUIO(GetUIObjByName("battle"));
     SetSelectedBtn(NULL);
 }
 
 /// <summary>
-/// 必要なものを更新する
+/// 昁梫側傕偺傪峏怴偡傞
 /// </summary>
 void UpdateBattleScene()
 {
@@ -60,15 +60,15 @@ void UpdateBattleScene()
     }
 
     (GetUIObjByName("battle")->Texts + 1)->
-        ChangeTextTo("生命値 ", GetPlayer()->HP);
+        ChangeTextTo("惗柦抣 ", GetPlayer()->HP);
     (GetUIObjByName("battle")->Texts + 2)->
-        ChangeTextTo("攻撃力 ", GetPlayer()->ATK);
+        ChangeTextTo("峌寕椡 ", GetPlayer()->ATK);
     (GetUIObjByName("battle")->Texts + 3)->
-        ChangeTextTo("撃退力 ", GetPlayer()->PUSH);
+        ChangeTextTo("寕戅椡 ", GetPlayer()->PUSH);
 }
 
 /// <summary>
-/// 必要なものを閉じる
+/// 昁梫側傕偺傪暵偠傞
 /// </summary>
 void CloseBattleScene()
 {

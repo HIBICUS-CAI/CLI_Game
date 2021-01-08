@@ -341,11 +341,11 @@ void AppButtonEvent(int value)
     case INPUTINFO:
         SwitchSceneToName("input");
         GetUIObjByName("input")->Texts->
-            ChangeTextTo("プレイヤーのお名前：");
+            ChangeTextTo("僾儗僀儎乕偺偍柤慜丗");
         (GetUIObjByName("input")->Texts + 1)->
-            ChangeTextTo("攻撃ナカマのお名前：");
+            ChangeTextTo("峌寕僫僇儅偺偍柤慜丗");
         (GetUIObjByName("input")->Texts + 2)->
-            ChangeTextTo("強さナカマのお名前：");
+            ChangeTextTo("嫮偝僫僇儅偺偍柤慜丗");
         SetIsInputting(1);
         SetInputIndex(0);
         SetInputtingStr(GetUIObjByName("input")->Texts);
@@ -393,9 +393,9 @@ void AppButtonEvent(int value)
         GetUIObjByName("after-clear")->TurnOff();
         SetSelectedBtn(GetUIObjByName("selection")->Buttons);
         GetUIObjByName("after-clear")->Texts->
-            ChangeTextTo("ステージクリアしました！");
+            ChangeTextTo("僗僥乕僕僋儕傾偟傑偟偨両");
         (GetUIObjByName("after-clear")->Texts + 1)->
-            ChangeTextTo("おめでとうございます！");
+            ChangeTextTo("偍傔偱偲偆偛偞偄傑偡両");
         break;
 
     case ENDBATTLE:
@@ -431,7 +431,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "あ";
+            char temp[3] = "偁";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -449,7 +449,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "い";
+            char temp[3] = "偄";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -467,7 +467,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "う";
+            char temp[3] = "偆";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -485,7 +485,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "え";
+            char temp[3] = "偊";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -503,7 +503,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "お";
+            char temp[3] = "偍";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -521,7 +521,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "か";
+            char temp[3] = "偐";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -539,7 +539,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "き";
+            char temp[3] = "偒";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -557,7 +557,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "く";
+            char temp[3] = "偔";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -575,7 +575,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "け";
+            char temp[3] = "偗";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -593,7 +593,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "こ";
+            char temp[3] = "偙";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -611,7 +611,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "さ";
+            char temp[3] = "偝";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -629,7 +629,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "し";
+            char temp[3] = "偟";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -647,7 +647,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "す";
+            char temp[3] = "偡";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -665,7 +665,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "せ";
+            char temp[3] = "偣";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -683,7 +683,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "そ";
+            char temp[3] = "偦";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -701,7 +701,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "た";
+            char temp[3] = "偨";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -720,7 +720,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "ち";
+            char temp[3] = "偪";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -738,7 +738,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "つ";
+            char temp[3] = "偮";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -756,7 +756,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "て";
+            char temp[3] = "偰";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -774,7 +774,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "と";
+            char temp[3] = "偲";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -792,7 +792,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "な";
+            char temp[3] = "側";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -810,7 +810,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "に";
+            char temp[3] = "偵";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -828,7 +828,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "ぬ";
+            char temp[3] = "偸";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -846,7 +846,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "ね";
+            char temp[3] = "偹";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -864,7 +864,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "の";
+            char temp[3] = "偺";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -882,7 +882,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "は";
+            char temp[3] = "偼";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -900,7 +900,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "ひ";
+            char temp[3] = "傂";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -918,7 +918,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "ふ";
+            char temp[3] = "傆";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -936,7 +936,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "へ";
+            char temp[3] = "傊";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -954,7 +954,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "ほ";
+            char temp[3] = "傎";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -972,7 +972,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "ま";
+            char temp[3] = "傑";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -990,7 +990,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "み";
+            char temp[3] = "傒";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -1008,7 +1008,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "む";
+            char temp[3] = "傓";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -1026,7 +1026,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "め";
+            char temp[3] = "傔";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -1044,7 +1044,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "も";
+            char temp[3] = "傕";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -1062,7 +1062,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "や";
+            char temp[3] = "傗";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -1080,7 +1080,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "ゆ";
+            char temp[3] = "備";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -1098,7 +1098,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "よ";
+            char temp[3] = "傛";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -1116,7 +1116,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "ら";
+            char temp[3] = "傜";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -1134,7 +1134,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "り";
+            char temp[3] = "傝";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -1152,7 +1152,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "る";
+            char temp[3] = "傞";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -1170,7 +1170,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "れ";
+            char temp[3] = "傟";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -1188,7 +1188,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "ろ";
+            char temp[3] = "傠";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -1206,7 +1206,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "わ";
+            char temp[3] = "傢";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -1224,7 +1224,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "を";
+            char temp[3] = "傪";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);
@@ -1242,7 +1242,7 @@ void AppButtonEvent(int value)
         if (GetInputCount() < 18)
         {
             SetInputCount(GetInputCount() + 1);
-            char temp[3] = "ん";
+            char temp[3] = "傫";
             char text[512];
             sprintf_s(text, sizeof(text), "%s%s",
                 GetInputtingStr()->Text, temp);

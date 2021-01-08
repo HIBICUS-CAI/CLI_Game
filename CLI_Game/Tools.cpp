@@ -22,7 +22,7 @@ void ShowFPSMT()
             ++deltaTime;
         }
         sprintf_s(command, sizeof(command),
-            "title §»§¢§Î•≤©`•‡°°FPS: %d", 1000 / deltaTime);
+            "title Ç∆Ç†ÇÈÉQÅ[ÉÄÅ@FPS: %d", 1000 / deltaTime);
         system(command);
         Sleep(64);
     }
@@ -30,7 +30,7 @@ void ShowFPSMT()
 
 void InitTitle()
 {
-    system("title §»§¢§Î•≤©`•‡");
+    system("title Ç∆Ç†ÇÈÉQÅ[ÉÄ");
 
     /*DWORD dw;
     g_HandleTitle = CreateThread(NULL, 0,

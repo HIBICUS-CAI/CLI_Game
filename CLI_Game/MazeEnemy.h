@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
-// ファイル名: MazeEnemy.h
-// 機能: 迷宮の敵に関しての処理
+// 僼傽僀儖柤: MazeEnemy.h
+// 婡擻: 柪媨偺揋偵娭偟偰偺張棟
 //------------------------------------------------------------------------
 
 #pragma once
@@ -13,69 +13,69 @@
 #define TURN_RIGHT 4
 
 /// <summary>
-/// 敵配列を初期化する
+/// 揋攝楍傪弶婜壔偡傞
 /// </summary>
 void InitMazeEnemy();
 
 /// <summary>
-/// 敵の位置を設定する
+/// 揋偺埵抲傪愝掕偡傞
 /// </summary>
-/// <param name="pos">位置の座標</param>
+/// <param name="pos">埵抲偺嵗昗</param>
 void SetMazeEnemy(POSITION_2D pos);
 
 /// <summary>
-/// 全ての敵を更新する
+/// 慡偰偺揋傪峏怴偡傞
 /// </summary>
 void UpdateMazeEnemy();
 
 /// <summary>
-/// 各敵を更新する
+/// 奺揋傪峏怴偡傞
 /// </summary>
-/// <param name="mazeEnemy">敵指向のポインタ</param>
+/// <param name="mazeEnemy">揋巜岦偺億僀儞僞</param>
 void UpdateSingleMazeEnemy(MAZEENEMY* mazeEnemy);
 
 /// <summary>
-/// ある敵がプレイヤーを検索する
+/// 偁傞揋偑僾儗僀儎乕傪専嶕偡傞
 /// </summary>
-/// <param name="mazeEnemy">敵指向のポインタ</param>
+/// <param name="mazeEnemy">揋巜岦偺億僀儞僞</param>
 void ScanPlayer(MAZEENEMY* mazeEnemy);
 
 /// <summary>
-/// ある敵の移動を管理する
+/// 偁傞揋偺堏摦傪娗棟偡傞
 /// </summary>
-/// <param name="mazeEnemy">敵指向のポインタ</param>
+/// <param name="mazeEnemy">揋巜岦偺億僀儞僞</param>
 void ManageMazeEnemyMove(MAZEENEMY* mazeEnemy);
 
 /// <summary>
-/// ある敵を前向きに行かせる
+/// 偁傞揋傪慜岦偒偵峴偐偣傞
 /// </summary>
-/// <param name="mazeEnemy">敵指向のポインタ</param>
+/// <param name="mazeEnemy">揋巜岦偺億僀儞僞</param>
 void MazeEnemyMoveForward(MAZEENEMY* mazeEnemy);
 
 /// <summary>
-/// ある敵を後ろに行かせる
+/// 偁傞揋傪屻傠偵峴偐偣傞
 /// </summary>
-/// <param name="mazeEnemy">敵指向のポインタ</param>
+/// <param name="mazeEnemy">揋巜岦偺億僀儞僞</param>
 void MazeEnemyMoveBack(MAZEENEMY* mazeEnemy);
 
 /// <summary>
-/// ある敵を左に行かせる
+/// 偁傞揋傪嵍偵峴偐偣傞
 /// </summary>
-/// <param name="mazeEnemy">敵指向のポインタ</param>
+/// <param name="mazeEnemy">揋巜岦偺億僀儞僞</param>
 void MazeEnemyTurnLeft(MAZEENEMY* mazeEnemy);
 
 /// <summary>
-/// ある敵を右に行かせる
+/// 偁傞揋傪塃偵峴偐偣傞
 /// </summary>
-/// <param name="mazeEnemy">敵指向のポインタ</param>
+/// <param name="mazeEnemy">揋巜岦偺億僀儞僞</param>
 void MazeEnemyTurnRight(MAZEENEMY* mazeEnemy);
 
 /// <summary>
-/// 全ての敵を可視的になる
+/// 慡偰偺揋傪壜帇揑偵側傞
 /// </summary>
 void TurnOnAllEnemy();
 
 /// <summary>
-/// 全ての敵を不可視的になる
+/// 慡偰偺揋傪晄壜帇揑偵側傞
 /// </summary>
 void TurnOffAllEnemy();

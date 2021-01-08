@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
-// ファイル名: StartEndPoint.h
-// 機能: 始点と終点の機能
+// 僼傽僀儖柤: StartEndPoint.h
+// 婡擻: 巒揰偲廔揰偺婡擻
 //------------------------------------------------------------------------
 
 #pragma once
@@ -8,23 +8,23 @@
 #include "DeclaredObjects.h"
 
 /// <summary>
-/// 始点と終点を初期化する
+/// 巒揰偲廔揰傪弶婜壔偡傞
 /// </summary>
 void InitStartEndPoint();
 
 /// <summary>
-/// 更新で到着かどうかを確認
+/// 峏怴偱摓拝偐偳偆偐傪妋擣
 /// </summary>
 void UpdateStartEndPoint();
 
 /// <summary>
-/// 始点をある位置に設定する
+/// 巒揰傪偁傞埵抲偵愝掕偡傞
 /// </summary>
-/// <param name="pos">位置の座標</param>
+/// <param name="pos">埵抲偺嵗昗</param>
 void SetStartPointPos(POSITION_2D pos);
 
 /// <summary>
-/// 終点をある位置に設定する
+/// 廔揰傪偁傞埵抲偵愝掕偡傞
 /// </summary>
-/// <param name="pos">位置の座標</param>
+/// <param name="pos">埵抲偺嵗昗</param>
 void SetEndPointPos(POSITION_2D pos);

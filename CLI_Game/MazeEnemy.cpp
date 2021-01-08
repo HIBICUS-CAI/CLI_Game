@@ -6,7 +6,7 @@
 
 void InitMazeEnemy()
 {
-    char temp[3] = "■";
+    char temp[3] = "仭";
     for (int i = 0; i < MAZEENEMYSIZE; i++)
     {
         (GetMazeEnemyArray() + i)->ID = -1;
@@ -195,7 +195,7 @@ void ManageMazeEnemyMove(MAZEENEMY* mazeEnemy)
         break;
     }
 
-    // TODO 此处通过修改终点位置取消了这个bug(已经无法再现)，但需要深入研究，如果贴墙放置并roll出向下走的话会导致越过边界不断向下
+    // TODO 崯?捠?廋夵?揰埵抲庢徚椆?槩bug(涍?澷朄嵞?)丆扐廀梫怺擖尋媶丆擛壥??曻抲涹roll弌岦壓憱揑?夛?抳墇??奅晄抐岦壓
     int successFlag = 0;
     int direction = 0;
     SetRandom();

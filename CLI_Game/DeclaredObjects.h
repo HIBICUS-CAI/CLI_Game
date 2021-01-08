@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
-// ファイル名: DeclaredObjects.h
-// 機能: 上階グローバル変数の声明
+// 僼傽僀儖柤: DeclaredObjects.h
+// 婡擻: 忋奒僌儘乕僶儖曄悢偺惡柧
 //------------------------------------------------------------------------
 
 #pragma once
@@ -8,186 +8,186 @@
 #include "ObjectStruct.h"
 
 /// <summary>
-/// プレイヤーを取得
+/// 僾儗僀儎乕傪庢摼
 /// </summary>
-/// <returns>プレイヤー指向のポインタ</returns>
+/// <returns>僾儗僀儎乕巜岦偺億僀儞僞</returns>
 PLAYER* GetPlayer();
 
 /// <summary>
-/// ステージ番号を取得
+/// 僗僥乕僕斣崋傪庢摼
 /// </summary>
-/// <returns>ステージの番号</returns>
+/// <returns>僗僥乕僕偺斣崋</returns>
 int GetStageID();
 
 /// <summary>
-/// ステージの番号を設定
+/// 僗僥乕僕偺斣崋傪愝掕
 /// </summary>
-/// <param name="id">ステージの番号</param>
+/// <param name="id">僗僥乕僕偺斣崋</param>
 void SetStageID(int id);
 
 /// <summary>
-/// 今は迷宮部分を行うかどうか
+/// 崱偼柪媨晹暘傪峴偆偐偳偆偐
 /// </summary>
-/// <returns>迷宮部分やっている標識</returns>
+/// <returns>柪媨晹暘傗偭偰偄傞昗幆</returns>
 int IsPlayingMaze();
 
 /// <summary>
-/// 今は迷宮部分を行うかどうかを設定
+/// 崱偼柪媨晹暘傪峴偆偐偳偆偐傪愝掕
 /// </summary>
-/// <param name="value">やっている標識或いはやっていない標識</param>
+/// <param name="value">傗偭偰偄傞昗幆埥偄偼傗偭偰偄側偄昗幆</param>
 void SetIsPlayingMaze(int value);
 
 /// <summary>
-/// 迷宮を取得
+/// 柪媨傪庢摼
 /// </summary>
-/// <returns>迷宮指向のポインタ</returns>
+/// <returns>柪媨巜岦偺億僀儞僞</returns>
 MAZEMAP* GetMazeMap();
 
 /// <summary>
-/// 始点と終点を取得
+/// 巒揰偲廔揰傪庢摼
 /// </summary>
-/// <returns>始点と終点の配列</returns>
+/// <returns>巒揰偲廔揰偺攝楍</returns>
 STARTENDPOINT* GetStartEndPointArray();
 
 #define MAZEENEMYSIZE 50
 /// <summary>
-/// 迷宮敵を取得
+/// 柪媨揋傪庢摼
 /// </summary>
-/// <returns>迷宮敵の配列</returns>
+/// <returns>柪媨揋偺攝楍</returns>
 MAZEENEMY* GetMazeEnemyArray();
 
 /// <summary>
-/// 今は戦闘部分を行うかどうか
+/// 崱偼愴摤晹暘傪峴偆偐偳偆偐
 /// </summary>
-/// <returns>戦闘部分やっている標識</returns>
+/// <returns>愴摤晹暘傗偭偰偄傞昗幆</returns>
 int IsPlayingBattle();
 
 /// <summary>
-/// 今は戦闘部分を行うかどうかを設定
+/// 崱偼愴摤晹暘傪峴偆偐偳偆偐傪愝掕
 /// </summary>
-/// <param name="value">やっている標識或いはやっていない標識</param>
+/// <param name="value">傗偭偰偄傞昗幆埥偄偼傗偭偰偄側偄昗幆</param>
 void SetIsPlayingBattle(int value);
 
 #define BATTLESTAGEWIDTH 116
 #define BATTLESTAGEHEIGHT 33
 #define BATTLESTAGECOUNT 3
 /// <summary>
-/// 戦闘地図を取得
+/// 愴摤抧恾傪庢摼
 /// </summary>
-/// <param name="offset">偏移量</param>
-/// <returns>ある戦闘地図指向のポインタ</returns>
+/// <param name="offset">曃堏検</param>
+/// <returns>偁傞愴摤抧恾巜岦偺億僀儞僞</returns>
 char* GetBattleStageByOffset(int offset);
 
 /// <summary>
-/// 地図偏移量を取得
+/// 抧恾曃堏検傪庢摼
 /// </summary>
-/// <returns>地図配列の偏移量</returns>
+/// <returns>抧恾攝楍偺曃堏検</returns>
 int GetBattleStageToOffset();
 
 /// <summary>
-/// 使う地図の番号を乱数で設定
+/// 巊偆抧恾偺斣崋傪棎悢偱愝掕
 /// </summary>
 void RandomlySetBattleStageOffset();
 
 #define BATTLEENEMYSIZE 50
 /// <summary>
-/// 戦闘敵の配列を取得
+/// 愴摤揋偺攝楍傪庢摼
 /// </summary>
-/// <returns>戦闘敵の配列</returns>
+/// <returns>愴摤揋偺攝楍</returns>
 BATTLEENEMY* GetBattleEnemyArray();
 
 /// <summary>
-/// プレイヤーの名前を取得
+/// 僾儗僀儎乕偺柤慜傪庢摼
 /// </summary>
-/// <returns>プレイヤーの名前</returns>
+/// <returns>僾儗僀儎乕偺柤慜</returns>
 char* GetPlayerName();
 
 /// <summary>
-/// プレイヤーの名前を設定
+/// 僾儗僀儎乕偺柤慜傪愝掕
 /// </summary>
-/// <param name="name">設定したい文字配列</param>
+/// <param name="name">愝掕偟偨偄暥帤攝楍</param>
 void SetPlayerName(char* name);
 
 /// <summary>
-/// プレイヤーの生命値を取得
+/// 僾儗僀儎乕偺惗柦抣傪庢摼
 /// </summary>
-/// <returns>プレイヤーの生命値</returns>
+/// <returns>僾儗僀儎乕偺惗柦抣</returns>
 int GetInputHP();
 
 /// <summary>
-/// プレイヤーの生命値を設定
+/// 僾儗僀儎乕偺惗柦抣傪愝掕
 /// </summary>
-/// <param name="hp">設定したい値</param>
+/// <param name="hp">愝掕偟偨偄抣</param>
 void SetInputHP(int hp);
 
 /// <summary>
-/// プレイヤーの攻撃力を取得
+/// 僾儗僀儎乕偺峌寕椡傪庢摼
 /// </summary>
-/// <returns>プレイヤーの攻撃力</returns>
+/// <returns>僾儗僀儎乕偺峌寕椡</returns>
 int GetInputATK();
 
 /// <summary>
-/// プレイヤーの攻撃力を設定
+/// 僾儗僀儎乕偺峌寕椡傪愝掕
 /// </summary>
-/// <param name="atk">設定したい値</param>
+/// <param name="atk">愝掕偟偨偄抣</param>
 void SetInputATK(int atk);
 
 /// <summary>
-/// プレイヤーの撃退力を取得
+/// 僾儗僀儎乕偺寕戅椡傪庢摼
 /// </summary>
-/// <returns>プレイヤーの撃退力</returns>
+/// <returns>僾儗僀儎乕偺寕戅椡</returns>
 int GetInputPUSH();
 
 /// <summary>
-/// プレイヤーの撃退力を設定
+/// 僾儗僀儎乕偺寕戅椡傪愝掕
 /// </summary>
-/// <param name="push">設定したい値</param>
+/// <param name="push">愝掕偟偨偄抣</param>
 void SetInputPUSH(int push);
 
 /// <summary>
-/// 今は名前を入力しているかどうか
+/// 崱偼柤慜傪擖椡偟偰偄傞偐偳偆偐
 /// </summary>
-/// <returns>入力している標識</returns>
+/// <returns>擖椡偟偰偄傞昗幆</returns>
 int IsInputting();
 
 /// <summary>
-/// 今は名前を入力しているかどうかを設定
+/// 崱偼柤慜傪擖椡偟偰偄傞偐偳偆偐傪愝掕
 /// </summary>
-/// <param name="value">しているかどうかの標識</param>
+/// <param name="value">偟偰偄傞偐偳偆偐偺昗幆</param>
 void SetIsInputting(int value);
 
 /// <summary>
-/// 入力している文字内容を取得
+/// 擖椡偟偰偄傞暥帤撪梕傪庢摼
 /// </summary>
-/// <returns>文字内容指向のポインタ</returns>
+/// <returns>暥帤撪梕巜岦偺億僀儞僞</returns>
 UI_TEXT* GetInputtingStr();
 
 /// <summary>
-/// 入力している文字内容を設定
+/// 擖椡偟偰偄傞暥帤撪梕傪愝掕
 /// </summary>
-/// <param name="text">文字内容指向のポインタ</param>
+/// <param name="text">暥帤撪梕巜岦偺億僀儞僞</param>
 void SetInputtingStr(UI_TEXT* text);
 
 /// <summary>
-/// 入力番号を取得
+/// 擖椡斣崋傪庢摼
 /// </summary>
-/// <returns>入力番号</returns>
+/// <returns>擖椡斣崋</returns>
 int GetInputIndex();
 
 /// <summary>
-/// 入力番号を設定
+/// 擖椡斣崋傪愝掕
 /// </summary>
-/// <param name="value">入力番号</param>
+/// <param name="value">擖椡斣崋</param>
 void SetInputIndex(int value);
 
 /// <summary>
-/// 入力された文字の数を取得
+/// 擖椡偝傟偨暥帤偺悢傪庢摼
 /// </summary>
-/// <returns>入力された文字数</returns>
+/// <returns>擖椡偝傟偨暥帤悢</returns>
 int GetInputCount();
 
 /// <summary>
-/// 入力された文字の数を設定
+/// 擖椡偝傟偨暥帤偺悢傪愝掕
 /// </summary>
-/// <param name="value">入力された文字数</param>
+/// <param name="value">擖椡偝傟偨暥帤悢</param>
 void SetInputCount(int value);

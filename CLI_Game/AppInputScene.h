@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
-// ファイル名: AppInputScene.h
-// 機能: 名前入力シーンの声明と更新など
+// 僼傽僀儖柤: AppInputScene.h
+// 婡擻: 柤慜擖椡僔乕儞偺惡柧偲峏怴側偳
 //------------------------------------------------------------------------
 
 #pragma once
@@ -9,7 +9,7 @@
 #include "SceneNode.h"
 
 /// <summary>
-/// シーンの要素を作る
+/// 僔乕儞偺梫慺傪嶌傞
 /// </summary>
 void InitInputScene()
 {
@@ -19,170 +19,170 @@ void InitInputScene()
     CreateUIO("input", POSITION_2D(1, 1), 118, 38, UIO_DESIGN::STRAIGHT,
         NULL, NULL, 1);
     GetUIObjByName("input")->AddText(UI_TEXT(POSITION_2D(3, 1),
-        (char*)"プレイヤーのお名前："));
+        (char*)"僾儗僀儎乕偺偍柤慜丗"));
     GetUIObjByName("input")->AddText(UI_TEXT(POSITION_2D(3, 2),
-        (char*)"攻撃ナカマのお名前："));
+        (char*)"峌寕僫僇儅偺偍柤慜丗"));
     GetUIObjByName("input")->AddText(UI_TEXT(POSITION_2D(3, 3),
-        (char*)"強さナカマのお名前："));
+        (char*)"嫮偝僫僇儅偺偍柤慜丗"));
 
     GetUIObjByName("input")->AddBtn(UI_BUTTON(A_KANA,
         POSITION_2D(4, 6),
-        (char*)"あ", BTN_DESIGN::LINE));
+        (char*)"偁", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(KA_KANA,
         POSITION_2D(11, 6),
-        (char*)"か", BTN_DESIGN::LINE));
+        (char*)"偐", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(SA_KANA,
         POSITION_2D(18, 6),
-        (char*)"さ", BTN_DESIGN::LINE));
+        (char*)"偝", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(TA_KANA,
         POSITION_2D(25, 6),
-        (char*)"た", BTN_DESIGN::LINE));
+        (char*)"偨", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(NA_KANA,
         POSITION_2D(32, 6),
-        (char*)"な", BTN_DESIGN::LINE));
+        (char*)"側", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(HA_KANA,
         POSITION_2D(39, 6),
-        (char*)"は", BTN_DESIGN::LINE));
+        (char*)"偼", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(MA_KANA,
         POSITION_2D(46, 6),
-        (char*)"ま", BTN_DESIGN::LINE));
+        (char*)"傑", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(YA_KANA,
         POSITION_2D(53, 6),
-        (char*)"や", BTN_DESIGN::LINE));
+        (char*)"傗", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(RA_KANA,
         POSITION_2D(60, 6),
-        (char*)"ら", BTN_DESIGN::LINE));
+        (char*)"傜", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(WA_KANA,
         POSITION_2D(67, 6),
-        (char*)"わ", BTN_DESIGN::LINE));
+        (char*)"傢", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(NEXTSTR,
         POSITION_2D(82, 6),
-        (char*)"つぎ", BTN_DESIGN::LINE));
+        (char*)"偮偓", BTN_DESIGN::LINE));
 
     GetUIObjByName("input")->AddBtn(UI_BUTTON(I_KANA,
         POSITION_2D(4, 8),
-        (char*)"い", BTN_DESIGN::LINE));
+        (char*)"偄", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(KI_KANA,
         POSITION_2D(11, 8),
-        (char*)"き", BTN_DESIGN::LINE));
+        (char*)"偒", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(SHI_KANA,
         POSITION_2D(18, 8),
-        (char*)"し", BTN_DESIGN::LINE));
+        (char*)"偟", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(CHI_KANA,
         POSITION_2D(25, 8),
-        (char*)"ち", BTN_DESIGN::LINE));
+        (char*)"偪", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(NI_KANA,
         POSITION_2D(32, 8),
-        (char*)"に", BTN_DESIGN::LINE));
+        (char*)"偵", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(HI_KANA,
         POSITION_2D(39, 8),
-        (char*)"ひ", BTN_DESIGN::LINE));
+        (char*)"傂", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(MI_KANA,
         POSITION_2D(46, 8),
-        (char*)"み", BTN_DESIGN::LINE));
+        (char*)"傒", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(RI_KANA,
         POSITION_2D(60, 8),
-        (char*)"り", BTN_DESIGN::LINE));
+        (char*)"傝", BTN_DESIGN::LINE));
 
     GetUIObjByName("input")->AddBtn(UI_BUTTON(U_KANA,
         POSITION_2D(4, 10),
-        (char*)"う", BTN_DESIGN::LINE));
+        (char*)"偆", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(KU_KANA,
         POSITION_2D(11, 10),
-        (char*)"く", BTN_DESIGN::LINE));
+        (char*)"偔", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(SU_KANA,
         POSITION_2D(18, 10),
-        (char*)"す", BTN_DESIGN::LINE));
+        (char*)"偡", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(TSU_KANA,
         POSITION_2D(25, 10),
-        (char*)"つ", BTN_DESIGN::LINE));
+        (char*)"偮", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(NU_KANA,
         POSITION_2D(32, 10),
-        (char*)"ぬ", BTN_DESIGN::LINE));
+        (char*)"偸", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(FU_KANA,
         POSITION_2D(39, 10),
-        (char*)"ふ", BTN_DESIGN::LINE));
+        (char*)"傆", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(MU_KANA,
         POSITION_2D(46, 10),
-        (char*)"む", BTN_DESIGN::LINE));
+        (char*)"傓", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(YU_KANA,
         POSITION_2D(53, 10),
-        (char*)"ゆ", BTN_DESIGN::LINE));
+        (char*)"備", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(RU_KANA,
         POSITION_2D(60, 10),
-        (char*)"る", BTN_DESIGN::LINE));
+        (char*)"傞", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(WO_KANA,
         POSITION_2D(67, 10),
-        (char*)"を", BTN_DESIGN::LINE));
+        (char*)"傪", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(PREVIOUSSTR,
         POSITION_2D(82, 10),
-        (char*)"まえ", BTN_DESIGN::LINE));
+        (char*)"傑偊", BTN_DESIGN::LINE));
 
     GetUIObjByName("input")->AddBtn(UI_BUTTON(E_KANA,
         POSITION_2D(4, 12),
-        (char*)"え", BTN_DESIGN::LINE));
+        (char*)"偊", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(KE_KANA,
         POSITION_2D(11, 12),
-        (char*)"け", BTN_DESIGN::LINE));
+        (char*)"偗", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(SE_KANA,
         POSITION_2D(18, 12),
-        (char*)"せ", BTN_DESIGN::LINE));
+        (char*)"偣", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(TE_KANA,
         POSITION_2D(25, 12),
-        (char*)"て", BTN_DESIGN::LINE));
+        (char*)"偰", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(NE_KANA,
         POSITION_2D(32, 12),
-        (char*)"ね", BTN_DESIGN::LINE));
+        (char*)"偹", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(HE_KANA,
         POSITION_2D(39, 12),
-        (char*)"へ", BTN_DESIGN::LINE));
+        (char*)"傊", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(ME_KANA,
         POSITION_2D(46, 12),
-        (char*)"め", BTN_DESIGN::LINE));
+        (char*)"傔", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(RE_KANA,
         POSITION_2D(60, 12),
-        (char*)"れ", BTN_DESIGN::LINE));
+        (char*)"傟", BTN_DESIGN::LINE));
 
     GetUIObjByName("input")->AddBtn(UI_BUTTON(O_KANA,
         POSITION_2D(4, 14),
-        (char*)"お", BTN_DESIGN::LINE));
+        (char*)"偍", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(KO_KANA,
         POSITION_2D(11, 14),
-        (char*)"こ", BTN_DESIGN::LINE));
+        (char*)"偙", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(SO_KANA,
         POSITION_2D(18, 14),
-        (char*)"そ", BTN_DESIGN::LINE));
+        (char*)"偦", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(TO_KANA,
         POSITION_2D(25, 14),
-        (char*)"と", BTN_DESIGN::LINE));
+        (char*)"偲", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(NO_KANA,
         POSITION_2D(32, 14),
-        (char*)"の", BTN_DESIGN::LINE));
+        (char*)"偺", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(HO_KANA,
         POSITION_2D(39, 14),
-        (char*)"ほ", BTN_DESIGN::LINE));
+        (char*)"傎", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(MO_KANA,
         POSITION_2D(46, 14),
-        (char*)"も", BTN_DESIGN::LINE));
+        (char*)"傕", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(YO_KANA,
         POSITION_2D(53, 14),
-        (char*)"よ", BTN_DESIGN::LINE));
+        (char*)"傛", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(RO_KANA,
         POSITION_2D(60, 14),
-        (char*)"ろ", BTN_DESIGN::LINE));
+        (char*)"傠", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(NN_KANA,
         POSITION_2D(67, 14),
-        (char*)"ん", BTN_DESIGN::LINE));
+        (char*)"傫", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(STARTGAME,
         POSITION_2D(82, 14),
-        (char*)"進む", BTN_DESIGN::LINE));
+        (char*)"恑傓", BTN_DESIGN::LINE));
 
     SetSelectedBtn(GetUIObjByName("input")->Buttons);
     GetSceneNodeByName("input")->SetBaseUIO(GetUIObjByName("input"));
 }
 
 /// <summary>
-/// 必要なものを更新する
+/// 昁梫側傕偺傪峏怴偡傞
 /// </summary>
 void UpdateInputScene()
 {
@@ -190,21 +190,21 @@ void UpdateInputScene()
 }
 
 /// <summary>
-/// ボタンをリセット
+/// 儃僞儞傪儕僙僢僩
 /// </summary>
 void ResetInputBtn()
 {
     char kana[49][3] = {
-        "あ","か","さ","た","な",
-        "は","ま","や","ら","わ","",
-        "い","き","し","ち","に",
-        "ひ","み","り",
-        "う","く","す","つ","ぬ",
-        "ふ","む","ゆ","る","を","",
-        "え","け","せ","て","ね",
-        "へ","め","れ",
-        "お","こ","そ","と","の",
-        "ほ","も","よ","ろ","ん",""
+        "偁","偐","偝","偨","側",
+        "偼","傑","傗","傜","傢","",
+        "偄","偒","偟","偪","偵",
+        "傂","傒","傝",
+        "偆","偔","偡","偮","偸",
+        "傆","傓","備","傞","傪","",
+        "偊","偗","偣","偰","偹",
+        "傊","傔","傟",
+        "偍","偙","偦","偲","偺",
+        "傎","傕","傛","傠","傫",""
     };
 
     int event[49] = {

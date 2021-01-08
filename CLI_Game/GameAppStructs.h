@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
-// ファイル名: GameAppStructs.h
-// 機能: ミドルウェアみたいな構造体
+// 僼傽僀儖柤: GameAppStructs.h
+// 婡擻: 儈僪儖僂僃傾傒偨偄側峔憿懱
 //------------------------------------------------------------------------
 
 #pragma once
@@ -8,7 +8,7 @@
 #include "Structs.h"
 
 /// <summary>
-/// シーンのカメラ構造体
+/// 僔乕儞偺僇儊儔峔憿懱
 /// </summary>
 struct SCENECAMERA
 {
@@ -34,7 +34,7 @@ struct SCENECAMERA
 };
 
 /// <summary>
-/// シーン構造体
+/// 僔乕儞峔憿懱
 /// </summary>
 struct SCENENODE
 {
@@ -70,7 +70,7 @@ struct SCENENODE
 };
 
 /// <summary>
-/// 基本な対象者構造体
+/// 婎杮側懳徾幰峔憿懱
 /// </summary>
 struct OBJECT
 {

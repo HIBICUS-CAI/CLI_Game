@@ -20,7 +20,7 @@ void InitBattleEnemy()
         (GetBattleEnemyArray() + i)->ObjSelf.Width = 2;
         (GetBattleEnemyArray() + i)->ObjSelf.Height = 1;
         (GetBattleEnemyArray() + i)->ObjSelf.ColliRadius = 1.f;
-        char temp[3] = "¡ö";
+        char temp[3] = "¡";
         *((GetBattleEnemyArray() + i)->Sprite) = temp[0];
         *((GetBattleEnemyArray() + i)->Sprite + 1) = temp[1];
         (GetBattleEnemyArray() + i)->TurnOff();

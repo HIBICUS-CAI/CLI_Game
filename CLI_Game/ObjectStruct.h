@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
-// ファイル名: ObjectStruct.h
-// 機能: ゲーム上階の構造体の声明
+// 僼傽僀儖柤: ObjectStruct.h
+// 婡擻: 僎乕儉忋奒偺峔憿懱偺惡柧
 //------------------------------------------------------------------------
 
 #pragma once
@@ -8,7 +8,7 @@
 #include "GameAppStructs.h"
 
 /// <summary>
-/// プレイヤー構造体
+/// 僾儗僀儎乕峔憿懱
 /// </summary>
 struct PLAYER
 {
@@ -33,7 +33,7 @@ struct PLAYER
 };
 
 /// <summary>
-/// 迷宮中の敵構造体
+/// 柪媨拞偺揋峔憿懱
 /// </summary>
 struct MAZEENEMY
 {
@@ -59,7 +59,7 @@ struct MAZEENEMY
 
 #define BATTLEENEMYMAXHP 20
 /// <summary>
-/// 戦闘中敵構造体
+/// 愴摤拞揋峔憿懱
 /// </summary>
 struct BATTLEENEMY
 {
@@ -107,7 +107,7 @@ struct BATTLEENEMY
 };
 
 /// <summary>
-/// 壁構造体
+/// 暻峔憿懱
 /// </summary>
 struct WALL
 {
@@ -118,7 +118,7 @@ struct WALL
 #define MAZEMAPMAXLENGTH 250
 
 /// <summary>
-/// 迷宮地図構造体
+/// 柪媨抧恾峔憿懱
 /// </summary>
 struct MAZEMAP
 {
@@ -137,7 +137,7 @@ enum class START_END_POINT
 };
 
 /// <summary>
-/// 始点と終点構造体
+/// 巒揰偲廔揰峔憿懱
 /// </summary>
 struct STARTENDPOINT
 {

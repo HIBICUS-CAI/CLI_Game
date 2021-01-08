@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
-// ファイル名: BattleEnemy.h
-// 機能: 戦闘敵に関しての処理
+// 僼傽僀儖柤: BattleEnemy.h
+// 婡擻: 愴摤揋偵娭偟偰偺張棟
 //------------------------------------------------------------------------
 
 #pragma once
@@ -8,43 +8,43 @@
 #include "DeclaredObjects.h"
 
 /// <summary>
-/// 戦闘敵配列を初期化する
+/// 愴摤揋攝楍傪弶婜壔偡傞
 /// </summary>
 void InitBattleEnemy();
 
 /// <summary>
-/// 戦闘敵を更新する
+/// 愴摤揋傪峏怴偡傞
 /// </summary>
 void UpdateBattleEnemy();
 
 /// <summary>
-/// 戦闘敵を当シーンのカメラバッファに書き込む
+/// 愴摤揋傪摉僔乕儞偺僇儊儔僶僢僼傽偵彂偒崬傓
 /// </summary>
 void DrawBattleEnemyToCamBuffer();
 
 /// <summary>
-/// 戦闘敵の初期位置を乱数で設定
+/// 愴摤揋偺弶婜埵抲傪棎悢偱愝掕
 /// </summary>
 void SetEnemyToBattleRandomly();
 
 /// <summary>
-/// 戦闘敵を全部削除
+/// 愴摤揋傪慡晹嶍彍
 /// </summary>
 void ClearBattleEnemyArray();
 
 /// <summary>
-/// 全ての戦闘敵を不可視的になる
+/// 慡偰偺愴摤揋傪晄壜帇揑偵側傞
 /// </summary>
 void TurnOffAllBattleEnemy();
 
 /// <summary>
-/// 全ての戦闘敵を可視的になる
+/// 慡偰偺愴摤揋傪壜帇揑偵側傞
 /// </summary>
 void TurnOnAllBattleEnemy();
 
 /// <summary>
-/// プレイヤーの攻撃より撃退
+/// 僾儗僀儎乕偺峌寕傛傝寕戅
 /// </summary>
-/// <param name="enemy">戦闘敵指向のポインタ</param>
-/// <param name="direction">撃退の方向</param>
+/// <param name="enemy">愴摤揋巜岦偺億僀儞僞</param>
+/// <param name="direction">寕戅偺曽岦</param>
 void PushEnemyByPlayer(BATTLEENEMY* enemy, int direction);

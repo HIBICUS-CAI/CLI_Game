@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
-// ファイル名: Player.h
-// 機能: プレイヤーに関しての処理
+// 僼傽僀儖柤: Player.h
+// 婡擻: 僾儗僀儎乕偵娭偟偰偺張棟
 //------------------------------------------------------------------------
 
 #pragma once
@@ -8,111 +8,111 @@
 #include "DeclaredObjects.h"
 
 /// <summary>
-/// プレイヤーをある位置に設定する
+/// 僾儗僀儎乕傪偁傞埵抲偵愝掕偡傞
 /// </summary>
-/// <param name="pos">位置の座標</param>
+/// <param name="pos">埵抲偺嵗昗</param>
 void InitPlayer(POSITION_2D pos);
 
 /// <summary>
-/// 迷宮を入る時プレイヤーの座標を設定する
+/// 柪媨傪擖傞帪僾儗僀儎乕偺嵗昗傪愝掕偡傞
 /// </summary>
-/// <param name="stage">ステージの番号</param>
-/// <param name="pos">位置の座標</param>
+/// <param name="stage">僗僥乕僕偺斣崋</param>
+/// <param name="pos">埵抲偺嵗昗</param>
 void ResetPlayerPosTurnToStage(int stage, POSITION_2D pos);
 
 /// <summary>
-/// 戦闘を行う時プレイヤーの座標を設定する
+/// 愴摤傪峴偆帪僾儗僀儎乕偺嵗昗傪愝掕偡傞
 /// </summary>
 void ResetPlayerPosInBattle();
 
 /// <summary>
-/// 迷宮のプレイヤーを更新する
+/// 柪媨偺僾儗僀儎乕傪峏怴偡傞
 /// </summary>
 void UpdatePlayer();
 
 /// <summary>
-/// 戦闘しているプレイヤーを更新する
+/// 愴摤偟偰偄傞僾儗僀儎乕傪峏怴偡傞
 /// </summary>
 void UpdatePlayerInBattle();
 
 /// <summary>
-/// プレイヤーをシーンのカメラバッファに書き込む
+/// 僾儗僀儎乕傪僔乕儞偺僇儊儔僶僢僼傽偵彂偒崬傓
 /// </summary>
 void DrawPlayerToCamBuffer();
 
 /// <summary>
-/// プレイヤーを前向きに行かせる
+/// 僾儗僀儎乕傪慜岦偒偵峴偐偣傞
 /// </summary>
 void PlayerMoveForward();
 
 /// <summary>
-/// プレイヤーを後ろに行かせる
+/// 僾儗僀儎乕傪屻傠偵峴偐偣傞
 /// </summary>
 void PlayerMoveBack();
 
 /// <summary>
-/// プレイヤーを左に行かせる
+/// 僾儗僀儎乕傪嵍偵峴偐偣傞
 /// </summary>
 void PlayerTurnLeft();
 
 /// <summary>
-/// プレイヤーを右に行かせる
+/// 僾儗僀儎乕傪塃偵峴偐偣傞
 /// </summary>
 void PlayerTurnRight();
 
 /// <summary>
-/// プレイヤーを可視的になる
+/// 僾儗僀儎乕傪壜帇揑偵側傞
 /// </summary>
 void TurnOnPlayer();
 
 /// <summary>
-/// プレイヤーを不可視的になる
+/// 僾儗僀儎乕傪晄壜帇揑偵側傞
 /// </summary>
 void TurnOffPlayer();
 
 /// <summary>
-/// 戦闘中プレイヤーを左に行かせる
+/// 愴摤拞僾儗僀儎乕傪嵍偵峴偐偣傞
 /// </summary>
 void PlayerBattleMoveLeft();
 
 /// <summary>
-/// 戦闘中プレイヤーを右に行かせる
+/// 愴摤拞僾儗僀儎乕傪塃偵峴偐偣傞
 /// </summary>
 void PlayerBattleMoveRight();
 
 /// <summary>
-/// 戦闘中プレイヤーをジャンプさせる
+/// 愴摤拞僾儗僀儎乕傪僕儍儞僾偝偣傞
 /// </summary>
 void PlayerBattleJumpUp();
 
 /// <summary>
-/// 戦闘中プレイヤーが何も踏んでいないと落ちる
+/// 愴摤拞僾儗僀儎乕偑壗傕摜傫偱偄側偄偲棊偪傞
 /// </summary>
 void PlayerBattleFallDown();
 
 /// <summary>
-/// 戦闘中プレイヤーからの攻撃
+/// 愴摤拞僾儗僀儎乕偐傜偺峌寕
 /// </summary>
 void PlayerAttack();
 
 /// <summary>
-/// 今回の方向入力バックアップを設定する
+/// 崱夞偺曽岦擖椡僶僢僋傾僢僾傪愝掕偡傞
 /// </summary>
-/// <param name="value">左右の方向</param>
+/// <param name="value">嵍塃偺曽岦</param>
 void SetLastestDirectionInput(int value);
 
 /// <summary>
-/// 前回の方向バックアップ内容を取得
+/// 慜夞偺曽岦僶僢僋傾僢僾撪梕傪庢摼
 /// </summary>
-/// <returns>前回の方向バックアップ</returns>
+/// <returns>慜夞偺曽岦僶僢僋傾僢僾</returns>
 int GetLastestDirectionInput();
 
 /// <summary>
-/// プレイヤーの情報をリセットする
+/// 僾儗僀儎乕偺忣曬傪儕僙僢僩偡傞
 /// </summary>
 void ResetPlayerStatus();
 
 /// <summary>
-/// プレイヤーの生命値をリセットする
+/// 僾儗僀儎乕偺惗柦抣傪儕僙僢僩偡傞
 /// </summary>
 void ResetPlayerHP();

@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
-// ファイル名: BattleStage.h
-// 機能: 戦闘地図に関しての処理
+// 僼傽僀儖柤: BattleStage.h
+// 婡擻: 愴摤抧恾偵娭偟偰偺張棟
 //------------------------------------------------------------------------
 
 #pragma once
@@ -8,17 +8,17 @@
 #include "DeclaredObjects.h"
 
 /// <summary>
-/// 戦闘地図を初期化する
+/// 愴摤抧恾傪弶婜壔偡傞
 /// </summary>
 void InitBattleStage();
 
 /// <summary>
-/// ファイルから戦闘地図のデータを読み出す
+/// 僼傽僀儖偐傜愴摤抧恾偺僨乕僞傪撉傒弌偡
 /// </summary>
 void LoadBattleStage();
 
 /// <summary>
-/// 戦闘地図を当シーンのカメラバッファに書き込む
+/// 愴摤抧恾傪摉僔乕儞偺僇儊儔僶僢僼傽偵彂偒崬傓
 /// </summary>
-/// <param name="offset">戦闘地図配列の偏移量</param>
+/// <param name="offset">愴摤抧恾攝楍偺曃堏検</param>
 void DrawStageToCamBuffer(int offset);

@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
-// ファイル名: AppStageSelectScene.h
-// 機能: ステージ選択シーンの声明と更新など
+// 僼傽僀儖柤: AppStageSelectScene.h
+// 婡擻: 僗僥乕僕慖戰僔乕儞偺惡柧偲峏怴側偳
 //------------------------------------------------------------------------
 
 #pragma once
@@ -10,7 +10,7 @@
 
 
 /// <summary>
-/// シーンの要素を作る
+/// 僔乕儞偺梫慺傪嶌傞
 /// </summary>
 void InitSelectionScene()
 {
@@ -20,22 +20,22 @@ void InitSelectionScene()
     CreateUIO("selection", POSITION_2D(10, 24), 50, 10, UIO_DESIGN::STRAIGHT,
         NULL, NULL, 1);
     GetUIObjByName("selection")->AddBtn(UI_BUTTON(GETINMAZE1, POSITION_2D(2, 3),
-        (char*)"ステージ１", BTN_DESIGN::STRAIGHT));
+        (char*)"僗僥乕僕侾", BTN_DESIGN::STRAIGHT));
     GetUIObjByName("selection")->AddBtn(UI_BUTTON(GETINMAZE2, POSITION_2D(15, 3),
-        (char*)"ステージ２", BTN_DESIGN::STRAIGHT));
+        (char*)"僗僥乕僕俀", BTN_DESIGN::STRAIGHT));
     GetUIObjByName("selection")->AddBtn(UI_BUTTON(GETINMAZE3, POSITION_2D(28, 3),
-        (char*)"ステージ３", BTN_DESIGN::STRAIGHT));
+        (char*)"僗僥乕僕俁", BTN_DESIGN::STRAIGHT));
     GetUIObjByName("selection")->AddBtn(UI_BUTTON(CLOSESELECT, POSITION_2D(40, 8),
-        (char*)"閉じる", BTN_DESIGN::LINE));
+        (char*)"暵偠傞", BTN_DESIGN::LINE));
 
     CreateUIO("after-clear", POSITION_2D(20, 20), 50, 10, UIO_DESIGN::STAR,
         GetUIObjByName("selection"));
     GetUIObjByName("after-clear")->AddText(UI_TEXT(POSITION_2D(3, 1),
-        (char*)"ステージクリアしました！"));
+        (char*)"僗僥乕僕僋儕傾偟傑偟偨両"));
     GetUIObjByName("after-clear")->AddText(UI_TEXT(POSITION_2D(3, 2),
-        (char*)"おめでとうございます！"));
+        (char*)"偍傔偱偲偆偛偞偄傑偡両"));
     GetUIObjByName("after-clear")->AddBtn(UI_BUTTON(CLOSECLEARUP, POSITION_2D(15, 5),
-        (char*)"閉じる", BTN_DESIGN::LINE));
+        (char*)"暵偠傞", BTN_DESIGN::LINE));
     GetUIObjByName("selection")->AddChild(GetUIObjByName("after-clear"));
 
     SetSelectedBtn(GetUIObjByName("selection")->Buttons);
@@ -43,7 +43,7 @@ void InitSelectionScene()
 }
 
 /// <summary>
-/// 必要なものを更新する
+/// 昁梫側傕偺傪峏怴偡傞
 /// </summary>
 void UpdateSelectionScene()
 {
@@ -64,7 +64,7 @@ void UpdateSelectionScene()
 }
 
 /// <summary>
-/// 必要なものを閉じる
+/// 昁梫側傕偺傪暵偠傞
 /// </summary>
 void CloseSelectionScene()
 {

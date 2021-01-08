@@ -48,12 +48,12 @@ void InitOutputBuffer()
     //----------------------------------------------------
     /*CreateUIO("parent", POSITION_2D(3, 20), 60, 15, UIO_DESIGN::STRAIGHT);
     GetUIObjByID(10000)->AddText(UI_TEXT(POSITION_2D(1, 1),
-        (char*)"¥¢¥Û¥Þ¥ó"));
+        (char*)"ƒAƒzƒ}ƒ“"));
     GetUIObjByName("parent")->TurnOn();
     GetUIObjByName("parent")->AddBtn(UI_BUTTON(TEST_OPENSUB, POSITION_2D(3, 3),
-        (char*)"é_¤¯", BTN_DESIGN::LINE));
+        (char*)"ŠJ‚­", BTN_DESIGN::LINE));
     GetUIObjByName("parent")->AddBtn(UI_BUTTON(0, POSITION_2D(10, 7),
-        (char*)"é]¤¸¤ë", BTN_DESIGN::STRAIGHT));
+        (char*)"•Â‚¶‚é", BTN_DESIGN::STRAIGHT));
     SetSelectedBtn(GetUIObjByName("parent")->Buttons + 0);*/
 }
 

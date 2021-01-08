@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
-// ファイル名: AppMazeScene.h
-// 機能: 迷宮シーンの声明と更新など
+// 僼傽僀儖柤: AppMazeScene.h
+// 婡擻: 柪媨僔乕儞偺惡柧偲峏怴側偳
 //------------------------------------------------------------------------
 
 #pragma once
@@ -10,7 +10,7 @@
 #include "DeclaredObjects.h"
 
 /// <summary>
-/// シーンの要素を作る
+/// 僔乕儞偺梫慺傪嶌傞
 /// </summary>
 void InitMazeScene()
 {
@@ -20,15 +20,15 @@ void InitMazeScene()
     CreateUIO("maze", POSITION_2D(82, 1), 37, 39, UIO_DESIGN::STRAIGHT,
         NULL, NULL, 1);
     GetUIObjByName("maze")->AddText(UI_TEXT(POSITION_2D(1, 1),
-        (char*)"Ending(E)へ向かいましょう！"));
+        (char*)"Ending(E)傊岦偐偄傑偟傚偆両"));
     GetUIObjByName("maze")->AddText(UI_TEXT(POSITION_2D(2, 3),
-        (char*)"生命値　10"));
+        (char*)"惗柦抣丂10"));
     GetUIObjByName("maze")->AddText(UI_TEXT(POSITION_2D(2, 4),
-        (char*)"攻撃力　10"));
+        (char*)"峌寕椡丂10"));
     GetUIObjByName("maze")->AddText(UI_TEXT(POSITION_2D(2, 5),
-        (char*)"撃退力　10"));
+        (char*)"寕戅椡丂10"));
     GetUIObjByName("maze")->AddBtn(UI_BUTTON(-1, POSITION_2D(2, 10),
-        (char*)"テスト用", BTN_DESIGN::STRAIGHT));
+        (char*)"僥僗僩梡", BTN_DESIGN::STRAIGHT));
     GetUIObjByName("maze")->AddBtn(UI_BUTTON(GIVEUPMAZE, POSITION_2D(2, 15),
         (char*)"GIVE UP", BTN_DESIGN::STRAIGHT));
 
@@ -37,22 +37,22 @@ void InitMazeScene()
 }
 
 /// <summary>
-/// 必要なものを更新する
+/// 昁梫側傕偺傪峏怴偡傞
 /// </summary>
 void UpdateMazeScene()
 {
     ClearSceneCamBuffer(GetSceneNodeByName("maze"));
 
     (GetUIObjByName("maze")->Texts + 1)->
-        ChangeTextTo("生命値 ", GetPlayer()->HP);
+        ChangeTextTo("惗柦抣 ", GetPlayer()->HP);
     (GetUIObjByName("maze")->Texts + 2)->
-        ChangeTextTo("攻撃力 ", GetPlayer()->ATK);
+        ChangeTextTo("峌寕椡 ", GetPlayer()->ATK);
     (GetUIObjByName("maze")->Texts + 3)->
-        ChangeTextTo("撃退力 ", GetPlayer()->PUSH);
+        ChangeTextTo("寕戅椡 ", GetPlayer()->PUSH);
 }
 
 /// <summary>
-/// 必要なものを閉じる
+/// 昁梫側傕偺傪暵偠傞
 /// </summary>
 void CloseMazeScene()
 {

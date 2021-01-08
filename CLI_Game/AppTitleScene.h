@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
-// ファイル名: AppTitleScene.h
-// 機能: タイトルシーンの声明と更新など
+// 僼傽僀儖柤: AppTitleScene.h
+// 婡擻: 僞僀僩儖僔乕儞偺惡柧偲峏怴側偳
 //------------------------------------------------------------------------
 
 #pragma once
@@ -13,7 +13,7 @@ float test = 0.f;
 int testflag = 1;
 
 /// <summary>
-/// シーンの要素を作る
+/// 僔乕儞偺梫慺傪嶌傞
 /// </summary>
 void InitTitleScene()
 {
@@ -23,20 +23,20 @@ void InitTitleScene()
     CreateUIO("title", POSITION_2D(20, 20), 20, 6, UIO_DESIGN::STRAIGHT,
         NULL, NULL, 1);
     GetUIObjByName("title")->AddBtn(UI_BUTTON(INPUTINFO, POSITION_2D(6, 2),
-        (char*)"開始", BTN_DESIGN::LINE));
+        (char*)"奐巒", BTN_DESIGN::LINE));
     GetUIObjByName("title")->AddBtn(UI_BUTTON(GAMEHELP, POSITION_2D(6, 4),
-        (char*)"説明", BTN_DESIGN::LINE));
+        (char*)"愢柧", BTN_DESIGN::LINE));
 
     CreateUIO("help", POSITION_2D(20, 20), 40, 6, UIO_DESIGN::STAR,
         GetUIObjByName("title"));
     GetUIObjByName("help")->AddText(UI_TEXT(POSITION_2D(3, 1),
-        (char*)"WASDで人物を移動させる"));
+        (char*)"WASD偱恖暔傪堏摦偝偣傞"));
     GetUIObjByName("help")->AddText(UI_TEXT(POSITION_2D(3, 2),
-        (char*)"IJKLでボタンを選択させる"));
+        (char*)"IJKL偱儃僞儞傪慖戰偝偣傞"));
     GetUIObjByName("help")->AddText(UI_TEXT(POSITION_2D(3, 3),
-        (char*)"SPACEでボタンを実行させる"));
+        (char*)"SPACE偱儃僞儞傪幚峴偝偣傞"));
     GetUIObjByName("help")->AddBtn(UI_BUTTON(CLOSEHELP, POSITION_2D(15, 5),
-        (char*)"閉じる", BTN_DESIGN::LINE));
+        (char*)"暵偠傞", BTN_DESIGN::LINE));
     GetUIObjByName("title")->AddChild(GetUIObjByName("help"));
 
     SetSelectedBtn(GetUIObjByName("title")->Buttons);
@@ -44,7 +44,7 @@ void InitTitleScene()
 }
 
 /// <summary>
-/// 必要なものを更新する
+/// 昁梫側傕偺傪峏怴偡傞
 /// </summary>
 void UpdateTitleScene()
 {
@@ -95,7 +95,7 @@ void UpdateTitleScene()
 }
 
 /// <summary>
-/// 必要なものを削除、閉じる
+/// 昁梫側傕偺傪嶍彍丄暵偠傞
 /// </summary>
 void CloseTitleScene()
 {

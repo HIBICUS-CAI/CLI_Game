@@ -23,7 +23,7 @@ void InitPlayer(POSITION_2D pos)
     GetPlayer()->ObjInBattle.Width = 2;
     GetPlayer()->ObjInBattle.Height = 1;
     GetPlayer()->ObjInBattle.ColliRadius = 1.f;
-    char temp[3] = "¡ô";
+    char temp[3] = "Ÿ";
     *(GetPlayer()->Sprite) = temp[0];
     *(GetPlayer()->Sprite + 1) = temp[1];
     GetPlayer()->TurnOn();
@@ -80,9 +80,9 @@ void UpdatePlayerInBattle()
         SetIsPlayingBattle(0);
         SwitchSceneToName("selection");
         GetUIObjByName("after-clear")->TurnOn();
-        GetUIObjByName("after-clear")->Texts->ChangeTextTo("Ï§¤·¤¤¤Ç¤¹£¡");
+        GetUIObjByName("after-clear")->Texts->ChangeTextTo("É‚µ‚¢‚Å‚·I");
         (GetUIObjByName("after-clear")->Texts + 1)->
-            ChangeTextTo("¤â¤¦Ò»»ØîBˆ¤Ã¤Æ¤¯¤À¤µ¤¤£¡");
+            ChangeTextTo("‚à‚¤ˆê‰ñŠæ’£‚Á‚Ä‚­‚¾‚³‚¢I");
         SetSelectedBtn(GetUIObjByName("after-clear")->Buttons);
     }
 

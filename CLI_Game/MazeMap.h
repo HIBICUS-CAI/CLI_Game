@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
-// ファイル名: MazeMap.h
-// 機能: 迷宮のマップに関しての処理
+// 僼傽僀儖柤: MazeMap.h
+// 婡擻: 柪媨偺儅僢僾偵娭偟偰偺張棟
 //------------------------------------------------------------------------
 
 #pragma once
@@ -8,22 +8,22 @@
 #include "DeclaredObjects.h"
 
 /// <summary>
-/// 迷宮を初期化する
+/// 柪媨傪弶婜壔偡傞
 /// </summary>
 void InitMazeMap();
 
 /// <summary>
-/// 迷宮のデータを書き込む
+/// 柪媨偺僨乕僞傪彂偒崬傓
 /// </summary>
 void LoadMazeMap();
 
 /// <summary>
-/// あるファイルから迷宮の設計を読み出す
+/// 偁傞僼傽僀儖偐傜柪媨偺愝寁傪撉傒弌偡
 /// </summary>
-/// <param name="fileName">迷宮ファイル</param>
+/// <param name="fileName">柪媨僼傽僀儖</param>
 void LoadInfoFromFile(const char* fileName);
 
 /// <summary>
-/// 迷宮を更新する
+/// 柪媨傪峏怴偡傞
 /// </summary>
 void UpdateMazeMap();
