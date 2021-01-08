@@ -116,7 +116,7 @@ void InitInputScene()
         (char*)"‚ð", BTN_DESIGN::LINE));
     GetUIObjByName("input")->AddBtn(UI_BUTTON(PREVIOUSSTR,
         POSITION_2D(82, 10),
-        (char*)"‚Ü‚¦", BTN_DESIGN::LINE));
+        (char*)"‚¤‚¦", BTN_DESIGN::LINE));
 
     GetUIObjByName("input")->AddBtn(UI_BUTTON(E_KANA,
         POSITION_2D(4, 12),
