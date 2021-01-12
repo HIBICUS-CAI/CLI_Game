@@ -26,6 +26,10 @@ void InitTitleScene()
         (char*)"開始", BTN_DESIGN::LINE));
     GetUIObjByName("title")->AddBtn(UI_BUTTON(GAMEHELP, POSITION_2D(6, 4),
         (char*)"説明", BTN_DESIGN::LINE));
+    GetUIObjByName("title")->AddText(UI_TEXT(POSITION_2D(6, 8),
+        (char*)"[IJKLでボタンを選択させる]"));
+    GetUIObjByName("title")->AddText(UI_TEXT(POSITION_2D(6, 9),
+        (char*)"[SPACEでボタンを実行させる]"));
 
     CreateUIO("help", POSITION_2D(20, 20), 40, 6, UIO_DESIGN::STAR,
         GetUIObjByName("title"));
