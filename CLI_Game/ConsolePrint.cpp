@@ -164,8 +164,18 @@ void UpdateOutputBuffer()
     {
         ++deltaTime;
     }
-    WriteStrInt1IntoOutputBufferByPos(POSITION_2D(0, 0),
-        "FPS", 1000 / deltaTime);
+
+    int fps = 1000 / deltaTime;
+    if (fps<=100)
+    {
+        WriteStrInt1IntoOutputBufferByPos(POSITION_2D(0, 0),
+            "更新用FPS", fps);
+    }
+    else
+    {
+        WriteStrIntoOutputBufferByPos(POSITION_2D(0, 0),
+            "更新用FPS: 100+");
+    }
 }
 
 void WriteCharIntoOutputBuffer(POSITION_2D position, const char text)
