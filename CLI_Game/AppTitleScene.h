@@ -26,6 +26,10 @@ void InitTitleScene()
         (char*)"È_ º", BTN_DESIGN::LINE));
     GetUIObjByName("title")->AddBtn(UI_BUTTON(GAMEHELP, POSITION_2D(6, 4),
         (char*)"’h√˜", BTN_DESIGN::LINE));
+    GetUIObjByName("title")->AddText(UI_TEXT(POSITION_2D(6, 8),
+        (char*)"[IJKL§«•‹•ø•Û§Úﬂxík§µ§ª§Î]"));
+    GetUIObjByName("title")->AddText(UI_TEXT(POSITION_2D(6, 9),
+        (char*)"[SPACE§«•‹•ø•Û§Úåg––§µ§ª§Î]"));
 
     CreateUIO("help", POSITION_2D(20, 20), 40, 6, UIO_DESIGN::STAR,
         GetUIObjByName("title"));
