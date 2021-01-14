@@ -18,9 +18,9 @@ int testflag = 1;
 void InitTitleScene()
 {
     CreateSceneNode(SCENENODE("title", NULL,
-        SCENECAMERA(POSITION_2D(2, 2), 20, 17)));
+        SCENECAMERA(POSITION_2D(50, 2), 20, 17)));
 
-    CreateUIO("title", POSITION_2D(20, 20), 20, 6, UIO_DESIGN::STRAIGHT,
+    CreateUIO("title", POSITION_2D(50, 20), 20, 6, UIO_DESIGN::STRAIGHT,
         NULL, NULL, 1);
     GetUIObjByName("title")->AddBtn(UI_BUTTON(INPUTINFO, POSITION_2D(6, 2),
         (char*)"開始", BTN_DESIGN::LINE));
@@ -31,7 +31,7 @@ void InitTitleScene()
     GetUIObjByName("title")->AddText(UI_TEXT(POSITION_2D(6, 9),
         (char*)"[SPACEでボタンを実行させる]"));
 
-    CreateUIO("help", POSITION_2D(20, 20), 40, 6, UIO_DESIGN::STAR,
+    CreateUIO("help", POSITION_2D(50, 20), 40, 6, UIO_DESIGN::STAR,
         GetUIObjByName("title"));
     GetUIObjByName("help")->AddText(UI_TEXT(POSITION_2D(3, 1),
         (char*)"WASDで人物を移動させる"));

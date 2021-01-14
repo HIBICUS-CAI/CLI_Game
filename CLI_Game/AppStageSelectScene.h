@@ -15,20 +15,20 @@
 void InitSelectionScene()
 {
     CreateSceneNode(SCENENODE("selection", NULL,
-        SCENECAMERA(POSITION_2D(10, 5), 50, 17)));
+        SCENECAMERA(POSITION_2D(35, 5), 50, 17)));
 
-    CreateUIO("selection", POSITION_2D(10, 24), 50, 10, UIO_DESIGN::STRAIGHT,
+    CreateUIO("selection", POSITION_2D(35, 24), 60, 10, UIO_DESIGN::STRAIGHT,
         NULL, NULL, 1);
-    GetUIObjByName("selection")->AddBtn(UI_BUTTON(GETINMAZE1, POSITION_2D(2, 3),
+    GetUIObjByName("selection")->AddBtn(UI_BUTTON(GETINMAZE1, POSITION_2D(6, 3),
         (char*)"ステージ１", BTN_DESIGN::STRAIGHT));
-    GetUIObjByName("selection")->AddBtn(UI_BUTTON(GETINMAZE2, POSITION_2D(15, 3),
+    GetUIObjByName("selection")->AddBtn(UI_BUTTON(GETINMAZE2, POSITION_2D(19, 3),
         (char*)"ステージ２", BTN_DESIGN::STRAIGHT));
-    GetUIObjByName("selection")->AddBtn(UI_BUTTON(GETINMAZE3, POSITION_2D(28, 3),
+    GetUIObjByName("selection")->AddBtn(UI_BUTTON(GETINMAZE3, POSITION_2D(32, 3),
         (char*)"ステージ３", BTN_DESIGN::STRAIGHT));
-    GetUIObjByName("selection")->AddBtn(UI_BUTTON(CLOSESELECT, POSITION_2D(40, 8),
+    GetUIObjByName("selection")->AddBtn(UI_BUTTON(CLOSESELECT, POSITION_2D(50, 8),
         (char*)"閉じる", BTN_DESIGN::LINE));
 
-    CreateUIO("after-clear", POSITION_2D(20, 20), 50, 10, UIO_DESIGN::STAR,
+    CreateUIO("after-clear", POSITION_2D(35, 20), 50, 10, UIO_DESIGN::STAR,
         GetUIObjByName("selection"));
     GetUIObjByName("after-clear")->AddText(UI_TEXT(POSITION_2D(3, 1),
         (char*)"ステージクリアしました！"));
