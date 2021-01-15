@@ -30,6 +30,23 @@ void AppUpdate()
     UpdatePlayer();
     if (IsPlayingMaze())
     {
+        if (GetPlayer()->HP <= 0)
+        {
+            ClearBattleEnemyArray();
+            TurnOffAllEnemy();
+            SetStageID(0);
+            SetIsPlayingMaze(0);
+            SetIsPlayingBattle(0);
+            SwitchSceneToName("selection");
+            GetUIObjByName("after-clear")->TurnOn();
+            GetUIObjByName("after-clear")->Texts->ChangeTextTo("É‚µ‚¢‚Å‚·I");
+            (GetUIObjByName("after-clear")->Texts + 1)->
+                ChangeTextTo("‚à‚¤ˆê‰ñŠæ’£‚Á‚Ä‚­‚¾‚³‚¢I");
+            SetSelectedBtn(GetUIObjByName("after-clear")->Buttons);
+
+            return;
+        }
+
         UpdateMazeMap();
         UpdateStartEndPoint();
         UpdateMazeEnemy();

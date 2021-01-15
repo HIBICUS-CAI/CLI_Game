@@ -7,6 +7,7 @@
 
 #include "CustomizedApp.h"
 #include "SceneNode.h"
+#include "DeclaredObjects.h"
 
 
 /// <summary>
@@ -17,8 +18,16 @@ void InitSelectionScene()
     CreateSceneNode(SCENENODE("selection", NULL,
         SCENECAMERA(POSITION_2D(35, 5), 50, 17)));
 
-    CreateUIO("selection", POSITION_2D(35, 24), 60, 10, UIO_DESIGN::STRAIGHT,
+    CreateUIO("selection", POSITION_2D(35, 24), 60, 15, UIO_DESIGN::STRAIGHT,
         NULL, NULL, 1);
+
+    GetUIObjByName("selection")->AddText(UI_TEXT(POSITION_2D(2, 10),
+        (char*)"生命値　10"));
+    GetUIObjByName("selection")->AddText(UI_TEXT(POSITION_2D(22, 10),
+        (char*)"攻撃力　10"));
+    GetUIObjByName("selection")->AddText(UI_TEXT(POSITION_2D(42, 10),
+        (char*)"撃退力　10"));
+
     GetUIObjByName("selection")->AddBtn(UI_BUTTON(GETINMAZE1, POSITION_2D(6, 3),
         (char*)"ステージ１", BTN_DESIGN::STRAIGHT));
     GetUIObjByName("selection")->AddBtn(UI_BUTTON(GETINMAZE2, POSITION_2D(19, 3),
@@ -61,6 +70,13 @@ void UpdateSelectionScene()
     *(temp + 8 * width + 34) = '3';
     *(temp + 8 * width + 35) = '3';
     *(temp + 8 * width + 36) = '3';
+
+    (GetUIObjByName("selection")->Texts + 0)->
+        ChangeTextTo("生命値 ", GetPlayer()->HP);
+    (GetUIObjByName("selection")->Texts + 1)->
+        ChangeTextTo("攻撃力 ", GetPlayer()->ATK);
+    (GetUIObjByName("selection")->Texts + 2)->
+        ChangeTextTo("撃退力 ", GetPlayer()->PUSH);
 }
 
 /// <summary>
